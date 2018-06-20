@@ -1,4 +1,13 @@
-let finalRolls = [];
+let charStats = [];
+
+let stats = {
+    Str: 0,
+    Dex: 0,
+    Con: 0,
+    Int: 0,
+    Wis: 0,
+    Cha: 0
+};
 
 function bubbleSort(items) {
 	var length = items.length;
@@ -29,14 +38,25 @@ function statRolls() {
     bubbleSort(diceRolls);
     diceRolls.shift();
     var sum = diceRolls.reduce(function(a, b) { return a + b; }, 0);
-    finalRolls.push(sum);
+    charStats.push(sum);
 };
+
+function setStats() {
+    stats.Str = charStats[0];
+    stats.Dex = charStats[1];
+    stats.Con = charStats[2];
+    stats.Int = charStats[3];
+    stats.Wis = charStats[4];
+    stats.Cha = charStats[5];
+}
 
 function rollStats() {
     for (var x = 0; x < 6; x++) {
         statRolls();
     };
+    setStats();
 };
 
 rollStats();
-console.log(finalRolls);
+console.log(charStats);
+console.log(stats);
