@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(90deg, rgb(128, 24, 24), rgb(30, 45, 240));
+}
+
+.row {
+    margin: 0px;
+    padding: 0px;
+}
+
+#characterImage {
+    height: 600px;
+    width: 450px;
+    float: left;
+    border-right: 5px solid black;
+    margin: 0px;
+}
+
+#introDiv {
+    padding: 0px;
+    background-image: url("../images/dnd.png");
+    background-size: cover;
+    border: 5px solid black;
+}
+
+#characterIntro {
+    background: white;
+}
+
+#characterName {
+    float: right;
+    margin-left: 150px;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 20px 50em;
+    border: 3px solid black;
+}
+
+#characterInfo {
+    display: flex;
+    align-items: center;
+}
+
+#characterStats {
+    background-color: white;
+    height: 100vh;
+
+}
+
+#abilityScores {
+    height: 170px;
+    margin-top: 10px;
+    background-color: white;
+    border: 5px solid black;
+}
+
+#abScore {
+    margin-left: 40px;
+}
+
+#scoreSection {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#skills {
+    height: 350px;
+    margin-top: 10px;
+    background-color: white;
+    border: 5px solid black;
+}
+
+#skillSection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#skillScore {
+    margin-top: 3px;
+    margin-left: 5px;
+}
