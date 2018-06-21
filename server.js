@@ -2,7 +2,44 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const app = express();
+var passport = require('passport')
+var session = require('express-session')
+var bodyParser = require('body-parser')
+var env = require('dotenv').load();
 const PORT = process.env.PORT || 3001;
+
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// For Passport
+
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session()); // persistent login sessions
+
+//Models
+var models = require("./app/models");
+
+//Sync Database
+models.sequelize.sync().then(function () {
+
+    console.log('Nice! Database looks fine')
+
+}).catch(function (err) {
+
+    console.log(err, "Something went wrong with the Database Update!")
+
+});
+
+app.get('/', function (req, res) {
+
+    res.send('Welcome to Easy D&D');
+
+});
+
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
