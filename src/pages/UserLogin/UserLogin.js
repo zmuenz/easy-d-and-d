@@ -9,8 +9,6 @@ class UserLogin extends Component {
 
     state = {
         signup: false,
-        fName: "",
-        lName: "",
         uName: "",
         eMail: "",
         passW: "",
@@ -37,8 +35,6 @@ class UserLogin extends Component {
 
     initializeState = () => { //for resetting forms once submitted.
         this.setState({
-            fName: "",
-            lName: "",
             uName: "",
             eMail: "",
             passW: "",
@@ -82,8 +78,6 @@ class UserLogin extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
         const query = {
-            fName: this.state.fName,
-            lName: this.state.lName,
             username: this.state.uName,
             eMail: this.state.eMail,
             password: this.state.passW
@@ -129,7 +123,7 @@ class UserLogin extends Component {
     }
 
     render() {
-        const { fName, lName, uName, eMail, passW } = this.state;
+        const { uName, eMail, passW } = this.state;
         const loginEnabled =
             (uName.length > 0) &&
             (passW.length > 0)
@@ -152,7 +146,7 @@ class UserLogin extends Component {
                             <ul className="tab-group">
                                 <li id="signup-tab" className="tab active">
                                     <a onClick={this.setSignup} name="signup" value="signup">
-                                        Sign Up </a>
+                                        Sign Up</a>
                                 </li>
                                 <li id="login-tab" className="tab">
                                     <a onClick={this.setSignup} name="login" value="login">
@@ -167,32 +161,6 @@ class UserLogin extends Component {
                                     <div id="signup">
                                         <h1> Sign Up ! </h1>
                                         <form className="signup-form" action="/api/User" method="post">
-                                            <div className="field-wrap">
-                                                <label>
-                                                    First Name
-                                          <span className="req">*</span>
-                                                </label>
-                                                <input
-                                                    value={this.state.fName}
-                                                    onChange={this.handleInputChange}
-                                                    name="fName"
-                                                    placeholder="First Name (not required)"
-                                                    id="new-first"
-                                                />
-                                            </div>
-
-                                            <div className="field-wrap">
-                                                <label>
-                                                    Last Name<span className="req">*</span>
-                                                </label>
-                                                <input
-                                                    value={this.state.lName}
-                                                    onChange={this.handleInputChange}
-                                                    name="lName"
-                                                    placeholder="Last Name (not required)"
-                                                    id="new-last"
-                                                />
-                                            </div>
 
                                             <div className="field-wrap">
                                                 <label>
@@ -210,7 +178,7 @@ class UserLogin extends Component {
                                             <div className="field-wrap">
                                                 <label>
                                                     Email Address
-                                     </label>
+                                                </label>
                                                 <input
                                                     value={this.state.eMail}
                                                     onChange={this.handleInputChange}

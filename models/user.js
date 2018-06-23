@@ -8,20 +8,6 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                len: [0, 20]
-            }
-        },
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                len: [0, 20]
-            }
-        },
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -42,8 +28,7 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [4, 10]
             }
-        },
-        score: DataTypes.INTEGER
+        }
     });
 
     User.prototype.validPassword = function (password) {
