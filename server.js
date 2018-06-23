@@ -2,15 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const app = express();
-var passport = require('passport')
-var session = require('express-session')
-var bodyParser = require('body-parser')
+var passport = require('passport');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 var env = require('dotenv').load();
 const PORT = process.env.PORT || 3001;
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cookieParser());
 
 // For Passport
 
@@ -22,6 +25,7 @@ app.use(passport.session()); // persistent login sessions
 
 //Models
 var models = require("./app/models");
+const user = require('./controllers/userController.js');
 
 //Sync Database
 models.sequelize.sync().then(function () {
