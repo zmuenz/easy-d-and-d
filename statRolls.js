@@ -1,12 +1,12 @@
 let charStats = [];
 
 let stats = {
-    Str: 0,
-    Dex: 0,
-    Con: 0,
-    Int: 0,
-    Wis: 0,
-    Cha: 0
+    str: 0,
+    dex: 0,
+    con: 0,
+    int: 0,
+    wis: 0,
+    cha: 0
 };
 
 function bubbleSort(items) {
@@ -42,12 +42,12 @@ function statRolls() {
 };
 
 function setStats() {
-    stats.Str = charStats[0];
-    stats.Dex = charStats[1];
-    stats.Con = charStats[2];
-    stats.Int = charStats[3];
-    stats.Wis = charStats[4];
-    stats.Cha = charStats[5];
+    stats.str = charStats[0];
+    stats.dex = charStats[1];
+    stats.con = charStats[2];
+    stats.int = charStats[3];
+    stats.wis = charStats[4];
+    stats.cha = charStats[5];
 }
 
 function rollStats() {

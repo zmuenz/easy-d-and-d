@@ -58,11 +58,11 @@ models.sequelize.sync().then(function () {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-app.get('/', function (req, res) {
+// app.get('/', function (req, res) {
 
-    res.send('Welcome to Easy D&D');
+//     res.send('Welcome to Easy D&D');
 
-});
+// });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

@@ -1,14 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
-    var character = sequelize.define("character", {
+    var Character = sequelize.define("Character", {
         username: DataTypes.STRING,
         character_name: DataTypes.STRING,
         gender: DataTypes.STRING,
         race: DataTypes.STRING,
         class: DataTypes.STRING,
         dex: DataTypes.INTEGER,
-        intel: DataTypes.INTEGER,
+        int: DataTypes.INTEGER,
         cha: DataTypes.INTEGER,
-        stre: DataTypes.INTEGER,
+        str: DataTypes.INTEGER,
         con: DataTypes.INTEGER,
         wis: DataTypes.INTEGER,
         acrobatics: DataTypes.INTEGER,
@@ -28,16 +28,18 @@ module.exports = function (sequelize, DataTypes) {
         religion: DataTypes.INTEGER,
         sleight: DataTypes.INTEGER,
         stealth: DataTypes.INTEGER,
-        survival: DataTypes.INTEGER,
+        survival: DataTypes.INTEGER
     });
-    // To help the tables join 
-    // Character.associate = (models) => {
-    //     Character.belongsTo(models.User, {
-    //       foreignKey: 'userId',
-    //       onDelete: 'CASCADE',
-    //     })
-    //   };
-    return character;
+
+    Character.associate = function (models) {
+        // We're saying that a Dish Review should belong to a User
+        // A Dish Review can't be created without a User due to the foreign key constraint
+        Character.belongsTo(models.User, {
+          onDelete: 'CASCADE'
+        });
+      };
+
+    return Character;
 };
 
 

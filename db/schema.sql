@@ -11,6 +11,7 @@ CREATE TABLE users (
     userName varchar (30) NOT NULL,
     email varchar(255) NOT NULL,
     password varchar (255) NOT NULL,
+    status varchar (8) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -48,5 +49,5 @@ CREATE TABLE characters (
     PRIMARY KEY (id)
 );
 
-INSERT INTO users (id, userName, email, password)
-VALUES (1, "Test908", "Test@Test.com", "testword");
+INSERT INTO users (id, userName, email, password, status)
+VALUES (1, "Test908", "Test@Test.com", "testword", "inactive");
