@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 export class login extends React.Component {
   render() {
     return (
-      <Form>
+      <Form className="mt-5">
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
