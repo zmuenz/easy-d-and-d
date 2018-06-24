@@ -38,10 +38,10 @@ export class TopNav extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/signup">SignUp</NavLink>
+                  <NavLink href="/signup">Sign Up</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/login">LogIn</NavLink>
+                  <NavLink href="/login">Log In</NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
