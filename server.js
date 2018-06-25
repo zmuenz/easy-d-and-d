@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '0108C@denc3',
     database: 'characters_db'
 });
 
@@ -41,15 +41,17 @@ connection.connect(function (err) {
     }
 });
 
-// app.get("/", function (req, res) {
-//     connection.query('SELECT * from user LIMIT 2', function (err, rows, fields) {
-//         connection.end();
-//         if (!err)
-//             console.log('The solution is: ', rows);
-//         else
-//             console.log('Error while performing Query.');
-//     });
-// });
+//characterPage get route 
+  app.get('/api/characters', (req, res) => {
+
+    connection.query('SELECT * from characters', function(err, rows, fields) {
+      if (!err) {
+            res.send(JSON.stringify(rows));
+      } else {
+        console.log('Error while performing Query.');
+      }
+    });
+  });
 
 //Sync Database
 models.sequelize.sync().then(function () {
