@@ -94,15 +94,6 @@ export class NewCharacter extends Component {
         event.preventDefault();
         let charStats = [];
 
-        let stats = {
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0
-        };
-
         function bubbleSort(items) {
             var length = items.length;
             for (var i = (length - 1); i >= 0; i--) {
