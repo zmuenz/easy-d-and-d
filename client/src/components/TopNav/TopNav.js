@@ -55,7 +55,7 @@ export class TopNav extends React.Component {
                       View Saved Characters
                     </DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>
+                    <DropdownItem href="/logout">
                       Log Out
                     </DropdownItem>
                   </DropdownMenu>

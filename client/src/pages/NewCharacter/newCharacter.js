@@ -10,7 +10,7 @@ import {
     Label,
     Input,
     Card,
-    CardTitle,
+    CardHeader,
     CardText
 } from 'reactstrap';
 
@@ -281,47 +281,45 @@ export class NewCharacter extends Component {
                         </Row>
                         <Row className="mt-3">
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Strength</CardTitle>
-                                    <CardText className="text-center">{this.state.str}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Strength</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.str}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Dexterity</CardTitle>
-                                    <CardText className="text-center">{this.state.dex}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Dexterity</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.dex}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Constitution</CardTitle>
-                                    <CardText className="text-center">{this.state.con}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Constitution</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.con}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Intelligence</CardTitle>
-                                    <CardText className="text-center">{this.state.int}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Intelligence</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.int}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Wisdom</CardTitle>
-                                    <CardText className="text-center">{this.state.wis}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Wisdom</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.wis}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
-                                <Card body>
-                                    <CardTitle className="text-center">Charisma</CardTitle>
-                                    <CardText className="text-center">{this.state.cha}</CardText>
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Charisma</CardHeader>
+                                    <CardText className="text-center my-3">{this.state.cha}</CardText>
                                 </Card>
                             </Col>
                         </Row>
                         <Row className="my-3">
                             <Col>
-                                <Button color="info" onClick={this.randomizeStats}>Generate Stats</Button>
-                            </Col>
-                            <Col>
+                                <Button className="mr-3" color="info" onClick={this.randomizeStats}>Generate Stats</Button>
                                 <Button color="info" onClick={this.resetStats}>Reset Stats</Button>
                             </Col>
                         </Row>

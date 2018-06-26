@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-export class login extends Component {
+export class Login extends Component {
   render() {
     return (
       <Container className="mt-4">
