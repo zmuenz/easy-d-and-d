@@ -288,7 +288,7 @@ export class NewCharacter extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <Button color="info" type="submit" onClick={this.handleFormSubmit}>Sign up!</Button>
+                                <Button color="info" type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
                             </Col>
                         </Row>
                     </Form>
