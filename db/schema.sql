@@ -51,3 +51,35 @@ CREATE TABLE characters (
 
 INSERT INTO users (id, userName, email, password, status)
 VALUES (1, "Test908", "Test@Test.com", "testword", "inactive");
+
+INSERT INTO characters (
+    id,
+    username,
+    character_name,
+    gender,
+    race,
+    class,
+    dex,
+    int,
+    cha,
+    str,
+    con,
+    wis,
+    acrobatics,
+    animal_handling,
+    arcana, 
+    athletics,
+    deception,
+    history, 
+    insight,
+    intimidation,
+    investigation,
+    medicine,
+    nature,
+    perception,
+    performance,
+    persuasion,
+    religion,
+    sleight,
+    stealth,
+    survival)

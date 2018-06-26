@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bootstrap": "^4.1.1",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.6",
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.1.0",
-    "sequelize": "^4.37.10",
+    "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0"
   },
   "scripts": {
