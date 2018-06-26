@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export class signUp extends Component {
 
   render() {
     return (
-      <Container>
-        <Form className="mt-5">
+      <Container className="mt-4">
+        <h1>Create your EZ D&amp;D account</h1>
+        <Form className="mt-4">
           <FormGroup>
             <Label for="userName">Username</Label>
-            <Input type="name" name="userName" id="userName" placeholder="Create a UserName" />
+            <Input type="name" name="userName" id="userName" placeholder="Create a Username" />
           </FormGroup>
           <FormGroup>
             <Label for="email">Email</Label>
