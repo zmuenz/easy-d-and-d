@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, Container, Row, td } from 'reactstrap';
+import { ListGroup, ListGroupItem, Container } from 'reactstrap';
 import API from "../../utils/API";
 
 
@@ -22,7 +22,7 @@ class CharacterPage extends React.Component {
   
   render() {
     return (
-      <Container>
+      <Container className="my-4">
         {!this.state.characters.length ? (
           <h1 className="text-center">Create characters to see them here!</h1>
         ) : (

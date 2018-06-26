@@ -48,16 +48,16 @@ export class TopNav extends React.Component {
                     Options
                 </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>
-                      Option 1
-                  </DropdownItem>
-                    <DropdownItem>
-                      Option 2
-                  </DropdownItem>
+                    <DropdownItem href="/newcharacter">
+                      Create a Character
+                    </DropdownItem>
+                    <DropdownItem href="/characterpage">
+                      View Saved Characters
+                    </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
-                      Reset
-                  </DropdownItem>
+                      Log Out
+                    </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>

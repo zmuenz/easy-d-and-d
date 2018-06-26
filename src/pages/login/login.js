@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export class login extends Component {
   render() {
     return (
-      <Form className="mt-5">
-        <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-        </FormGroup>
-        <Button color="info">Submit</Button><Button color="info">Sign up!</Button>
+      <Container className="mt-4">
+        <h1>Login with your EZ D&amp;D account</h1>
+        <Form className="mt-4">
+          <FormGroup>
+            <Label for="email">Email</Label>
+            <Input type="email" name="email" id="email" placeholder="Account email address" />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Password</Label>
+            <Input type="password" name="password" id="password" placeholder="Enter your password" />
+          </FormGroup>
+          <Button className="mr-3" color="info">Log In</Button><Button color="info" href="/signup">Sign up!</Button>
         </Form>
-        );
-      }
-    }
+      </Container>
+    );
+  }
+}

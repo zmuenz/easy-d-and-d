@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import {
     Container,
     Row,
     Col,
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     Button,
     Form,
     FormGroup,
     Label,
     Input,
-    FormText,
     Card,
     CardTitle,
     CardText
@@ -75,19 +62,31 @@ export class NewCharacter extends Component {
     randomizeGender = event => {
         event.preventDefault();
         const genders = ["Female", "Male"];
-        document.getElementById("gender").value = genders[Math.floor(Math.random() * genders.length)];
+        const charGender = genders[Math.floor(Math.random() * genders.length)];
+        document.getElementById("gender").value = charGender;
+        this.setState({
+            gender: charGender
+        });
     };
 
     randomizeRace = event => {
         event.preventDefault();
         const races = ["Dwarf", "Elf", "Gnome", "Half-elf", "Half-orc", "Halfling", "Human"];
-        document.getElementById("race").value = races[Math.floor(Math.random() * races.length)];
+        const charRace = races[Math.floor(Math.random() * races.length)];
+        document.getElementById("race").value = charRace;
+        this.setState({
+            race: charRace
+        });
     };
 
     randomizeClass = event => {
         event.preventDefault();
         const classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Wizard"];
-        document.getElementById("class").value = classes[Math.floor(Math.random() * classes.length)];
+        const charClass = classes[Math.floor(Math.random() * classes.length)];
+        document.getElementById("class").value = charClass;
+        this.setState({
+            class: charClass
+        });
     };
 
     randomizeStats = event => {
@@ -117,7 +116,6 @@ export class NewCharacter extends Component {
             for (var i = 0; i < 4; i++) {
                 let currentRoll = Math.floor((Math.random() * 6) + 1);
                 diceRolls.push(currentRoll);
-                console.log(currentRoll);
             };
 
             bubbleSort(diceRolls);
@@ -161,6 +159,7 @@ export class NewCharacter extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+
         API.saveCharacter(this.state)
             .then(res => {
                 if (res.data.status === "error") {
@@ -169,6 +168,46 @@ export class NewCharacter extends Component {
                 this.setState({ results: res.data.message, error: "" });
             })
             .catch(err => this.setState({ error: err.message }));
+
+        function resetForm() {
+            document.getElementById("character_name").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("race").value = "";
+            document.getElementById("class").value = "";
+            document.getElementById("character_name").value = "";
+            this.setState({
+                username: "",
+                character_name: "",
+                gender: "",
+                race: "",
+                class: "",
+                str: 0,
+                dex: 0,
+                con: 0,
+                int: 0,
+                wis: 0,
+                cha: 0,
+                acrobatics: "",
+                animal_handling: "",
+                arcana: "",
+                athletics: "",
+                deception: "",
+                history: "",
+                insight: "",
+                intimidation: "",
+                investigation: "",
+                medicine: "",
+                nature: "",
+                perception: "",
+                performance: "",
+                persuasion: "",
+                religion: "",
+                sleight: "",
+                stealth: "",
+                survival: ""
+            });
+        };
+        resetForm.bind(this)();
     };
 
     render() {
@@ -240,7 +279,7 @@ export class NewCharacter extends Component {
                                 <Button className="mt-4" onClick={this.randomizeClass} color="info">Random Class</Button>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="mt-3">
                             <Col md="2">
                                 <Card body>
                                     <CardTitle className="text-center">Strength</CardTitle>

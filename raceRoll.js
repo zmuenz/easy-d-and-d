@@ -4,7 +4,7 @@ var charRace = races[Math.floor(Math.random() * races.length)];
 
 // once race is chosen, adjust player stats based on race modifiers
 
-switch (this.state.race) {
+switch (document.getElementById('race').value) {
     case "Dwarf":
         stats.con = stats.con + 2;
         stats.wis = stats.wis + 2;
@@ -36,7 +36,7 @@ switch (this.state.race) {
     case "Halfling":
         stats.dex = stats.dex + 2;
         stats.cha = stats.cha + 2;
-        stats.str = stats.str - 2; 
+        stats.str = stats.str - 2;
         break;
 
     case "Human":
