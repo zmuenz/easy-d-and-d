@@ -28,36 +28,39 @@ import {
 } from 'reactstrap';
 
 export class NewCharacter extends Component {
-    state: {
-        username: "",
-        character_name: "",
-        gender: "",
-        race: "",
-        class: "",
-        str: 0,
-        dex: 0,
-        con: 0,
-        int: 0,
-        wis: 0,
-        cha: 0,
-        acrobatics: "",
-        animal_handling: "",
-        arcana: "",
-        athletics: "",
-        deception: "",
-        history: "",
-        insight: "",
-        intimidation: "",
-        investigation: "",
-        medicine: "",
-        nature: "",
-        perception: "",
-        performance: "",
-        persuasion: "",
-        religion: "",
-        sleight: "",
-        stealth: "",
-        survival: ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            character_name: "",
+            gender: "",
+            race: "",
+            class: "",
+            str: 0,
+            dex: 0,
+            con: 0,
+            int: 0,
+            wis: 0,
+            cha: 0,
+            acrobatics: "",
+            animal_handling: "",
+            arcana: "",
+            athletics: "",
+            deception: "",
+            history: "",
+            insight: "",
+            intimidation: "",
+            investigation: "",
+            medicine: "",
+            nature: "",
+            perception: "",
+            performance: "",
+            persuasion: "",
+            religion: "",
+            sleight: "",
+            stealth: "",
+            survival: ""
+        };
     };
 
     handleInputChange = event => {
@@ -72,22 +75,19 @@ export class NewCharacter extends Component {
     randomizeGender = event => {
         event.preventDefault();
         const genders = ["Female", "Male"];
-        var charGender = genders[Math.floor(Math.random() * genders.length)];
-        document.getElementById("gender").value = charGender;
+        document.getElementById("gender").value = genders[Math.floor(Math.random() * genders.length)];
     };
 
     randomizeRace = event => {
         event.preventDefault();
         const races = ["Dwarf", "Elf", "Gnome", "Half-elf", "Half-orc", "Halfling", "Human"];
-        let charRace = races[Math.floor(Math.random() * races.length)];
-        document.getElementById("race").value = charRace;
+        document.getElementById("race").value = races[Math.floor(Math.random() * races.length)];
     };
 
     randomizeClass = event => {
         event.preventDefault();
         const classes = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Wizard"];
-        var charClass = classes[Math.floor(Math.random() * classes.length)];
-        document.getElementById("class").value = charClass;
+        document.getElementById("class").value = classes[Math.floor(Math.random() * classes.length)];
     };
 
     randomizeStats = event => {
@@ -136,22 +136,36 @@ export class NewCharacter extends Component {
         };
 
         function setStats() {
-            stats.str = charStats[0];
-            stats.dex = charStats[1];
-            stats.con = charStats[2];
-            stats.int = charStats[3];
-            stats.wis = charStats[4];
-            stats.cha = charStats[5];
-        }
+            this.setState({
+                str: charStats[0],
+                dex: charStats[1],
+                con: charStats[2],
+                int: charStats[3],
+                wis: charStats[4],
+                cha: charStats[5]
+            });
+        };
 
         function rollStats() {
             for (var x = 0; x < 6; x++) {
                 statRolls();
             };
-            setStats();
         };
 
-        rollStats();
+        rollStats.bind(this)();
+        setStats.bind(this)();
+    };
+
+    resetStats = event => {
+        event.preventDefault();
+        this.setState({
+            str: 0,
+            dex: 0,
+            con: 0,
+            int: 0,
+            wis: 0,
+            cha: 0
+        });
     };
 
     handleFormSubmit = event => {
@@ -181,7 +195,7 @@ export class NewCharacter extends Component {
                             <Col>
                                 <FormGroup>
                                     <Label for="gender">Gender</Label>
-                                    <Input type="select" name="gender" id="gender" value="" onChange={this.handleInputChange}>
+                                    <Input type="select" name="gender" id="gender" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's gender</option>
                                         <option value="Female">Female</option>
                                         <option value="Male">Male</option>
@@ -196,7 +210,7 @@ export class NewCharacter extends Component {
                             <Col>
                                 <FormGroup>
                                     <Label for="race">Race</Label>
-                                    <Input type="select" name="race" id="race" value="" onChange={this.handleInputChange}>
+                                    <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's race</option>
                                         <option value="Dwarf">Dwarf</option>
                                         <option value="Elf">Elf</option>
@@ -215,7 +229,7 @@ export class NewCharacter extends Component {
                             <Col>
                                 <FormGroup>
                                     <Label for="class">Class</Label>
-                                    <Input type="select" name="class" id="class" value="" onChange={this.handleInputChange}>
+                                    <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's class</option>
                                         <option value="Barbarian">Barbarian</option>
                                         <option value="Bard">Bard</option>
@@ -236,7 +250,50 @@ export class NewCharacter extends Component {
                             </Col>
                         </Row>
                         <Row>
-
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Strength</CardTitle>
+                                    <CardText className="text-center">{this.state.str}</CardText>
+                                </Card>
+                            </Col>
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Dexterity</CardTitle>
+                                    <CardText className="text-center">{this.state.dex}</CardText>
+                                </Card>
+                            </Col>
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Constitution</CardTitle>
+                                    <CardText className="text-center">{this.state.con}</CardText>
+                                </Card>
+                            </Col>
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Intelligence</CardTitle>
+                                    <CardText className="text-center">{this.state.int}</CardText>
+                                </Card>
+                            </Col>
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Wisdom</CardTitle>
+                                    <CardText className="text-center">{this.state.wis}</CardText>
+                                </Card>
+                            </Col>
+                            <Col md="2">
+                                <Card body>
+                                    <CardTitle className="text-center">Charisma</CardTitle>
+                                    <CardText className="text-center">{this.state.cha}</CardText>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row className="my-3">
+                            <Col>
+                                <Button color="info" onClick={this.randomizeStats}>Generate Stats</Button>
+                            </Col>
+                            <Col>
+                                <Button color="info" onClick={this.resetStats}>Reset Stats</Button>
+                            </Col>
                         </Row>
                         <Row>
                             <Col>
