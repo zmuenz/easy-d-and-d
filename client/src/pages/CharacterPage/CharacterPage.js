@@ -3,7 +3,7 @@ import { ListGroup, ListGroupItem, Container } from 'reactstrap';
 import API from "../../utils/API";
 
 
-class CharacterPage extends React.Component {
+export class CharacterPage extends React.Component {
   state = {
     characters: [],
   };
@@ -67,6 +67,3 @@ class CharacterPage extends React.Component {
     );
   }
 };
-
-
-export default CharacterPage;

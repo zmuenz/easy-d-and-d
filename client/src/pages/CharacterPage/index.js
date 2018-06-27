@@ -1,1 +1,1 @@
-export { default } from "./CharacterPage.js";
+export * from "./CharacterPage.js";

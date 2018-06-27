@@ -11,25 +11,25 @@ const PORT = process.env.PORT || 3001;
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '0108C@denc3',
-    database: 'characters_db',
+  host: '127.0.0.1',
+  user: 'root',
+  password: '',
+  database: 'characters_db',
+});
+
+connection.connect();
+
+app.get('/api/characters', (req, res) => {
+
+  //get route for characterpage
+  connection.query('SELECT * from characters', function (err, rows, fields) {
+    if (!err) {
+      res.send(JSON.stringify(rows));
+    } else {
+      console.log('Error while performing Query.');
+    }
   });
-
-  connection.connect();
-
-  app.get('/api/characters', (req, res) => {
-
-    //get route for characterpage
-    connection.query('SELECT * from characters', function(err, rows, fields) {
-      if (!err) {
-            res.send(JSON.stringify(rows));
-      } else {
-        console.log('Error while performing Query.');
-      }
-    });
-  });
+});
 
 // //For BodyParser
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -79,5 +79,5 @@ var connection = mysql.createConnection({
 
 // Start the API server
 app.listen(PORT, function () {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
