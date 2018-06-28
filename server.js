@@ -20,6 +20,8 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+//use router
+app.use(router);
 
 // //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,7 +49,7 @@ connection.connect(function (err) {
 
 
 //Sync Database
-models.sequelize.sync({force:true}).then(function () {
+models.sequelize.sync().then(function () {
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")

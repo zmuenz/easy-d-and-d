@@ -1,5 +1,10 @@
 module.exports = function (Sequelize, DataTypes) {
     var Character = Sequelize.define("Character", {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         user_id: {
             type: DataTypes.INTEGER,
             foreignKey: true

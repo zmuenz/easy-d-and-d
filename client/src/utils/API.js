@@ -3,19 +3,19 @@ import axios from "axios";
 export default {
   // Gets all characters
   getCharacters: function() {
-    return axios.get("/api/characters");
+    return axios.get("/api/Character");
   },
   // Gets the Character with the given id
   getCharacter: function (id) {
-    return axios.get("/api/characters/" + id);
+    return axios.get("/api/Characters/" + id);
   },
   // Deletes the Character with the given id
   deleteCharacter: function (id) {
-    return axios.delete("/api/characters/" + id);
+    return axios.delete("/api/Characters/" + id);
   },
   // Saves a Character to the database
   saveCharacter: function (CharacterData) {
-    return axios.post("/api/characters", CharacterData);
+    return axios.post("/api/Character", CharacterData);
   },
 
   //user count
