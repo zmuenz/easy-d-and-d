@@ -20,7 +20,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-app.use(router);
 
 // //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
