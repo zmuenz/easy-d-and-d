@@ -3,15 +3,15 @@ import axios from "axios";
 export default {
   // Gets all characters
   getCharacters: function() {
-    return axios.get("/api/Character");
+    return axios.get("/api/CharacterAll");
   },
   // Gets the Character with the given id
   getCharacter: function (id) {
-    return axios.get("/api/Character/" + id);
+    return axios.get("/api/CharacterOne" + id);
   },
   // Deletes the Character with the given id
   deleteCharacter: function (id) {
-    return axios.delete("/api/Characters/" + id);
+    return axios.delete("/api/CharacterRemove" + id);
   },
   // Saves a Character to the database
   saveCharacter: function (CharacterData) {

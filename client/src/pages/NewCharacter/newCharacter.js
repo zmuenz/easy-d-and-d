@@ -14,6 +14,10 @@ import {
     CardText
 } from 'reactstrap';
 
+// Here the `API_URL` env var is being
+// injected by the `server.js` file
+const api_url = process.env.API_URL || '';
+
 export class NewCharacter extends Component {
     constructor(props) {
         super(props);
