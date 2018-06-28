@@ -40,24 +40,6 @@ export class CharacterPage extends React.Component {
                   <ListGroupItem>Strength: {character.stre}</ListGroupItem>
                   <ListGroupItem>Constitution: {character.con}</ListGroupItem>
                   <ListGroupItem>Wisdom: {character.wis}</ListGroupItem>
-                  <ListGroupItem>Acrobatics: {character.acrobatics}</ListGroupItem>
-                  <ListGroupItem>Animal Handling: {character.animal_handling}</ListGroupItem>
-                  <ListGroupItem>Arcana: {character.arcana}</ListGroupItem>
-                  <ListGroupItem>Athletics: {character.athletics}</ListGroupItem>
-                  <ListGroupItem>Deception: {character.deception}</ListGroupItem>
-                  <ListGroupItem>History: {character.history}</ListGroupItem>
-                  <ListGroupItem>Insight: {character.insight}</ListGroupItem>
-                  <ListGroupItem>Intimidation: {character.intimidation}</ListGroupItem>
-                  <ListGroupItem>Investigation: {character.investigation}</ListGroupItem>
-                  <ListGroupItem>Medicine: {character.medicine}</ListGroupItem>
-                  <ListGroupItem>Nature: {character.nature}</ListGroupItem>
-                  <ListGroupItem>Perception: {character.perception}</ListGroupItem>
-                  <ListGroupItem>Performance: {character.performance}</ListGroupItem>
-                  <ListGroupItem>Persuasion: {character.persuasion}</ListGroupItem>
-                  <ListGroupItem>Religion: {character.religion}</ListGroupItem>
-                  <ListGroupItem>Sleight of Hand: {character.sleight}</ListGroupItem>
-                  <ListGroupItem>Stealth: {character.stealth}</ListGroupItem>
-                  <ListGroupItem>Survival: {character.survival}</ListGroupItem>
                   </div>
                 );
               })};

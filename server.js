@@ -21,7 +21,7 @@ connection.connect();
 
 app.get('/api/characters', (req, res) => {
 
-  //get route for characterpage
+  //get route for CharacterPae
   connection.query('SELECT * from characters', function (err, rows, fields) {
     if (!err) {
       res.send(JSON.stringify(rows));
@@ -30,6 +30,30 @@ app.get('/api/characters', (req, res) => {
     }
   });
 });
+
+app.post("/api/characters", function(req, res) {
+  console.log(req.body);
+  db.Character.create({
+    title: req.body.title,
+    body: req.body.body,
+    category: req.body.category
+  })
+    .then(function(dbCharacter) {
+      res.json(dbCharacter);
+    });
+});
+
+// app.post('/api/characters', (req, res) => {
+
+//   //post route for NewCharacter
+//   connection.query('INSERT INTO characters', function (err, rows, fields) {
+//     if (!err) {
+//       res.send(JSON.stringify(rows));
+//     } else {
+//       console.log('Error while performing Query.');
+//     }
+//   });
+// });
 
 // //For BodyParser
 // app.use(bodyParser.urlencoded({ extended: true }));

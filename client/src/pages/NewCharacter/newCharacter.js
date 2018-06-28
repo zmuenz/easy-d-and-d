@@ -28,25 +28,7 @@ export class NewCharacter extends Component {
             con: 0,
             int: 0,
             wis: 0,
-            cha: 0,
-            acrobatics: "",
-            animal_handling: "",
-            arcana: "",
-            athletics: "",
-            deception: "",
-            history: "",
-            insight: "",
-            intimidation: "",
-            investigation: "",
-            medicine: "",
-            nature: "",
-            perception: "",
-            performance: "",
-            persuasion: "",
-            religion: "",
-            sleight: "",
-            stealth: "",
-            survival: ""
+            cha: 0
         };
     };
 
@@ -57,6 +39,70 @@ export class NewCharacter extends Component {
         this.setState({
             [name]: value
         });
+    };
+
+    handleRaceChange = event => {
+        // Destructure the name and value properties off of event.target
+        // Update the appropriate state
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+
+        switch (document.getElementById('race').value) {
+            case "Dwarf":
+                this.setState({
+                    con: this.state.con + 2,
+                    wis: this.state.wis + 2,
+                    cha: this.state.cha - 2
+                });
+                break;
+
+            case "Elf":
+                this.setState({
+                    dex: this.state.dex + 2,
+                    int: this.state.int + 2,
+                    con: this.state.con - 2
+                });
+                break;
+
+            case "Gnome":
+                this.setState({
+                    con: this.state.con + 2,
+                    cha: this.state.cha + 2,
+                    str: this.state.str - 2
+                });
+                break;
+
+            case "Half-elf":
+                var statsArray = ["str", "dex", "con", "int", "wis", "cha"];
+                const randStat = statsArray[Math.floor(Math.random() * statsArray.length)];
+                var statToChange = {
+                    randStat: this.state.randStat + 2
+                };
+                console.log(statToChange);
+                this.setState({
+                    
+                });
+                break;
+
+            case "Half-orc":
+                // var randStat = stats[Math.floor(Math.random() * stats.length)];
+                // randStat = randStat + 2;
+                break;
+
+            case "Halfling":
+                this.setState({
+                    dex: this.state.dex + 2,
+                    cha: this.state.cha + 2,
+                    str: this.state.str - 2
+                });
+                break;
+
+            case "Human":
+            // var randStat = stats[Math.floor(Math.random() * stats.length)];
+            // randStat = randStat + 2;
+        };
     };
 
     randomizeGender = event => {
@@ -87,6 +133,9 @@ export class NewCharacter extends Component {
         this.setState({
             class: charClass
         });
+
+
+        console.log(this.state);
     };
 
     randomizeStats = event => {
@@ -133,12 +182,14 @@ export class NewCharacter extends Component {
                 wis: charStats[4],
                 cha: charStats[5]
             });
+            console.log(this.state);
         };
 
         function rollStats() {
             for (var x = 0; x < 6; x++) {
                 statRolls();
             };
+
         };
 
         rollStats.bind(this)();
@@ -159,7 +210,7 @@ export class NewCharacter extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-
+        console.log(this.state);
         API.saveCharacter(this.state)
             .then(res => {
                 if (res.data.status === "error") {
@@ -240,7 +291,7 @@ export class NewCharacter extends Component {
                             <Col>
                                 <FormGroup>
                                     <Label for="race">Race</Label>
-                                    <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleInputChange}>
+                                    <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
                                         <option value="">Select character's race</option>
                                         <option value="Dwarf">Dwarf</option>
                                         <option value="Elf">Elf</option>
