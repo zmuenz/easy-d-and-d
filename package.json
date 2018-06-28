@@ -2,11 +2,32 @@
   "name": "easy-d-n-d",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && yarn install;",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.17.5"
+  },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
     "bootstrap": "^4.1.1",
     "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
     "express-session": "^1.15.6",
+    "if-env": "^1.0.4",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "passport": "^0.4.0",
@@ -17,11 +38,5 @@
     "reactstrap": "^6.1.0",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }
