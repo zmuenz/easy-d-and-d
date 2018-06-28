@@ -214,17 +214,22 @@ export class NewCharacter extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state);
-        API.saveCharacter(this.state)
-            .then(res => {
-                if (res.data.status === "error") {
-                    throw new Error(res.data.message);
-                }
-                this.setState({ results: res.data.message, error: "" });
-            })
-            .catch(err => this.setState({ error: err.message }));
+        if (this.state.title && this.state.author) {
+          API.saveCharacter({
+            character_name: this.state.character_name,
+            gender: this.state.gender,
+            race: this.state.class, 
+            class : this.state.class,
+            dex : this.state.dex,
+            intel : this.state.intel,
+            stre : this.state.stre,
+            con : this.state.con,
+            wis : this.state.wis,
+            cha : this.state.cha
+          })
+        };
 
-        function resetForm() {
+            function resetForm() {
             document.getElementById("character_name").value = "";
             document.getElementById("gender").value = "";
             document.getElementById("race").value = "";

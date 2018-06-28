@@ -4,17 +4,6 @@ var express = require('express');
 
 router = express.Router();
 
-
-router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-// Here the `API_URL` env var is being
-// injected by the `server.js` file
-const api_url = process.env.API_URL || '';
-
 router.get("/api/Character", function(req, res) {
   var query = {};
   db.Character.findAll({}).then(function(dbCharacter) {
@@ -41,15 +30,15 @@ router.get("/api/Character", function(req, res) {
       var newCharacter = { 
          character_name : req.body.name,
          gender : req.body.gender,
-         race : req.body.race
-      //    class : req.body.class,
-      //    dex : req.body.dex,
-      //    intel : req.body.intel,
-      //    stre : req.body.stre,
-      //    con : req.body.con,
-      //    wis : req.body.wis,
-      //    cha : req.body.cha
-      // 
+         race : req.body.race,
+         class : req.body.class,
+         dex : req.body.dex,
+         intel : req.body.intel,
+         stre : req.body.stre,
+         con : req.body.con,
+         wis : req.body.wis,
+         cha : req.body.cha
+      
     }
       db.characters.create(newCharacter).then(function(dbPost) {
         console.log(dbPost);
