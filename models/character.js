@@ -95,7 +95,7 @@ module.exports = function (Sequelize, DataTypes) {
         },
         survival: {
             type: DataTypes.INTEGER,
-        },
+        }
     });
     // To help the tables join 
     Character.associate = (models) => {

@@ -7,7 +7,7 @@ export default {
   },
   // Gets the Character with the given id
   getCharacter: function (id) {
-    return axios.get("/api/Characters/" + id);
+    return axios.get("/api/Character/" + id);
   },
   // Deletes the Character with the given id
   deleteCharacter: function (id) {

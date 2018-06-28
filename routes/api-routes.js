@@ -28,38 +28,18 @@ router.get("/api/Character", function(req, res) {
   //route for saving a new character to the database 
   router.post("/api/Character", function(req, res) {
       var newCharacter = { 
-         id: req.body.id, 
-         user_id : req.user.id,
-         userName : req.body.user,
          character_name : req.body.name,
          gender : req.body.gender,
-         race : req.body.race,
-         class : req.body.class,
-         dex : req.body.dex,
-         intel : req.body.intel,
-         stre : req.body.stre,
-         con : req.body.con,
-         wis : req.body.wis,
-         cha : req.body.cha,
-         acrobatics : req.body.acrobatics,
-         animal_handling : req.body.animal_handling,
-         arcana : req.body.arcana,
-         athletics: req.body.athletics,
-         deception : req.body.deception,
-         history : req.body.history,
-         insight : req.body.insight, 
-         intimidation : req.body.intimidation,
-         investigation : req.body.investigation,
-         medicine : req.body.medicine,
-         nature : req.body.nature,
-         perception : req.body.perception,
-         performance : req.body.performance,
-         persuasion : req.body.persuasion,
-         religion : req.body.religion,
-         sleight : req.body.sleight,
-         stealth : req.body.stealth,
-         survival : req.body.survival
-      }
+         race : req.body.race
+      //    class : req.body.class,
+      //    dex : req.body.dex,
+      //    intel : req.body.intel,
+      //    stre : req.body.stre,
+      //    con : req.body.con,
+      //    wis : req.body.wis,
+      //    cha : req.body.cha
+      // 
+    }
       db.characters.create(newCharacter).then(function(dbPost) {
         console.log(dbPost);
         res.json(dbPost);
@@ -67,3 +47,40 @@ router.get("/api/Character", function(req, res) {
     }); 
 
 module.exports = router; 
+
+
+// eventually we expect routes to look different. As of now we are not pushing
+// all character data when we post, we edited as such. Eventually we expect: 
+// var newCharacter = { 
+//   id: req.body.id, 
+//   user_id : req.user.id,
+//   userName : req.body.user,
+//   character_name : req.body.name,
+//   gender : req.body.gender,
+//   race : req.body.race,
+//   class : req.body.class,
+//   dex : req.body.dex,
+//   intel : req.body.intel,
+//   stre : req.body.stre,
+//   con : req.body.con,
+//   wis : req.body.wis,
+//   cha : req.body.cha,
+//   acrobatics : req.body.acrobatics,
+//   animal_handling : req.body.animal_handling,
+//   arcana : req.body.arcana,
+//   athletics: req.body.athletics,
+//   deception : req.body.deception,
+//   history : req.body.history,
+//   insight : req.body.insight, 
+//   intimidation : req.body.intimidation,
+//   investigation : req.body.investigation,
+//   medicine : req.body.medicine,
+//   nature : req.body.nature,
+//   perception : req.body.perception,
+//   performance : req.body.performance,
+//   persuasion : req.body.persuasion,
+//   religion : req.body.religion,
+//   sleight : req.body.sleight,
+//   stealth : req.body.stealth,
+//   survival : req.body.survival
+// }

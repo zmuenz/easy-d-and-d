@@ -9,6 +9,7 @@ var mysql = require('mysql');
 var env = require('dotenv').load();
 const PORT = process.env.PORT || 3001;
 const router = require('./routes/api-routes.js')
+const db = require('./models')
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
@@ -18,54 +19,57 @@ var connection = mysql.createConnection({
   database: 'characters_db',
 });
 
+//allows our post route to cross the domain 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    // intercept OPTIONS method
+    if ('OPTIONS' === req.method) {
+        res.send(200);
+    }
+    else {
+        next();
+    }
+  };
+  
+
 connection.connect();
 
-//use router
+//use router, router defined above 
 app.use(router);
 
-// //For BodyParser
+//For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//For cookieParser
 app.use(cookieParser());
 
-// // For Passport
+// For Passport
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
-
 app.use(passport.initialize());
-
 app.use(passport.session()); // persistent login sessions
 
-// //Models
+//Models
 var models = require("./models");
 
-connection.connect(function (err) {
-    if (!err) {
-        console.log("Database is connected ... \n\n");
-    } else {
-        console.log("Error connecting database ... \n\n");
-    }
-});
-
-
-//Sync Database
+//Sync Database with sequelize 
 models.sequelize.sync().then(function () {
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
+//app displays everywhere
 app.get('/', function (req, res) {
-
     res.send('Welcome to Easy D&D');
-
 });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
-
 
 // Start the API server
 app.listen(PORT, function () {

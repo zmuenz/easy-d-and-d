@@ -46,5 +46,14 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
+
+var config = {
+  "define": {
+      "createdAt": "createdat",
+      "updatedAt": "updatedat"
+    } /*don't forget to add host, port, dialect, etc.*/
+  }
+  var sequelize = new Sequelize(database, username, password, config);
+  
 // Exporting our configured passport
 module.exports = passport;
