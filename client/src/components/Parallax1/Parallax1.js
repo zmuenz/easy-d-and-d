@@ -25,7 +25,7 @@ const Parallax1 = () => {
                 <i className='large material-icons card-img-top'>ac_unit</i>
                     <div className="card-body">
                         <h5 className="card-title">A Cool Breeze in Summer</h5>
-                        <p className="card-text">Take your knowledge of DnD and put it to use quickly and effeciently!</p>
+                        <p className="card-text">Take your knowledge of DnD and put it to use quickly and efficiently!</p>
                     </div>
                 </div>
             </div>
