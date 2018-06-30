@@ -33,6 +33,34 @@ export class NewCharacter extends Component {
         };
     };
 
+    findRandomBonus() {
+        if ('str' in this.state.baseBonus) {
+            this.setState({
+                str: this.state.str + 2
+            })
+        } else if ('dex' in this.state.baseBonus) {
+            this.setState({
+                dex: this.state.dex + 2
+            })
+        } else if ('con' in this.state.baseBonus) {
+            this.setState({
+                con: this.state.con + 2
+            })
+        } else if ('int' in this.state.baseBonus) {
+            this.setState({
+                int: this.state.int + 2
+            })
+        } else if ('wis' in this.state.baseBonus) {
+            this.setState({
+                wis: this.state.wis + 2
+            })
+        } else if ('cha' in this.state.baseBonus) {
+            this.setState({
+                cha: this.state.cha + 2
+            })
+        };
+    };
+
     applyRacialBonuses() {
 
         switch (document.getElementById('race').value) {
@@ -86,8 +114,12 @@ export class NewCharacter extends Component {
                 var val = 2;
                 var obj = {};
                 obj[key] = val;
-                console.log(obj);
-                this.setState(obj);
+                
+                this.setState({baseBonus: Object.assign({}, obj)
+                }, () => {
+                    this.findRandomBonus();
+                });
+                
                 break;
 
             case "Half-orc":
@@ -96,14 +128,13 @@ export class NewCharacter extends Component {
                 var key1 = randStat1;
                 var val1 = 2;
                 var obj1 = {};
-                var statbonus = key1 + ": " + 2;
                 obj1[key1] = val1;
-                console.log(obj1);
-                this.setState({
-                    baseBonus: {
-                        statbonus
-                    }
+
+                this.setState({baseBonus: Object.assign({}, obj1)
+                }, () => {
+                    this.findRandomBonus();
                 });
+
                 break;
 
             case "Halfling":
@@ -126,8 +157,12 @@ export class NewCharacter extends Component {
                 var val2 = 2;
                 var obj2 = {};
                 obj2[key2] = val2;
-                console.log(obj2);
-                this.setState(obj2);
+
+                this.setState({baseBonus: Object.assign({}, obj2)
+                }, () => {
+                    this.findRandomBonus();
+                });
+
                 break;
 
             default:
@@ -135,6 +170,7 @@ export class NewCharacter extends Component {
         };
     };
 
+    // Event which handles input change on form
     handleInputChange = event => {
         // Destructure the name and value properties off of event.target
         // Update the appropriate state
@@ -144,6 +180,7 @@ export class NewCharacter extends Component {
         });
     };
 
+    // Event that handles any change to the race input
     handleRaceChange = event => {
         // Destructure the name and value properties off of event.target
         // Update the appropriate state
@@ -200,6 +237,11 @@ export class NewCharacter extends Component {
         }, () => {
             this.applyRacialBonuses();
         });
+    };
+
+    logState = event => {
+        event.preventDefault();
+        console.log(this.state);
     };
 
     // OnClick function to randomize character class
@@ -473,7 +515,8 @@ export class NewCharacter extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <Button color="info" type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
+                                <Button className="mr-3" color="info" type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
+                                <Button color="info" onClick={this.logState}>Log state</Button>
                             </Col>
                         </Row>
                     </Form>
