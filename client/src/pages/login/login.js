@@ -1,272 +1,69 @@
 import React, { Component } from 'react';
-import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col, Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import API from '../../utils/API';
 
-export class Login extends Component {
-
-  state = {
-    signup: false,
-    uName: "",
-    eMail: "",
-    passW: "",
-    activeUser: ""
-  };
-  // componentWillMount() {
-  //     API.checkUser()
-  //         .then(res => {
-  //             if (res.data.user) {
-  //                 console.log(res.data.user);
-  //                 this.setState({ activeUser: res.data.user.userName })
-  //                 //success, user exists do something
-  //             } else {
-  //                 console.log("user not logged in");
-  //                 //user not loggined in do something
-  //             }
-  //         })
-  //         .catch(err => console.log(err));
-  // }
-
-  componentDidMount() {
-    // console.log("component mounted")
-  };
-
-  initializeState = () => { //for resetting forms once submitted.
-    this.setState({
-      uName: "",
-      eMail: "",
-      passW: "",
-      isLoggedIn: false
-    });
-  }
-
-  setSignup = e => { //for when the user wants to login or signup
-    e.preventDefault();
-    const { name, value } = e.target
-    if (name === "signup") {
-      this.initializeState();
-      this.setState({
-        signup: true
-      });
-    } else {
-      this.initializeState();
-      this.setState({
-        signup: false
-      });
-    };
-  };
-
-  handleLogout = () => {
-    API.logoutUser()
-      .then(res => {
-        // console.log(res.data);
-        this.setState({ activeUser: "" });
-      });
-
-  };
-
-  handleInputChange = e => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = e => {
-    e.preventDefault();
-    const query = {
-      username: this.state.uName,
-      eMail: this.state.eMail,
-      password: this.state.passW
-    };
-
-    if (this.state.signup) {
-      API.saveNewUser(query)
-        .then(res => {
-          this.initializeState();
-          this.setState({ signup: false });
-          // console.log(res);
-          alert("welcome to easy d & d")
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-      // console.log("logging in user with: " + query);
-      API.loginUser(query)
-        .then(res => {
-          // console.log("after initial login");
-          API.checkUser()
-            .then(res => {
-              if (res.data.user) {
-                this.setState({
-                  isLoggedIn: true
-                })
-                this.props.history.push('/')
-              } else {
-                alert("user not yet signed in")
-              }
-            })
-            .catch(err => {
-              console.log(err)
-            })
-          // redirect to what page? how do we check if logged in?
-          // this is where passport comes into play.
-        })
-        .catch(err => {
-          console.log(err);
-        })
+export class Login extends Component { 
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: "",
+      password: "",
+      email : ""
     }
   };
 
+handleInputChange = event => {
+  // Destructure the name and value properties off of event.target
+  // Update the appropriate state
+  const { name, value } = event.target;
+  this.setState({
+      [name]: value
+  });
+};
+
+handleFormSubmit = event => {
+  event.preventDefault();
+  console.log(this.state);
+    API.saveNewUser({  
+      userName: this.state.userName,
+      email: this.state.email,
+      password: this.state.password
+      
+    })  
+
+      function resetForm() {
+      document.getElementById("userName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+      this.setState({
+          userName: "",
+          email: "", 
+          password: ""
+
+      });
+  };
+  resetForm.bind(this)();
+};
 
   render() {
-    const { uName, eMail, passW } = this.state;
-    const loginEnabled =
-      (uName.length > 0) &&
-      (passW.length > 0)
-    const signupEnabled =
-      (loginEnabled) &&
-      (eMail.length > 0)
-
     return (
-      <div>
-        <div active={this.state.activeUser} handleLogout={this.handleLogout} />
-        <div className="container">
-          <div className="main-user-section">
-
-            <div className="signup-log-form">
-
-              <ul className="tab-group">
-                <li id="signup-tab" className="tab active">
-                  <a onClick={this.setSignup} name="signup" value="signup">
-                    Sign Up</a>
-                </li>
-                <li id="login-tab" className="tab">
-                  <a onClick={this.setSignup} name="login" value="login">
-                    Log In</a>
-                </li>
-              </ul>
-
-              <div className="tab-content">
-
-                {this.state.signup ? (
-
-                  <div id="signup">
-                    <h1> Sign Up ! </h1>
-                    <form className="signup-form" action="/api/User" method="post">
-
-                      <div className="field-wrap">
-                        <label>
-                          User-Name <span className="req">*</span>
-                        </label>
-                        <input
-                          value={this.state.uName}
-                          onChange={this.handleInputChange}
-                          name="uName"
-                          placeholder="UserName (required)"
-                          id="new-user"
-                        />
-                      </div>
-
-                      <div className="field-wrap">
-                        <label>
-                          Email Address
-                                            </label>
-                        <input
-                          value={this.state.eMail}
-                          onChange={this.handleInputChange}
-                          name="eMail"
-                          placeholder="Email (required)"
-                          id="new-email"
-                          type="email"
-                        />
-                      </div>
-
-                      <div className="field-wrap">
-                        <label>
-                          Set A Password<span className="req">*</span>
-                        </label>
-                        <input
-                          value={this.state.passW}
-                          onChange={this.handleInputChange}
-                          name="passW"
-                          placeholder="Password (required)"
-                          id="new-pass"
-                          type="password"
-                        />
-                      </div>
-
-                      <button
-                        disabled={!signupEnabled}
-                        onClick={this.handleFormSubmit}
-                        name="submitSignup"
-                        //type="submit" 
-                        className="button button-block">
-                        Sign Up
-                             </button>
-                    </form>
-
-                  </div>
-
-                ) : (
-
-                    <div id="login">
-
-                      <h1>Welcome Back!</h1>
-
-                      <form className="login-form" action="/api/login" method="post">
-
-                        <div className="field-wrap">
-                          <label>
-                            Username<span className="req">*</span>
-                          </label>
-                          <input
-                            value={this.state.uName}
-                            onChange={this.handleInputChange}
-                            name="uName"
-                            placeholder="UserName (required)"
-                            id="login-user"
-                          />
-                        </div>
-
-                        <div className="field-wrap">
-                          <label>
-                            Password<span className="req">*</span>
-                          </label>
-                          <input
-                            value={this.state.passW}
-                            onChange={this.handleInputChange}
-                            name="passW"
-                            placeholder="UserName (required)"
-                            id="login-pass"
-                            type="password"
-                          />
-                        </div>
-
-                        <p className="forgot"><a href="/">Forgot Password?</a></p>
-
-                        <button
-                          disabled={!loginEnabled}
-                          onClick={this.handleFormSubmit}
-                          name="submitLogin"
-                          //type="submit" 
-                          className="button button-block">
-                          Log In
-                            </button>
-
-                      </form>
-
-                    </div>
-
-                  )}
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<Container>
+<Form className="mt-5">
+    <Row>
+        <Col>
+            <FormGroup>
+                <Label for="UserName">Username</Label>
+                <Input type="text" name="userName" id="userName" onChange={this.handleInputChange} placeholder="Username" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="password">Password</Label>
+                <Input type="text" name="password" id="password" onChange={this.handleInputChange} placeholder="Password" />
+            </FormGroup>
+          <Button color="info" type="submit" onClick={this.handleFormSubmit}>Submit</Button>
+          </Col>
+          </Row>
+        </Form>
+      </Container>
     );
   }
-}
-
-export default Login;
+};

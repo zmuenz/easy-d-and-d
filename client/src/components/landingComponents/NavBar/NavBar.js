@@ -14,10 +14,10 @@ const NavBar = () => {
                             Menu
                         </button>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="modal">Log In</a>
-                            <a className="dropdown-item" href="modal">Sign Up</a>
+                            <a id="logIn" data-toggle='modal' data-target='#loginModal' className="dropdown-item" href="modal">Log In</a>
+                            <a id="signUp" data-toggle='modal' data-target="#signUpModal" className="dropdown-item" href="modal">Sign Up</a>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="modal">Start Creating</a>
+                            <a id="startBuild" className="dropdown-item" href="modal">Start Creating</a>
                         </div>
                     </li>
                 </ul>
