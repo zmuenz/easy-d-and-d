@@ -1,0 +1,123 @@
+body {
+  width: 100%;
+}
+
+.parallax-container {
+    height: "100px";
+    margin-top: 0px;
+}
+
+#landingCards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.card {
+  height: 100%;
+  margin-top: 3%;
+  display: flex;
+}
+
+#jumbo1 {
+  background: linear-gradient(to bottom, rgba(162, 0, 255, 0.5), rgba(0, 225, 255, 0.5));
+  border-radius: 0;
+}
+
+#jumbo2 {
+  background: linear-gradient(to top, rgb(240, 187, 14), rgb(151, 3, 3));
+  border-radius: 0;
+}
+
+.navbar {
+    background-color: rgba(105, 32, 160, 1);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+#introHeader {
+  margin-top: 5%;
+}
+
+#introInfo {
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+#arrow {
+  height: 50px;
+  width: 25%;
+  margin-left: 20px;
+}
+
+#infoImage {
+  margin-top: 0;
+  margin-bottom: 5%;
+  height: 250;
+  width: 380;
+}
+
+#card1 {
+  background: linear-gradient(to bottom left, rgb(14, 240, 240), rgb(47, 134, 247), rgb(27, 8, 134));
+  padding-top: 20px;
+}
+
+#card2 {
+  background: linear-gradient(to bottom, rgb(14, 240, 240), rgb(47, 134, 247), rgb(27, 8, 134));
+  padding-top: 20px;
+}
+
+#card3 {
+  background: linear-gradient(to bottom right, rgb(14, 240, 240), rgb(47, 134, 247), rgb(27, 8, 134));
+  padding-top: 20px;
+}
+
+
+#build1:hover {
+  background: linear-gradient(to bottom, rgb(14, 240, 240), rgb(47, 134, 247), rgb(27, 8, 134));
+  color: white;
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+
+#build1:active {
+  color: white;
+  background: linear-gradient(to bottom, rgb(14, 240, 240), rgb(47, 134, 247), rgb(27, 8, 134));
+  transform: scale(0.9);
+  transition: 0.1s;
+}
+
+#card2-1 {
+  background: linear-gradient(to bottom left, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3));
+  padding-top: 20px;
+}
+
+#card2-2 {
+  background: linear-gradient(to bottom, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3));
+  padding-top: 20px;
+}
+
+#card2-3 {
+  background: linear-gradient(to bottom right, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3));
+  padding-top: 20px;
+}
+
+#build2:hover {
+  color: white;
+  transition: 0.5s;
+  transform: scale(1.1);
+  background: linear-gradient(to bottom, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3))
+}
+
+#build2:active {
+  color: white;
+  background: linear-gradient(to bottom, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3));
+  transform: scale(0.9);
+  transition: 0.1s;
+}

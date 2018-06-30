@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "easy-d-n-d",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
@@ -9,7 +9,8 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.14",
-    "reactstrap": "^6.1.0"
+    "reactstrap": "^6.1.0",
+    "tachyons": "^4.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

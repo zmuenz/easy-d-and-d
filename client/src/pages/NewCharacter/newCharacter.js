@@ -34,9 +34,9 @@ export class NewCharacter extends Component {
     };
 
     applyRacialBonuses() {
-        
+
         switch (document.getElementById('race').value) {
-            
+
             case "":
                 break;
 
@@ -164,7 +164,7 @@ export class NewCharacter extends Component {
             this.applyRacialBonuses();
             console.log(this.state);
         });
-        
+
     };
 
     // OnClick function to randomize character gender
@@ -298,7 +298,7 @@ export class NewCharacter extends Component {
         rollStats.bind(this)();
         // Set the state of the stats to the numbers rolled and bind it to .this
         setStats.bind(this)();
-        
+
     };
 
     // Resets the state of the character stats
@@ -319,18 +319,17 @@ export class NewCharacter extends Component {
         event.preventDefault();
 
         console.log(this.state);
-        
-        API.saveCharacter({ 
+        API.saveCharacter({
             character_name: this.state.character_name,
             gender: this.state.gender,
-            race: this.state.class, 
-            class : this.state.class,
-            dex : this.state.dex,
-            intel : this.state.int,
-            stre : this.state.str,
-            con : this.state.con,
-            wis : this.state.wis,
-            cha : this.state.cha
+            race: this.state.class,
+            class: this.state.class,
+            dex: this.state.dex,
+            intel: this.state.int,
+            stre: this.state.str,
+            con: this.state.con,
+            wis: this.state.wis,
+            cha: this.state.cha
         });
 
         // Function to reset the form fields after submission to the DB    
@@ -482,5 +481,4 @@ export class NewCharacter extends Component {
             </div>
         );
     }
-}
-
+};
