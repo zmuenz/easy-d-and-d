@@ -1,9 +1,10 @@
 body {
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .parallax-container {
-    height: "100px";
+    height: 100%;
     margin-top: 0px;
 }
 
@@ -120,4 +121,31 @@ body {
   background: linear-gradient(to bottom, rgb(240, 187, 14), rgb(247, 104, 47), rgb(151, 3, 3));
   transform: scale(0.9);
   transition: 0.1s;
+}
+
+#signUpModal {
+  background: none;
+  box-shadow: none;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.modal-content{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+#firstName, #lastName {
+  margin-right: 0px;
+  display: inline-block;
+}
+
+#loginModal {
+  background: none;
+  box-shadow: none;
+  height: 100%;
+  overflow-y: hidden;
 }
