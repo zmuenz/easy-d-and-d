@@ -14,10 +14,6 @@ import {
     CardText
 } from 'reactstrap';
 
-// Here the `API_URL` env var is being
-// injected by the `server.js` file
-const api_url = process.env.API_URL || '';
-
 export class NewCharacter extends Component {
     constructor(props) {
         super(props);
@@ -214,20 +210,19 @@ export class NewCharacter extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.author) {
-          API.saveCharacter({
+        console.log(this.state);
+          API.saveCharacter({ 
             character_name: this.state.character_name,
             gender: this.state.gender,
             race: this.state.class, 
             class : this.state.class,
             dex : this.state.dex,
-            intel : this.state.intel,
-            stre : this.state.stre,
+            intel : this.state.int,
+            stre : this.state.str,
             con : this.state.con,
             wis : this.state.wis,
             cha : this.state.cha
-          })
-        };
+          })  
 
             function resetForm() {
             document.getElementById("character_name").value = "";

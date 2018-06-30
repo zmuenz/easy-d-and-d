@@ -21,12 +21,12 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-//use router, router defined above 
-app.use(router);
-
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+//use router, router defined above 
+app.use(router);
 
 //For cookieParser
 app.use(cookieParser());

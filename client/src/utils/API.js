@@ -7,11 +7,11 @@ export default {
   },
   // Gets the Character with the given id
   getCharacter: function (id) {
-    return axios.get("/api/Character" + id);
+    return axios.get("/api/CharacterID" + id);
   },
   // Deletes the Character with the given id
   deleteCharacter: function (id) {
-    return axios.delete("/api/Character" + id);
+    return axios.delete("/api/CharacterDelete" + id);
   },
   // Saves a Character to the database
   saveCharacter: function (CharacterData) {

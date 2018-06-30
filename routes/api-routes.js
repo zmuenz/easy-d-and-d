@@ -26,9 +26,11 @@ router.get("/api/Character", function(req, res) {
   });
 
   //route for saving a new character to the database 
+  //this needs changed, was fixed, reverted for some reason 
   router.post("/api/Character", function(req, res) {
-      var newCharacter = { 
-         character_name : req.body.name,
+    console.log(req.body);  
+    var newCharacter = { 
+         character_name : req.body.character_name,
          gender : req.body.gender,
          race : req.body.race,
          class : req.body.class,
@@ -40,7 +42,7 @@ router.get("/api/Character", function(req, res) {
          cha : req.body.cha
       
     }
-      db.characters.create(newCharacter).then(function(dbPost) {
+      db.Character.create(newCharacter).then(function(dbPost) {
         console.log(dbPost);
         res.json(dbPost);
       });
