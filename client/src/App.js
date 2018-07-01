@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Login } from "./pages/Login";
-import { SignUp } from "./pages/SignUp";
 import { CharacterPage } from "./pages/CharacterPage";
 import { NewCharacter } from "./pages/NewCharacter";
 import NavBar from "./components/landingComponents/NavBar";
@@ -15,8 +13,6 @@ const App = () => (
       <NavBar />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
         <Route exact path="/characterpage" component={CharacterPage} />
         <Route exact path="/newcharacter" component={NewCharacter} />
         <Route exact path="/landing" component={Landing} />

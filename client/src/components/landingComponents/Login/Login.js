@@ -1,7 +1,7 @@
 import React from 'react';
 import 'tachyons';
 
-const LoginModal = () => {
+const Login = () => {
     return (
         <div id="loginModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -33,4 +33,4 @@ const LoginModal = () => {
     )
 }
 
-export default LoginModal;
+export default Login;
