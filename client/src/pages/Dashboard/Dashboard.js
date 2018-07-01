@@ -24,24 +24,24 @@ import 'tachyons';
 // };
 export class Dashboard extends React.Component {
     state = {
-      characters: [],
+        characters: [],
     };
-  
+
     componentDidMount() {
-      this.loadCharacters();
+        this.loadCharacters();
     }
-  
+
     loadCharacters = () => {
-      API.getCharacters()
-        .then(res =>
-          this.setState({ characters: res.data })
-        )
-        .catch(err => console.log(err));
+        API.getCharacters()
+            .then(res =>
+                this.setState({ characters: res.data })
+            )
+            .catch(err => console.log(err));
     };
 
     render() {
 
-        const Dashboard = (props) => {
+        const myDashboard = (props) => {
             return (
                 <div>
                     <Card>
@@ -69,4 +69,4 @@ export class Dashboard extends React.Component {
         };
     }
 
-export default Dashboard;
+    export default Dashboard;
