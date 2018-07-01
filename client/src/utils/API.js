@@ -22,11 +22,11 @@ export default {
 
   //create user
   saveNewUser: function (query) {
-    return axios.post("/api/signup", query);
+    return axios.post("/signup", query);
   },
 
   loginUser: function (query) {
-    return axios.post("/api/signin", query);
+    return axios.post("/signin", query);
   },
 
   checkUser: function () {
