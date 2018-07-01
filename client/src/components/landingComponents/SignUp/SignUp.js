@@ -76,7 +76,7 @@ handleFormSubmit = event => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Password</label>
-                                <input type="text" name="password" id="password" onChange={this.handleInputChange} placeholder="Password" />
+                                <input type="password" name="password" id="password" onChange={this.handleInputChange} placeholder="Password" />
                             </div>
                             <div className="modal-footer center">
                                 <button type="button" data-dismiss='modal' onClick={this.handleFormSubmit} className="btn btn-primary">Join!</button>
