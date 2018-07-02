@@ -21,19 +21,18 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-//For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-//use router, router defined above 
-app.use(router);
 
 //For cookieParser
 app.use(cookieParser());
 
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
 // For Passport
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.session()); // persistent login sessions
 
 //Models
@@ -46,10 +45,8 @@ models.sequelize.sync({ force: true }).then(function () {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-//app displays everywhere
-app.get('/', function (req, res) {
-    res.send('Welcome to Easy D&D');
-});
+//use router, router defined above 
+app.use(router);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

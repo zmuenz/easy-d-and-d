@@ -3,25 +3,10 @@ import React, { Component } from 'react';
 // import { CardList } from '../../components/CardList.js';
 import API from '../../utils/API';
 // import NavBar from '../../components/NavBar';
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 import '../../App.css';
 import 'tachyons';
 
-// export class Dashboard extends Component {
-//     render() {
-//         return (
-//             <Container className="my-4">
-//                 ( <h1 className="text-center">Check out all your characters here!</h1>)
-//                 < div className='tc' >
-//                     <h1 className='f1 tc'> Your Characters </h1>
-//                     <Scroll>
-//                         <CardList image={this.state.image} />
-//                     </Scroll>
-//                 </div>
-//             </Container>
-//         );
-//     }
-// };
 export class Dashboard extends React.Component {
     state = {
         characters: [],
@@ -41,7 +26,9 @@ export class Dashboard extends React.Component {
 
     render() {
             return (
-                <div>
+                <Container style={{marginTop: '30px'}}>
+                    <Row>
+                        <Col>
                     <Card>
                         <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                         <CardBody>
@@ -52,6 +39,8 @@ export class Dashboard extends React.Component {
                             </CardText>
                         </CardBody>
                     </Card>
+                    </Col>
+                    <Col>
                     <Card>
                         <CardBody>
                             <CardTitle>Character Name</CardTitle>
@@ -62,7 +51,9 @@ export class Dashboard extends React.Component {
                         </CardBody>
                         <CardImg bottom width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                     </Card>
-                </div>
+                    </Col>
+                    </Row>
+                </Container>
             );
         };
     }

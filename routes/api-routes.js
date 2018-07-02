@@ -64,12 +64,15 @@ router.post("/signup", function (req, res) {
   });
 });
 
+
 router.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/dashboard',
 
     failureRedirect: '/signin'
-})
-);
+}));
+
+// router.post('/signin', () => console.log(passport.Authenticator));
+
 
 
 module.exports = router;
