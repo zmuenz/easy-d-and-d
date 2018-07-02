@@ -40,14 +40,12 @@ export class Dashboard extends React.Component {
     };
 
     render() {
-
-        const myDashboard = (props) => {
             return (
                 <div>
                     <Card>
                         <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                         <CardBody>
-                            <CardTitle>Character Name: {character.character_name} </CardTitle>
+                            <CardTitle>Character Name: {} </CardTitle>
                             <CardText>Description</CardText>
                             <CardText>
                                 <small className="text-muted">Last updated 3 mins ago</small>
@@ -68,5 +66,5 @@ export class Dashboard extends React.Component {
             );
         };
     }
-}
+
 export default Dashboard;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CharacterPage } from "./pages/CharacterPage";
 import { NewCharacter } from "./pages/NewCharacter";
 import { Dashboard } from "./pages/Dashboard";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/landingComponents/NavBar";
 import Landing from './pages/Landing';
 
 import './App.css';
