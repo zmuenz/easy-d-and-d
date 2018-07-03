@@ -30,7 +30,7 @@ export default {
   },
 
   checkUser: function () {
-    return axios.get("/api/dashboard");
+    return axios.get("/logincheck");
   },
 
   logoutUser: function () {

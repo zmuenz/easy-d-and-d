@@ -66,12 +66,19 @@ router.post("/signup", function (req, res) {
 
 
 router.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
-
-    failureRedirect: '/signin'
+   
 }));
 
-// router.post('/signin', () => console.log(passport.Authenticator));
+router.get("/logincheck", function(req, res) {
+
+  if (req.user) {
+      console.log("login check server side" + req.user);
+      let userObj = {
+          user: req.user
+      }
+      res.send(userObj);
+  }
+})
 
 
 

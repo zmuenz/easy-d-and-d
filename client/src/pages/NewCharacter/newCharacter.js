@@ -33,6 +33,7 @@ export class NewCharacter extends Component {
         };
     };
 
+    // If race is half-elf, half-orc, or human, this function finds and applies the random +2 bonus to a stat
     findRandomBonus() {
         if ('str' in this.state.baseBonus) {
             this.setState({
@@ -61,6 +62,7 @@ export class NewCharacter extends Component {
         };
     };
 
+    // Defining function that sets stat bonuses based on selected race
     applyRacialBonuses() {
 
         switch (document.getElementById('race').value) {
@@ -166,8 +168,12 @@ export class NewCharacter extends Component {
                 break;
 
             default:
-                alert("Chosen race not recognized.");
+                alert("Chosen race not recognized. Please choose from the provided options.");
         };
+    };
+
+    reverseRacialBonuses() {
+        
     };
 
     // Event which handles input change on form
@@ -182,6 +188,136 @@ export class NewCharacter extends Component {
 
     // Event that handles any change to the race input
     handleRaceChange = event => {
+        switch (this.state.race) {
+            case "":
+                break;
+        
+            case "Dwarf":
+                this.setState({
+                    con: this.state.con - 2,
+                    wis: this.state.wis - 2,
+                    cha: this.state.cha + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Elf":
+                this.setState({
+                    dex: this.state.dex - 2,
+                    int: this.state.int - 2,
+                    con: this.state.con + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Gnome":
+                this.setState({
+                    con: this.state.con - 2,
+                    cha: this.state.cha - 2,
+                    str: this.state.str + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Half-elf":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            case "Half-orc":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            case "Halfling":
+                this.setState({
+                    dex: this.state.dex - 2,
+                    cha: this.state.cha - 2,
+                    str: this.state.str + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Human":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            default:
+                break;
+        };
         // Destructure the name and value properties off of event.target
         // Update the appropriate state
         const { name, value } = event.target;
@@ -191,12 +327,7 @@ export class NewCharacter extends Component {
         });
 
         this.setState({
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0
+            baseBonus: {}
         }, () => {
             this.applyRacialBonuses();
             console.log(this.state);
@@ -223,22 +354,145 @@ export class NewCharacter extends Component {
         const charRace = races[Math.floor(Math.random() * races.length)];
         document.getElementById("race").value = charRace;
 
-        this.setState({
-            race: charRace
-        });
+        switch (this.state.race) {
+            case "":
+                break;
+        
+            case "Dwarf":
+                this.setState({
+                    con: this.state.con - 2,
+                    wis: this.state.wis - 2,
+                    cha: this.state.cha + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Elf":
+                this.setState({
+                    dex: this.state.dex - 2,
+                    int: this.state.int - 2,
+                    con: this.state.con + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Gnome":
+                this.setState({
+                    con: this.state.con - 2,
+                    cha: this.state.cha - 2,
+                    str: this.state.str + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Half-elf":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            case "Half-orc":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            case "Halfling":
+                this.setState({
+                    dex: this.state.dex - 2,
+                    cha: this.state.cha - 2,
+                    str: this.state.str + 2,
+                    baseBonus: {}
+                });
+                break;
+        
+            case "Human":
+                if ('str' in this.state.baseBonus) {
+                    this.setState({
+                        str: this.state.str - 2
+                    })
+                } else if ('dex' in this.state.baseBonus) {
+                    this.setState({
+                        dex: this.state.dex - 2
+                    })
+                } else if ('con' in this.state.baseBonus) {
+                    this.setState({
+                        con: this.state.con - 2
+                    })
+                } else if ('int' in this.state.baseBonus) {
+                    this.setState({
+                        int: this.state.int - 2
+                    })
+                } else if ('wis' in this.state.baseBonus) {
+                    this.setState({
+                        wis: this.state.wis - 2
+                    })
+                } else if ('cha' in this.state.baseBonus) {
+                    this.setState({
+                        cha: this.state.cha - 2
+                    })
+                };
+        
+                break;
+        
+            default:
+                break;
+        };
 
         this.setState({
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0
+            race: charRace
         }, () => {
             this.applyRacialBonuses();
         });
     };
 
+    // Log state function for testing purposes
     logState = event => {
         event.preventDefault();
         console.log(this.state);
@@ -279,7 +533,7 @@ export class NewCharacter extends Component {
             return items;
         };
 
-        // Rolls 4 numbers and stores them in an array
+        // Rolls 4 numbers from 1-6 and stores them in an array
         function statRolls() {
             let diceRolls = [];
 
@@ -294,25 +548,12 @@ export class NewCharacter extends Component {
             diceRolls.shift();
             // Add the remaining rolls together
             var sum = diceRolls.reduce(function (a, b) { return a + b; }, 0);
-            // Push that final number to the charStats array
+            // Push that final number to the charStats array (we use this to set the stats later)
             charStats.push(sum);
         };
 
-        // Function to set the state to the random rolls
+        // Function to set the state to the random stat rolls
         function setStats() {
-
-            // this.setState((previousState, props) => {
-            //     console.log(previousState);
-
-            //     return {
-            //         str: charStats[0],
-            //         dex: charStats[1],
-            //         con: charStats[2],
-            //         int: charStats[3],
-            //         wis: charStats[4],
-            //         cha: charStats[5]
-            //     }
-            // }, () => this.applyRacialBonuses());
 
             this.setState({
                 str: charStats[0],
@@ -322,18 +563,90 @@ export class NewCharacter extends Component {
                 wis: charStats[4],
                 cha: charStats[5]
             }, () => {
-                // Function to apply racial bonuses from selected race
+                console.log(charStats);
                 console.log(this.state);
-                this.applyRacialBonuses();
+
+                // Function to apply racial bonuses from selected race
+                switch (document.getElementById('race').value) {
+
+                    case "":
+                        break;
+        
+                    case "Dwarf":
+                        this.setState({
+                            con: this.state.con + 2,
+                            wis: this.state.wis + 2,
+                            cha: this.state.cha - 2,
+                            baseBonus: {
+                                con: 2,
+                                wis: 2,
+                                cha: -2
+                            }
+                        });
+                        break;
+        
+                    case "Elf":
+                        this.setState({
+                            dex: this.state.dex + 2,
+                            int: this.state.int + 2,
+                            con: this.state.con - 2,
+                            baseBonus: {
+                                dex: 2,
+                                int: 2,
+                                con: -2
+                            }
+                        });
+                        break;
+        
+                    case "Gnome":
+                        this.setState({
+                            con: this.state.con + 2,
+                            cha: this.state.cha + 2,
+                            str: this.state.str - 2,
+                            baseBonus: {
+                                con: 2,
+                                cha: 2,
+                                str: -2
+                            }
+                        });
+                        break;
+    
+                    case "Half-elf":
+                        this.findRandomBonus();
+                        break;
+        
+                    case "Half-orc":
+                        this.findRandomBonus();
+                        break;
+    
+                    case "Halfling":
+                        this.setState({
+                            dex: this.state.dex + 2,
+                            cha: this.state.cha + 2,
+                            str: this.state.str - 2,
+                            baseBonus: {
+                                dex: 2,
+                                cha: 2,
+                                str: -2
+                            }
+                        });
+                        break;
+        
+                    case "Human":
+                        this.findRandomBonus();
+                        break;
+
+                    default:
+                        break;
+                };
             });
         };
 
-        // Function that calls statRolls 6 times
+        // Function that calls statRolls 6 times (to get the 6 stats we need)
         function rollStats() {
             for (var x = 0; x < 6; x++) {
                 statRolls.bind(this)();
             };
-
         };
 
         // Call the rollStats function and bind it to .this
@@ -401,6 +714,11 @@ export class NewCharacter extends Component {
     };
 
     render() {
+
+        var statStyling = {
+            fontSize: '30px'
+        };
+
         return (
             <div>
                 <Container>
@@ -473,37 +791,37 @@ export class NewCharacter extends Component {
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Strength</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.str}</CardText>
+                                    <CardText className="text-center mt-4" style={statStyling}>{this.state.str}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Dexterity</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.dex}</CardText>
+                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.dex}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Constitution</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.con}</CardText>
+                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.con}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Intelligence</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.int}</CardText>
+                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.int}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Wisdom</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.wis}</CardText>
+                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.wis}</CardText>
                                 </Card>
                             </Col>
                             <Col md="2">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Charisma</CardHeader>
-                                    <CardText className="text-center my-3">{this.state.cha}</CardText>
+                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.cha}</CardText>
                                 </Card>
                             </Col>
                         </Row>

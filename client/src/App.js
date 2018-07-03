@@ -5,9 +5,9 @@ import { NewCharacter } from "./pages/NewCharacter";
 import { Dashboard } from "./pages/Dashboard";
 import NavBar from "./components/landingComponents/NavBar";
 import Landing from './pages/Landing';
-
 import './App.css';
 import 'tachyons';
+
 
 const App = () => (
   <Router>
