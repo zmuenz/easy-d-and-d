@@ -13,43 +13,51 @@ const db = require('./models')
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
+<<<<<<< HEAD
   host: 'localhost',
   user: 'root',
   password: 'Magicman1684',
   database: 'characters_db',
+=======
+    host: '127.0.0.1',
+    user: 'root',
+    password: '0108C@denc3',
+    database: 'characters_db',
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
 });
 
 connection.connect();
+
+
+//For cookieParser
+app.use(cookieParser());
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//use router, router defined above 
-app.use(router);
-
-//For cookieParser
-app.use(cookieParser());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.session()); // persistent login sessions
 
 //Models
 var models = require("./models");
 
 //Sync Database with sequelize 
+<<<<<<< HEAD
 models.sequelize.sync({force:true}).then(function () {
+=======
+models.sequelize.sync({}).then(function () {
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-//app displays everywhere
-app.get('/', function (req, res) {
-    res.send('Welcome to Easy D&D');
-});
+//use router, router defined above 
+app.use(router);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -58,5 +66,5 @@ if (process.env.NODE_ENV === "production") {
 
 // Start the API server
 app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

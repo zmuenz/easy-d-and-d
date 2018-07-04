@@ -1,54 +1,88 @@
-
- db = require("../models");
+db = require("../models");
 var express = require('express');
+var passport = require('../config/passport.js')
 
 router = express.Router();
 
-router.get("/api/Character", function(req, res) {
+router.get("/api/Character", function (req, res) {
   var query = {};
-  db.Character.findAll({}).then(function(dbCharacter) {
+  db.Character.findAll({}).then(function (dbCharacter) {
     res.json(dbCharacter);
   });
 });
 
-  // Get route for retrieving a single character
-  router.get("/api/Character/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Character
-    db.Character.findAll({
-      where: {
-        id: req.params.id
-      },
-    }).then(function(dbCharacter) {
-      res.json(dbCharacter);
-    });
+// Get route for retrieving a single character
+router.get("/api/Character/:id", function (req, res) {
+  // Here we add an "include" property to our options in our findOne query
+  // We set the value to an array of the models we want to include in a left outer join
+  // In this case, just db.Character
+  db.Character.findAll({
+    where: {
+      id: req.params.id
+    },
+  }).then(function (dbCharacter) {
+    res.json(dbCharacter);
   });
+});
 
-  //route for saving a new character to the database 
-  //this needs changed, was fixed, reverted for some reason 
-  router.post("/api/Character", function(req, res) {
-    console.log(req.body);  
-    var newCharacter = { 
-         character_name : req.body.character_name,
-         gender : req.body.gender,
-         race : req.body.race,
-         class : req.body.class,
-         dex : req.body.dex,
-         intel : req.body.intel,
-         stre : req.body.stre,
-         con : req.body.con,
-         wis : req.body.wis,
-         cha : req.body.cha
-      
-    }
-      db.Character.create(newCharacter).then(function(dbPost) {
-        console.log(dbPost);
-        res.json(dbPost);
-      });
-    }); 
+//route for saving a new character to the database 
+//this needs changed, was fixed, reverted for some reason 
+router.post("/api/Character", function (req, res) {
+  console.log(req.body);
+  var newCharacter = {
+    character_name: req.body.character_name,
+    gender: req.body.gender,
+    race: req.body.race,
+    class: req.body.class,
+    dex: req.body.dex,
+    intel: req.body.intel,
+    stre: req.body.stre,
+    con: req.body.con,
+    wis: req.body.wis,
+    cha: req.body.cha
 
-module.exports = router; 
+  }
+  db.Character.create(newCharacter).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
+
+
+router.post("/signup", function (req, res) {
+  console.log(req.body);
+  var newUser = {
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+
+  }
+  console.log(newUser);
+  db.User.create(newUser).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
+
+
+router.post('/signin', passport.authenticate('local-signin', {
+   
+}));
+
+router.get("/logincheck", function(req, res) {
+
+  if (req.user) {
+      console.log("login check server side" + req.user);
+      let userObj = {
+          user: req.user
+      }
+      res.send(userObj);
+  }
+})
+
+
+
+module.exports = router;
 
 
 // eventually we expect routes to look different. As of now we are not pushing

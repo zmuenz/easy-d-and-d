@@ -4,10 +4,9 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
-passport.use(new LocalStrategy(
-  // Our user will sign in using an email, rather than a "username"
+passport.use('local-signin', new LocalStrategy(
   {
-    usernameField: "username"
+    usernameField: "userName"
   },
   function(username, password, done) {
     console.log(username, password);
@@ -35,6 +34,7 @@ passport.use(new LocalStrategy(
   }
 ));
 
+
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
@@ -53,7 +53,7 @@ var config = {
       "updatedAt": "updatedat"
     } /*don't forget to add host, port, dialect, etc.*/
   }
-  var sequelize = new Sequelize(database, username, password, config);
+ /// var sequelize = new Sequelize(database, username, password, config);
   
 // Exporting our configured passport
 module.exports = passport;
