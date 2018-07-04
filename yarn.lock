@@ -1418,8 +1418,13 @@ caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000856.tgz#ecc16978135a6f219b138991eb62009d25ee8daa"
 
 caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000859:
+<<<<<<< HEAD
+  version "1.0.30000860"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000860.tgz#c902e3df3cc4303f631abc7a1579a3ce0a6153a3"
+=======
   version "1.0.30000861"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000861.tgz#a32bb9607c34e4639b497ff37de746fc8a160410"
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -1742,7 +1747,11 @@ concat-stream@^1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+<<<<<<< HEAD
+concurrently@^3.5.0:
+=======
 concurrently@^3.6.0:
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-3.6.0.tgz#c25e34b156a9d5bd4f256a0d85f6192438ae481f"
   dependencies:
@@ -5360,7 +5369,11 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
+<<<<<<< HEAD
+nodemon@^1.11.0:
+=======
 nodemon@^1.17.5:
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
   version "1.17.5"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.5.tgz#e6a665c872fdf09d48bf2a81f3e85f8cfb39322a"
   dependencies:
@@ -6168,8 +6181,13 @@ postcss-reduce-transforms@^1.0.3:
     postcss-value-parser "^3.0.1"
 
 postcss-rtl@^1.2.3:
+<<<<<<< HEAD
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.0.tgz#e2b2eb1526758525c10966059b3623005e817c27"
+=======
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.1.tgz#86e497172ce2fb6a903d0ad353244c45dbeb747e"
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
   dependencies:
     rtlcss "^2.3.0"
 
@@ -6683,12 +6701,15 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
+<<<<<<< HEAD
+=======
 read@~1.0.3:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/read/-/read-1.0.7.tgz#b3da19bd052431a97671d44a42634adf710b40c4"
   dependencies:
     mute-stream "~0.0.4"
 
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
 readable-stream@1.0:
   version "1.0.34"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"

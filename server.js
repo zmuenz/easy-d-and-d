@@ -13,10 +13,17 @@ const db = require('./models')
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
+<<<<<<< HEAD
+  host: 'localhost',
+  user: 'root',
+  password: 'Magicman1684',
+  database: 'characters_db',
+=======
     host: '127.0.0.1',
     user: 'root',
     password: '0108C@denc3',
     database: 'characters_db',
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
 });
 
 connection.connect();
@@ -39,7 +46,11 @@ app.use(passport.session()); // persistent login sessions
 var models = require("./models");
 
 //Sync Database with sequelize 
+<<<<<<< HEAD
+models.sequelize.sync({force:true}).then(function () {
+=======
 models.sequelize.sync({}).then(function () {
+>>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")
