@@ -1,1 +1,1 @@
-export * from "./NewCharacter.js";
+export { NewCharacter } from "./NewCharacter.js";

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Login } from "./pages/Login";
-import { SignUp } from "./pages/SignUp";
+import { Login } from "./pages/login";
+import { SignUp } from "./pages/signUp";
 import { CharacterPage } from "./pages/CharacterPage";
 import { NewCharacter } from "./pages/NewCharacter";
 import NavBar from "./components/NavBar";
@@ -14,7 +14,7 @@ const App = () => (
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={SignUp} />
+        <Route exact path="/" component={Landing} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/characterpage" component={CharacterPage} />

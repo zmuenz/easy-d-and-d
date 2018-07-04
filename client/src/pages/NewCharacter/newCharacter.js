@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
+import './NewCharacter.css';
 import {
     Container,
+    Jumbotron,
     Row,
     Col,
     Button,
@@ -360,17 +362,32 @@ export class NewCharacter extends Component {
 
     render() {
         return (
-            <div>
+            <div className='build'>
+                <Row>
+                    <Col sm="12">
+                        <Jumbotron id="jumbo1">
+                            <h1 className='f1'>Begin your Build</h1>
+                            <p className='f3'>Will you customize and create, or leave your game to chance? The choice is yours!</p>
+                        </Jumbotron>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm="12">
+                        <div class="parallax-container">
+                            <div class="parallax"><img src="https://chaoslegionrpg.files.wordpress.com/2011/06/classes1.jpg" /></div>
+                        </div>
+                    </Col>
+                </Row>
                 <Container>
                     <Form className="mt-5">
                         <Row>
-                            <Col>
+                            <Col sm="12">
                                 <FormGroup>
                                     <Label for="character_name">Character Name</Label>
                                     <Input type="text" name="character_name" id="character_name" onChange={this.handleInputChange} placeholder="Name your character" />
                                 </FormGroup>
                             </Col>
-                            <Col>
+                            <Col sm="12" md="4">
                                 <FormGroup>
                                     <Label for="gender">Gender</Label>
                                     <Input type="select" name="gender" id="gender" defaultValue="" onChange={this.handleInputChange}>
@@ -380,12 +397,12 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col>
+                            <Col sm="12" md="4">
                                 <Button className="mt-4" onClick={this.randomizeGender} color="info">Random Gender</Button>
                             </Col>
                         </Row>
                         <Row>
-                            <Col>
+                            <Col sm="12" md="4">
                                 <FormGroup>
                                     <Label for="race">Race</Label>
                                     <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
@@ -404,7 +421,7 @@ export class NewCharacter extends Component {
                                 <Button className="mt-4" onClick={this.randomizeRace} color="info">Random Race</Button>
                             </Col>
 
-                            <Col>
+                            <Col sm="12" md="4">
                                 <FormGroup>
                                     <Label for="class">Class</Label>
                                     <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
