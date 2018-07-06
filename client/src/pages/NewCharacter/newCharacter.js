@@ -734,7 +734,7 @@ export class NewCharacter extends Component {
                 <Row>
                     <Col sm="12">
                         <div class="parallax-container">
-                            <div class="parallax"><img src="https://chaoslegionrpg.files.wordpress.com/2011/06/classes1.jpg" /></div>
+                            <div class="parallax"><img src="https://i.pinimg.com/originals/49/4f/5d/494f5d6f356a3849c6c50f560fd8f493.jpg" alt="mosaic of different DND classes" /></div>
                         </div>
                     </Col>
                 </Row>
