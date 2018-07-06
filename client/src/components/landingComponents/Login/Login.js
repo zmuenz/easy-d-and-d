@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import 'tachyons';
 import API from '../../../utils/API';
 
-export class Login extends Component { 
+class Login extends Component { 
     constructor(props) {
       super(props);
       this.state = {
@@ -26,8 +27,11 @@ export class Login extends Component {
       API.loginUser({  
         userName: this.state.userName,
         password: this.state.password
-        
       })  
+      .then(user => {
+      this.props.storeUser (user.data);
+      this.props.history.push("/dashboard");
+      })
   
         function resetForm() {
         document.getElementById("userName").value = "";
@@ -73,4 +77,4 @@ render() {
     )
 }
       }
-export default Login;
+export default withRouter(Login);
