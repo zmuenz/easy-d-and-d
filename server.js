@@ -22,7 +22,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-
 //For cookieParser
 app.use(cookieParser());
 
@@ -36,8 +35,12 @@ app.use(passport.initialize());
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.session()); // persistent login sessions
 
+
+
 //Models
 var models = require("./models");
+
+require('./config/passport.js')(passport, models.User);
 
 //Sync Database with sequelize 
 models.sequelize.sync({}).then(function () {
