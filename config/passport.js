@@ -53,7 +53,7 @@ var config = {
       "updatedAt": "updatedat"
     } /*don't forget to add host, port, dialect, etc.*/
   }
-  var sequelize = new Sequelize(database, username, password, config);
+ /// var sequelize = new Sequelize(database, username, password, config);
   
 // Exporting our configured passport
 module.exports = passport;

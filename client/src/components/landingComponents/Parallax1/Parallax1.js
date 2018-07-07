@@ -29,7 +29,7 @@ const Parallax1 = () => {
                     </div>
                 </div>
             </div>
-            <button id='build1' className='btn btn-bg-dark btn-large btn-outline-light grow'>Start Building!</button>
+            <a href='/newcharacter'><button id='build1' className='btn btn-bg-dark btn-large btn-outline-light grow'>Start Building!</button></a>
         </div>
     );
 }
