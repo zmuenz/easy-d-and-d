@@ -16,9 +16,7 @@ const Info = () => {
                         <br/>
                         <br/>
                         <br/>
-                        (Too many pieces of paper, too little time)
-                    
-                    <img id='arrow' src='http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c441.png' alt='golden arrow pointing to character sheets'/>
+                        (Too many pieces of paper, too little time)                    
                     </h5>
                     <img id='infoImage' className='float-right grow' src='https://www.dyslexic-charactersheets.com/images/pathfinder-stack.png' alt='DND pathfinder character sheets' />
                 </div>

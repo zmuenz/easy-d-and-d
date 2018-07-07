@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <div className='col-sm-12 col-md-12 col-lg-12 col-xl-12 pa0 ma0' style={{overflow: 'hidden', padding: '0px'}}>
             <nav className="navbar text-dark pa0 ma0 fixed-top shadow-none">
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="/">
                     <img className='App-logo' src="https://i.warosu.org/data/tg/img/0573/12/1515432486162.png" width="45" height="45" alt="" />
                 </a>
                 <ul className="navbar-nav">

@@ -733,12 +733,12 @@ export class NewCharacter extends Component {
                 </Row>
                 <Row>
                     <Col sm="12">
-                        <div class="parallax-container">
-                            <div class="parallax"><img src="https://i.pinimg.com/originals/49/4f/5d/494f5d6f356a3849c6c50f560fd8f493.jpg" alt="mosaic of different DND classes" /></div>
+                        <div className="parallax-container">
+                            <div className="parallax"><img src="https://pm1.narvii.com/6383/15429edc1490fca7ed4ce3dcded18f876088bd32_hq.jpg" alt="mosaic of different DND classes" /></div>
                         </div>
                     </Col>
                 </Row>
-                <Container>
+                <Container id="build">
                     <Form className="mt-5">
                         <Row>
                             <Col sm="12">
