@@ -15,7 +15,7 @@ const db = require('./models')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '0108C@denc3',
+  password: 'Magicman1684',
   database: 'characters_db',
 
 });

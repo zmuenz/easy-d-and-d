@@ -33,7 +33,6 @@ body {
 
 .navbar {
     background-color: rgba(105, 32, 160, 1);
-    overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
@@ -127,7 +126,7 @@ body {
   background: none;
   box-shadow: none;
   height: 100%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .modal-content{
@@ -148,4 +147,37 @@ body {
   box-shadow: none;
   height: 100%;
   overflow-y: hidden;
+}
+
+#menu {
+  text-decoration: none!important;
+  list-style-type: none;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#menu:hover {
+  background-color: rgba(255,255,255,0.5);
+  color: white!important;
+  text-decoration: none!important;
+}
+
+a{
+  text-decoration: none!important;
+}
+
+a:hover {
+  text-decoration: none!important;
+  color: white!important;
+}
+
+#menuIcon {
+  margin-left: 5px;
+}
+
+#dropdown1 {
+  height: 225px;
+  width: 150px!important;
+
 }
