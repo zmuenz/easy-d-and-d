@@ -9,25 +9,23 @@ module.exports = function (Sequelize, DataTypes) {
             autoIncrement: true
         },
         userName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 20]
-            }
+            type: DataTypes.TEXT,
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
             validate: {
-                len: [1]
+                isEmail: true
             }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [4, 10]
-            }
+        },
+        firstName: {
+            type: DataTypes.TEXT,
+        },
+        lastName: {
+        type: DataTypes.TEXT,
         },
         //Sequelize.ENUM did not work 
         status: {
