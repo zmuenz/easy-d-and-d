@@ -13,7 +13,7 @@ const NavBar = () => {
                     <li><a id="signUp" data-toggle='modal' data-target="#signUpModal" href="modal">Sign up</a></li>
                     <li><a href="/dashboard">See your characters</a></li>
                     <li className="divider"></li>
-                    <li><a id="startBuild" href="modal">Begin your build</a></li>
+                    <li><a id="startBuild" href="/newcharacter">Begin your build</a></li>
                 </ul>
                 <li id="menu">
                     <a className="dropdown-trigger" style={{ width: '75px' }} data-target="dropdown1" href="#!" role="button" aria-haspopup="true" aria-expanded="false">Menu<i id="menuIcon" className="material-icons right">arrow_drop_down</i>
