@@ -20,7 +20,7 @@ const Parallax3 = () => {
                                 <CardTitle>Character Name</CardTitle>
                                 <CardSubtitle>Card subtitle</CardSubtitle>
                                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                <Button>Button</Button>
+                                <Button>Profile</Button> <Button>Delete Character</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -34,7 +34,7 @@ const Parallax3 = () => {
                                 <CardTitle>Character Name</CardTitle>
                                 <CardSubtitle>Card subtitle</CardSubtitle>
                                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                <Button>Button</Button>
+                                <Button>Profile</Button> <Button>Delete Character</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -47,7 +47,7 @@ const Parallax3 = () => {
                                 <CardTitle>Character Name</CardTitle>
                                 <CardSubtitle>Card subtitle</CardSubtitle>
                                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                <Button>Button</Button>
+                                <Button>Profile</Button> <Button>Delete Character</Button>
                             </CardBody>
                         </Card>
                     </div>
