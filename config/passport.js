@@ -9,7 +9,6 @@ module.exports = function (passport, user) {
     done(null, user.id);
   });
 
-
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
     User.findById(id).then(function (user) {
@@ -37,16 +36,17 @@ passport.use('local-signup', new LocalStrategy(
 
     User.findOne({ where: { userName: userName } }).then(function (user) {
       if (user) {
-        return done(null, false, { message: 'That email is already taken' });
+        return done(null, false, { message: 'That username is already taken' });
       }
       else {
         var userPassword = generateHash(password);
         var data =
           {
-            email: email,
+            userName: req.body.userName,
+            email: req.body.email,
             password: userPassword,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
+            firstName: req.body.firstname,
+            lastName: req.body.lastname
           };
 
         User.create(data).then(function (newUser, created) {

@@ -42,6 +42,9 @@ var models = require("./models");
 
 require('./config/passport.js')(passport, models.User);
 
+//use router, router defined above 
+app.use(router);
+
 //Sync Database with sequelize 
 models.sequelize.sync({}).then(function () {
     console.log('Nice! Database looks fine')
@@ -49,8 +52,6 @@ models.sequelize.sync({}).then(function () {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-//use router, router defined above 
-app.use(router);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
