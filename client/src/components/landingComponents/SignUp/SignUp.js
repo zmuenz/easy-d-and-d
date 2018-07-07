@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import 'tachyons';
 import API from '../../../utils/API';
 
-export class SignUp extends Component { 
+class SignUp extends Component { 
   constructor(props) {
     super(props);
     this.state = {
+      firstName: "",
+      lastName: "",
       userName: "",
       password: "",
       email : ""
@@ -24,12 +27,23 @@ handleInputChange = event => {
 handleFormSubmit = event => {
   event.preventDefault();
   console.log(this.state);
-    API.saveNewUser({  
+    API.saveNewUser({
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,  
       userName: this.state.userName,
       email: this.state.email,
       password: this.state.password
       
-    })  
+    })
+    .then(API.loginUser({
+        userName: this.state.userName,
+        password: this.state.password
+      })  
+    )
+    .then(user => {
+        this.props.storeUser (user.data);
+        this.props.history.push("/dashboard");
+        })
 
       function resetForm() {
       document.getElementById("userName").value = "";
@@ -57,13 +71,13 @@ handleFormSubmit = event => {
                     </div>
                     <div className="modal-body">
                         <form>
-                            <div id='firstName' className="form-group col-sm-6">
+                            <div className="form-group">
                                 <label htmlFor="firstName">First Name</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="Enter first name" />
+                                <input type="text" name="firstName" className="form-control" id="firstName" onChange={this.handleInputChange} placeholder="Enter first name" />
                             </div>
-                            <div id='lastName' className="form-group col-sm-6">
+                            <div className="form-group">
                                 <label htmlFor="lastName">Last Name</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="Enter last name" />
+                                <input type="text" name="lastName" className="form-control" id="lastName" onChange={this.handleInputChange} placeholder="Enter last name" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email address</label>
@@ -90,4 +104,4 @@ handleFormSubmit = event => {
 }
 };
 
-export default SignUp;
+export default withRouter(SignUp);
