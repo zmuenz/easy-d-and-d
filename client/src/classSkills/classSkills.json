@@ -1,0 +1,238 @@
+[
+    {
+        "Barbarian": {
+            "Class Skills": [
+                "Acrobatics",
+                "Climb",
+                "Craft",
+                "Handle Animal",
+                "Intimidate",
+                "Knowledge (Nature)",
+                "Perception",
+                "Ride",
+                "Survival",
+                "Swim"
+            ],
+            "Skill Ranks Per Level": 4
+        }
+    },
+    {
+        "Bard": {
+            "Class Skills": [
+                "Acrobatics",
+                "Appraise",
+                "Bluff",
+                "Climb",
+                "Craft",
+                "Diplomacy",
+                "Disguise",
+                "Escape Artist",
+                "Intimidate",
+                "Knowledge (Arcana)",
+                "Knowledge (Dungeoneering)",
+                "Knowledge (Engineering)",
+                "Knowledge (Geography)",
+                "Knowledge (History)",
+                "Knowledge (Local)",
+                "Knowledge (Nature)",
+                "Knowledge (Nobility)",
+                "Knowledge (Planes)",
+                "Knowledge (Religion)",
+                "Linguistics",
+                "Perception",
+                "Perform",
+                "Profession",
+                "Sense Motive",
+                "Sleight of Hand",
+                "Spellcraft",
+                "Stealth",
+                "Use Magic Device"
+            ],
+            "Skill Ranks Per Level": 6
+        }
+    },
+    {
+        "Cleric": {
+            "Class Skills": [
+                "Appraise",
+                "Craft",
+                "Diplomacy",
+                "Heal",
+                "Knowledge (Arcana)",
+                "Knowledge (History)",
+                "Knowledge (Nobility)",
+                "Knowledge (Planes)",
+                "Knowledge (Religion)",
+                "Linguistics",
+                "Profession",
+                "Sense Motive",
+                "Spellcraft"
+            ],
+            "Skill Ranks Per Level": 2
+        }
+    },
+    {
+        "Druid": {
+            "Class Skills": [
+                "Climb",
+                "Craft",
+                "Fly",
+                "Handle Animal",
+                "Heal",
+                "Knowledge (Geography)",
+                "Knowledge (Nature)",
+                "Perception",
+                "Profession",
+                "Ride",
+                "Spellcraft",
+                "Survival",
+                "Swim"
+            ],
+            "Skill Ranks Per Level": 4
+        }
+    },
+    {
+        "Fighter": {
+            "Class Skills": [
+               "Climb",
+               "Craft",
+               "Handle Animal",
+               "Intimidate",
+               "Knowledge (Dungeoneering)",
+               "Knowledge (Engineering)",
+               "Profession",
+               "Ride",
+               "Survival",
+               "Swim" 
+            ],
+            "Skill Ranks Per Level": 2
+        }
+    },
+    {
+        "Monk": {
+            "Class Skills": [
+                "Acrobatics",
+                "Climb",
+                "Craft",
+                "Escape Artist",
+                "Intimidate",
+                "Knowledge (History)",
+                "Knowledge (Religion)", 
+                "Perception",
+                "Perform",
+                "Profession",
+                "Ride",
+                "Sense Motive",
+                "Stealth",
+                "Swim"
+            ],
+            "Skill Ranks Per Level": 4
+        }
+    },
+    {
+        "Paladin": {
+            "Class Skills": [
+                "Craft",
+                "Diplomacy",
+                "Handle Animal",
+                "Heal",
+                "Knowledge (Nobility)",
+                "Knowledge (Religion)",
+                "Profession",
+                "Ride",
+                "Sense Motive",
+                "Spellcraft"
+            ],
+            "Skill Ranks Per Level": 2
+        }
+    },
+    {
+        "Ranger": {
+            "Class Skills": [
+               "Climb",
+               "Craft",
+               "Handle Animal",
+               "Heal",
+               "Intimidate",
+               "Knowledge (Dungeoneering)",
+               "Knowledge (Geography)",
+               "Knowledge (Nature)",
+               "Perception",
+               "Profession",
+               "Ride",
+               "Spellcraft",
+               "Stealth",
+               "Survival",
+               "Swim" 
+            ],
+            "Skill Ranks Per Level": 6
+        }
+    },
+    {
+        "Rogue": {
+            "Class Skills": [
+                "Acrobatics",
+                "Appraise",
+                "Bluff",
+                "Climb",
+                "Craft",
+                "Diplomacy",
+                "Disable Device",
+                "Disguise",
+                "Escape Artist",
+                "Intimidate",
+                "Knowledge (Dungeoneering)",
+                "Knowledge (Local)",
+                "Linguistics",
+                "Perception",
+                "Perform",
+                "Profession",
+                "Sense Motive",
+                "Sleight of Hand",
+                "Stealth",
+                "Swim",
+                "Use Magic Device"
+            ],
+            "Skill Ranks Per Level": 8
+        }
+    },
+    {
+        "Sorcerer": {
+            "Class Skills": [
+                "Appraise",
+                "Bluff",
+                "Craft",
+                "Fly",
+                "Intimidate",
+                "Knowledge (Arcana)",
+                "Profession",
+                "Spellcraft",
+                "Use Magic Device"
+            ],
+            "Skill Ranks Per Level": 2
+        }
+    },
+    {
+        "Wizard": {
+            "Class Skills": [
+                "Appraise",
+                "Craft",
+                "Fly",
+                "Knowledge (Arcana)",
+                "Knowledge (Dungeoneering)",
+                "Knowledge (Engineering)",
+                "Knowledge (Geography)",
+                "Knowledge (History)",
+                "Knowledge (Local)",
+                "Knowledge (Nature)",
+                "Knowledge (Nobility)",
+                "Knowledge (Planes)",
+                "Knowledge (Religion)",
+                "Linguistics",
+                "Profession",
+                "Spellcraft"
+            ],
+            "Skill Ranks Per Level": 2
+        }
+    }
+]

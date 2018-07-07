@@ -5,20 +5,26 @@ import { NewCharacter } from "./pages/NewCharacter";
 import { Dashboard } from "./pages/Dashboard";
 import NavBar from "./components/landingComponents/NavBar";
 import Landing from './pages/Landing';
-
 import './App.css';
 import 'tachyons';
+
+let user 
+
+function storeUser(newUser) {
+    user = newUser;
+    console.log(user);
+}
 
 const App = () => (
   <Router>
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/characterpage" component={CharacterPage} />
-        <Route exact path="/newcharacter" component={NewCharacter} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/landing" component={Landing} />
+        <Route exact path="/" render={(props) => <Landing {...props} storeUser={storeUser} />} />
+        <Route exact path="/characterpage" component={(props)=> <CharacterPage {...props} user={user} />} />
+        <Route exact path="/newcharacter" component={(props)=> <NewCharacter {...props} user={user} />} />
+        <Route exact path="/dashboard"  render={(props) => <Dashboard {...props} user={user} />} />
+        <Route exact path="/landing" render={(props) => <Landing {...props} storeUser={storeUser} />} />
       </Switch>
     </div>
   </Router >

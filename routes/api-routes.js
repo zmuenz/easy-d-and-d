@@ -1,8 +1,9 @@
 db = require("../models");
 var express = require('express');
-var passport = require('../config/passport.js')
+var authController = require('../controllers/authController')
 
 router = express.Router();
+authController(router);
 
 router.get("/api/Character", function (req, res) {
   var query = {};
@@ -63,13 +64,6 @@ router.post("/signup", function (req, res) {
     res.json(dbPost);
   });
 });
-
-router.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
-
-    failureRedirect: '/signin'
-})
-);
 
 
 module.exports = router;

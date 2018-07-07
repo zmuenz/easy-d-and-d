@@ -1,0 +1,24 @@
+.build {
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 75px;
+}
+
+#jumbo1 {
+    background: linear-gradient(to bottom, rgba(105, 32, 160, 1) 15%, rgba(26, 141, 160, 1) 100%);
+    border-radius: 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+Row {
+    margin-top: 0px;
+}
+
+.parallax-container {
+    height: 400px;
+    margin-top: -20px;
+  }

@@ -14,42 +14,42 @@ const db = require('./models')
 // Connect to the SQL DB
 var connection = mysql.createConnection({
     host: '127.0.0.1',
-    user: 'Zack',
-    password: 'Gravytrain5%',
+    user: 'root',
+    password: 'js',
     database: 'characters_db',
 });
 
 connection.connect();
 
+//For cookieParser
+app.use(cookieParser());
+
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//use router, router defined above 
-app.use(router);
-
-//For cookieParser
-app.use(cookieParser());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.session()); // persistent login sessions
+
+
 
 //Models
 var models = require("./models");
 
+require('./config/passport.js')(passport, models.User);
+
 //Sync Database with sequelize 
-models.sequelize.sync({ force: true }).then(function () {
+models.sequelize.sync({}).then(function () {
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")
 });
 
-//app displays everywhere
-app.get('/', function (req, res) {
-    res.send('Welcome to Easy D&D');
-});
+//use router, router defined above 
+app.use(router);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

@@ -11,11 +11,15 @@ import '../../App.css';
 import 'tachyons';
 
 class Landing extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  };
   render() {
     return (
       <div className="App">
         <SignUp />
-        <Login />
+        <Login storeUser={this.props.storeUser} />/>
         <NavBar />
         <Jumbo1 />
         <Parallax1 />

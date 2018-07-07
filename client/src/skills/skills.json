@@ -1,0 +1,57 @@
+[
+    {
+        "STR": [
+            "Climb",
+            "Swim"
+        ]
+    },
+    {
+        "DEX": [
+            "Acrobatics",
+            "Disable Device",
+            "Escape Artist",
+            "Fly",
+            "Ride",
+            "Sleight of Hand",
+            "Stealth"
+        ]
+    },
+    {
+        "INT": [
+            "Appraise",
+            "Craft",
+            "Knowledge (Arcana)",
+            "Knowledge (Dungeoneering)",
+            "Knowledge (Engineering)",
+            "Knowledge (Geography)",
+            "Knowledge (History)",
+            "Knowledge (Local)",
+            "Knowledge (Nature)",
+            "Knowledge (Nobility)",
+            "Knowledge (Planes)",
+            "Knowledge (Religion)",
+            "Linguistics",
+            "Spellcraft"
+        ]
+    },
+    {
+        "WIS": [
+            "Heal",
+            "Perception",
+            "Profession",
+            "Sense Motive",
+            "Survival"
+        ]
+    },
+    {
+        "CHA": [
+            "Bluff",
+            "Diplomacy",
+            "Disguise",
+            "Handle Animal",
+            "Intimidate",
+            "Perform",
+            "Use Magic Device"
+        ]
+    }
+]
