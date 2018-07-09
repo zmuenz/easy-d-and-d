@@ -49,6 +49,31 @@ router.post("/api/Character", function (req, res) {
   });
 });
 
+router.delete("/api/Character", function (req, res) {
+  console.log(req.body);
+  var newCharacter = {
+    character_name: req.body.character_name,
+    gender: req.body.gender,
+    race: req.body.race,
+    class: req.body.class,
+    dex: req.body.dex,
+    intel: req.body.intel,
+    stre: req.body.stre,
+    con: req.body.con,
+    wis: req.body.wis,
+    cha: req.body.cha
+
+  }
+  db.Character.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
+
 
 router.post("/signup", function (req, res) {
   console.log(req.body);
