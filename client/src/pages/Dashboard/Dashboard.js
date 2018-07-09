@@ -20,9 +20,11 @@ export class Dashboard extends Component {
                 <SignUp />
                 <Login />
                 <NavBar />
-                <Jumbo1 />
+                <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
+                    <h1 className='f1'>Dive Back In!</h1>
+                    <p className='f3'>The game missed You</p>
+                </div>
                 <Parallax3 />
-
             </div>
         );
     }

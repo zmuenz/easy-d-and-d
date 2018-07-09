@@ -725,7 +725,7 @@ export class NewCharacter extends Component {
             <div className='build'>
                 <Row>
                     <Col sm="12">
-                        <Jumbotron id="jumbo1">
+                        <Jumbotron id="newCharJumbo">
                             <h1 className='f1'>Begin your Build</h1>
                             <p className='f3'>Will you customize and create, or leave your game to chance? The choice is yours!</p>
                         </Jumbotron>

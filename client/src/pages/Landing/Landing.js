@@ -18,7 +18,7 @@ class Landing extends Component {
   render() {
     return (
       <div className="App">
-        <SignUp />
+        <SignUp storeUser={this.props.storeUser} />
         <Login storeUser={this.props.storeUser} />/>
         <NavBar />
         <Jumbo1 />

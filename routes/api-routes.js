@@ -53,6 +53,8 @@ router.post("/api/Character", function (req, res) {
 router.post("/signup", function (req, res) {
   console.log(req.body);
   var newUser = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password
