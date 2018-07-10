@@ -1,9 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.parallax');
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var options = {
+    alignment: 'right',
+  }
+  var instances = M.Dropdown.init(elems, options);
+});
 
-  // Or with jQuery
+$(document).ready(function () {
+  $('.parallax').parallax();
+});
 
-  $(document).ready(function(){
-    $('.parallax').parallax();
-  });
+// $( document ).ready(function() {
+//   $(".dropdown-trigger").dropdown({
+//   });
+// });
