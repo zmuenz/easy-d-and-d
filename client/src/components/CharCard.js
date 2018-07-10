@@ -5,6 +5,8 @@ import {
     CardSubtitle, CardBody
 } from 'reactstrap';
 import API from '../utils/API';
+import '../images/characters.json'
+
 
 export class CharCard extends React.Component {
     state = {
@@ -26,11 +28,20 @@ export class CharCard extends React.Component {
     render() {
         return (
             <Card>
-                <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+                <CardImg src='../images/characters.json' alt="Card image cap" />
                 <CardBody>
-                    <CardTitle>e</CardTitle>
-                    <CardSubtitle>Card subtitle</CardSubtitle>
-                    <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+                    <CardTitle>Name: {character.character_name}</CardTitle>
+                    <CardSubtitle>Gender:{character.gender}</CardSubtitle>
+                    <CardSubtitle>Race:{character.race}</CardSubtitle>
+                    <CardSubtitle>Class:{character.class}</CardSubtitle>
+                    <CardText>
+                        <ListGroup><ListGroupItem>Dexterity: {character.dex}</ListGroupItem>
+                            <ListGroupItem>Intelligence: {character.intel}</ListGroupItem>
+                            <ListGroupItem>Charisma: {character.cha}</ListGroupItem>
+                            <ListGroupItem>Strength: {character.stre}</ListGroupItem>
+                            <ListGroupItem>Constitution: {character.con}</ListGroupItem>
+                            <ListGroupItem>Wisdom: {character.wis}</ListGroupItem> </ListGroup>
+                    </CardText>
 
                 </CardBody>
             </Card>
