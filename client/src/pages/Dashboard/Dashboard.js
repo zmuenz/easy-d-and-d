@@ -9,21 +9,15 @@ import '../../App.css';
 import 'tachyons';
 
 export class Dashboard extends Component {
-    render(){
+    render() {
         return (
             <div>
                 <NavBar />
-<<<<<<< Updated upstream
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
                     <h1 className='f1'>Dive Back In!</h1>
-                    <p className='f3'>The game missed You</p>
+                    <p className='f3'>The Game Missed You</p>
                 </div>
                 <Parallax3 />
-=======
-                <Jumbo1 storeUser={this.props.storeUser} />
-                <Parallax3 storeUser={this.props.storeUser} />/>
-
->>>>>>> Stashed changes
             </div>
         );
     }

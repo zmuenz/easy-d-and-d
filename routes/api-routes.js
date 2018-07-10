@@ -51,19 +51,6 @@ router.post("/api/Character", function (req, res) {
 
 router.delete("/api/Character", function (req, res) {
   console.log(req.body);
-  var newCharacter = {
-    character_name: req.body.character_name,
-    gender: req.body.gender,
-    race: req.body.race,
-    class: req.body.class,
-    dex: req.body.dex,
-    intel: req.body.intel,
-    stre: req.body.stre,
-    con: req.body.con,
-    wis: req.body.wis,
-    cha: req.body.cha
-
-  }
   db.Character.destroy({
     where: {
       id: req.params.id
@@ -74,6 +61,23 @@ router.delete("/api/Character", function (req, res) {
   });
 });
 
+
+router.post("/signup", function (req, res) {
+  console.log(req.body);
+  var newUser = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+
+  }
+  console.log(newUser);
+  db.User.create(newUser).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
 
 
 module.exports = router;
