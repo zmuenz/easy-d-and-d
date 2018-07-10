@@ -41,9 +41,10 @@ handleFormSubmit = event => {
       })  
     )
     .then(user => {
-        this.props.storeUser (user.data);
-        this.props.history.push("/dashboard");
-        })
+      let newUser = JSON.stringify(user.data);
+      sessionStorage.setItem('user', newUser);
+      this.props.history.push("/dashboard");
+      })
     };
 
     render() {
