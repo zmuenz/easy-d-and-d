@@ -5,9 +5,11 @@ module.exports = function (passport, user) {
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
 
-  passport.serializeUser(function (user, done) {
-    done(null, user.id);
-  });
+  passport.serializeUser(function(user, done) {
+    // the values returned here will be used to deserializeUser
+    // this can be use for further logins
+    done(null, {username: user.username, firstName: user.firstName, lastName: user.lastName});
+});
 
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
@@ -26,6 +28,8 @@ passport.use('local-signup', new LocalStrategy(
   {
     usernameField: 'userName',
     passwordField: 'password',
+    lastNameField: 'lastName',
+    firstNameField: 'firstName',
     passReqToCallback: true // allows us to pass back the entire request to the callback
   },
 
@@ -44,9 +48,10 @@ passport.use('local-signup', new LocalStrategy(
           {
             userName: req.body.userName,
             email: req.body.email,
-            password: userPassword,
-            firstName: req.body.firstname,
-            lastName: req.body.lastname
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            password: userPassword
+            
           };
 
         User.create(data).then(function (newUser, created) {

@@ -41,8 +41,16 @@ handleFormSubmit = event => {
       })  
     )
     .then(user => {
-      let newUser = JSON.stringify(user.data);
-      sessionStorage.setItem('user', newUser);
+        let userName = JSON.stringify(user.data.userName)
+        let firstName = JSON.stringify(user.data.firstName)
+        let lastName = JSON.stringify(user.data.lastName)
+        let email = JSON.stringify(user.data.email)
+        let id = JSON.stringify(user.data.id)
+        sessionStorage.setItem('userName', userName);
+        sessionStorage.setItem('firstName', firstName);
+        sessionStorage.setItem('lastName', lastName);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('id', id);
       this.props.history.push("/dashboard");
       })
     };
