@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
+import Jumbo1 from '../../components/landingComponents/Jumbotron1';
+import NavBar from '../../components/landingComponents/NavBar';
+import Parallax1 from '../../components/landingComponents/Parallax1';
+import Parallax2 from '../../components/landingComponents/Parallax2';
+import Info from '../../components/landingComponents/Info';
+import Jumbo2 from '../../components/landingComponents/Jumbotron2';
+import SignUp from '../../components/landingComponents/SignUp';
+import Login from '../../components/landingComponents/Login';
+import Logout from '../../components/landingComponents/Logout';
+import '../../App.css';
+import 'tachyons';
 import API from '../../utils/API';
+
+
 import './NewCharacter.css';
 import {
     Container,
@@ -36,12 +49,6 @@ export class NewCharacter extends Component {
             baseBonus: {}
         };
     };
-
-    Authenticate() {
-        const user = JSON.parse(sessionStorage.getItem('user'))
-        const userName = user.userName;
-        const userid = user.id;
-        }
 
     // If race is half-elf, half-orc, or human, this function finds and applies the random +2 bonus to a stat
     findRandomBonus() {
@@ -773,8 +780,8 @@ export class NewCharacter extends Component {
 
         console.log(this.state);
         API.saveCharacter({
-            userName: this.state.userName,
-            userid: this.state.userid,
+            userName: JSON.parse((sessionStorage.getItem('userName'))),
+            userid: JSON.parse((sessionStorage.getItem('id'))),
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,
