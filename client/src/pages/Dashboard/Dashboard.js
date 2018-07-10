@@ -34,7 +34,7 @@ export class Dashboard extends React.Component {
                 <Login storeUser={this.props.storeUser} />/>
                 <Logout />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
-                    {/* <h1 className='f1'>Dive Back In, {userName} !</h1> */}
+                    <h1 className='f1'>Dive Back In, {userName} !</h1>
                     <p className='f3'>The game missed you</p>
                 </div>
                 <Parallax3 />
