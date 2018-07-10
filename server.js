@@ -14,6 +14,7 @@ const db = require('./models')
 // Connect to the SQL DB
 var connection = mysql.createConnection({
 <<<<<<< HEAD
+<<<<<<< HEAD
     host: 'localhost',
     user: 'root',
     password: '',
@@ -25,6 +26,12 @@ var connection = mysql.createConnection({
   database: 'characters_db',
 >>>>>>> master
 
+=======
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'js',
+    database: 'characters_db',
+>>>>>>> 12fed36ae07e7413c765e065e9ba6527094a934e
 });
 
 connection.connect();

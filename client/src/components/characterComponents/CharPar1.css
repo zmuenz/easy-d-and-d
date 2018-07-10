@@ -1,0 +1,58 @@
+#parallax1 {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.charInfo {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#charImage {
+    height: 350px;
+    width: 250px;
+    border: 2px solid white;
+    padding: 0px;
+    margin-top: 20px;
+}
+
+#charIntro {
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+#charBasic {
+    margin-top: 20px;
+    height: 350px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    text-shadow: black 2px 2px 7px;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+#charStat {
+    height: 500px;
+    background-color: white;
+}
+
+#abilityScores {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    border: 2px solid black;
+
+}

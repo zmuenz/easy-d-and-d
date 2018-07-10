@@ -1,0 +1,46 @@
+[
+    {
+        "class": "Barbarian",
+        "image": "https://media.wired.com/photos/5ada3a2c1e66870735eada27/master/pass/DragonPasswordFINAL.jpg"
+    },
+    {
+        "class": "Bard",
+        "image": "https://i.pinimg.com/originals/2a/2b/6d/2a2b6dd7efe2a8874699abf24a7d6dac.jpg"
+    },
+    {
+        "class": "Cleric",
+        "image": "https://orig00.deviantart.net/4106/f/2008/258/c/a/study_of_light_by_radojavor.jpg"
+    },
+    {
+        "class": "Druid",
+        "image": "https://pre00.deviantart.net/0627/th/pre/f/2007/215/7/5/the_forest_church_2_by_weiweihua.jpg"
+    },
+    {
+        "class": "Fighter",
+        "image": "https://i.pinimg.com/originals/86/d6/3c/86d63c803356239dfed040ff3b0a09ae.jpg"
+    },
+    {
+        "class": "Monk",
+        "image": "https://www.walldevil.com/wallpapers/w02/779323-artwork-fantasy-art-temples.jpg"
+    },
+    {
+        "class": "Paladin",
+        "image": "http://1.bp.blogspot.com/-J7Q1MjaNUpg/U15XvxhwVfI/AAAAAAAAH5k/gOpbhaAfQ30/s1600/Noah-Bradley_Hope-of-Glory.jpg"
+    },
+    {
+        "class": "Ranger",
+        "image": "https://www.artpeoplegallery.com/wp-content/uploads/2016/01/heart_of_woods_by_aldafea.jpg"
+    },
+    {
+        "class": "Rogue",
+        "image": "https://cdn.suwalls.com/wallpapers/fantasy/dark-city-23052-1920x1080.jpg"
+    },
+    {
+        "class": "Sorcerer",
+        "image": "https://vignette.wikia.nocookie.net/yakuza-mob-roleplay/images/7/79/Anime-fantasy-waterfall-castle-264820.jpg/revision/latest?cb=20150918083914"
+    },
+    {
+        "class": "Wizard",
+        "image": "https://stmed.net/sites/default/files/library-wallpapers-28681-1755646.jpg"
+    }
+]

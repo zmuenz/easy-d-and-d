@@ -23,14 +23,15 @@ export class NewCharacter extends Component {
             username: "",
             character_name: "",
             gender: "",
+            alignment: "",
             race: "",
             class: "",
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0,
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10,
             baseBonus: {}
         };
     };
@@ -118,12 +119,13 @@ export class NewCharacter extends Component {
                 var val = 2;
                 var obj = {};
                 obj[key] = val;
-                
-                this.setState({baseBonus: Object.assign({}, obj)
+
+                this.setState({
+                    baseBonus: Object.assign({}, obj)
                 }, () => {
                     this.findRandomBonus();
                 });
-                
+
                 break;
 
             case "Half-orc":
@@ -134,7 +136,8 @@ export class NewCharacter extends Component {
                 var obj1 = {};
                 obj1[key1] = val1;
 
-                this.setState({baseBonus: Object.assign({}, obj1)
+                this.setState({
+                    baseBonus: Object.assign({}, obj1)
                 }, () => {
                     this.findRandomBonus();
                 });
@@ -162,7 +165,8 @@ export class NewCharacter extends Component {
                 var obj2 = {};
                 obj2[key2] = val2;
 
-                this.setState({baseBonus: Object.assign({}, obj2)
+                this.setState({
+                    baseBonus: Object.assign({}, obj2)
                 }, () => {
                     this.findRandomBonus();
                 });
@@ -171,11 +175,10 @@ export class NewCharacter extends Component {
 
             default:
                 alert("Chosen race not recognized. Please choose from the provided options.");
+                this.setState({
+                    race: ""
+                });
         };
-    };
-
-    reverseRacialBonuses() {
-        
     };
 
     // Event which handles input change on form
@@ -193,7 +196,7 @@ export class NewCharacter extends Component {
         switch (this.state.race) {
             case "":
                 break;
-        
+
             case "Dwarf":
                 this.setState({
                     con: this.state.con - 2,
@@ -202,7 +205,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Elf":
                 this.setState({
                     dex: this.state.dex - 2,
@@ -211,7 +214,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Gnome":
                 this.setState({
                     con: this.state.con - 2,
@@ -220,7 +223,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Half-elf":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -247,9 +250,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             case "Half-orc":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -276,9 +279,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             case "Halfling":
                 this.setState({
                     dex: this.state.dex - 2,
@@ -287,7 +290,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Human":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -314,9 +317,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             default:
                 break;
         };
@@ -349,6 +352,18 @@ export class NewCharacter extends Component {
         });
     };
 
+    // Randomizes character alignment on button click
+    randomizeAlignment = event => {
+        event.preventDefault();
+        const alignments = ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"];
+        const charAlignment = alignments[Math.floor(Math.random() * alignments.length)];
+        document.getElementById("alignment").value = charAlignment;
+
+        this.setState({
+            alignment: charAlignment
+        });
+    };
+
     // OnClick function to randomize character race, reset stat rolls, and apply racial bonus to stats
     randomizeRace = event => {
         event.preventDefault();
@@ -359,7 +374,7 @@ export class NewCharacter extends Component {
         switch (this.state.race) {
             case "":
                 break;
-        
+
             case "Dwarf":
                 this.setState({
                     con: this.state.con - 2,
@@ -368,7 +383,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Elf":
                 this.setState({
                     dex: this.state.dex - 2,
@@ -377,7 +392,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Gnome":
                 this.setState({
                     con: this.state.con - 2,
@@ -386,7 +401,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Half-elf":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -413,9 +428,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             case "Half-orc":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -442,9 +457,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             case "Halfling":
                 this.setState({
                     dex: this.state.dex - 2,
@@ -453,7 +468,7 @@ export class NewCharacter extends Component {
                     baseBonus: {}
                 });
                 break;
-        
+
             case "Human":
                 if ('str' in this.state.baseBonus) {
                     this.setState({
@@ -480,9 +495,9 @@ export class NewCharacter extends Component {
                         cha: this.state.cha - 2
                     })
                 };
-        
+
                 break;
-        
+
             default:
                 break;
         };
@@ -573,7 +588,7 @@ export class NewCharacter extends Component {
 
                     case "":
                         break;
-        
+
                     case "Dwarf":
                         this.setState({
                             con: this.state.con + 2,
@@ -586,7 +601,7 @@ export class NewCharacter extends Component {
                             }
                         });
                         break;
-        
+
                     case "Elf":
                         this.setState({
                             dex: this.state.dex + 2,
@@ -599,7 +614,7 @@ export class NewCharacter extends Component {
                             }
                         });
                         break;
-        
+
                     case "Gnome":
                         this.setState({
                             con: this.state.con + 2,
@@ -612,15 +627,15 @@ export class NewCharacter extends Component {
                             }
                         });
                         break;
-    
+
                     case "Half-elf":
                         this.findRandomBonus();
                         break;
-        
+
                     case "Half-orc":
                         this.findRandomBonus();
                         break;
-    
+
                     case "Halfling":
                         this.setState({
                             dex: this.state.dex + 2,
@@ -633,7 +648,7 @@ export class NewCharacter extends Component {
                             }
                         });
                         break;
-        
+
                     case "Human":
                         this.findRandomBonus();
                         break;
@@ -662,12 +677,86 @@ export class NewCharacter extends Component {
     resetStats = event => {
         event.preventDefault();
         this.setState({
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10
+        }, () => {
+            // Function to apply racial bonuses from selected race
+            switch (document.getElementById('race').value) {
+
+                case "":
+                    break;
+
+                case "Dwarf":
+                    this.setState({
+                        con: this.state.con + 2,
+                        wis: this.state.wis + 2,
+                        cha: this.state.cha - 2,
+                        baseBonus: {
+                            con: 2,
+                            wis: 2,
+                            cha: -2
+                        }
+                    });
+                    break;
+
+                case "Elf":
+                    this.setState({
+                        dex: this.state.dex + 2,
+                        int: this.state.int + 2,
+                        con: this.state.con - 2,
+                        baseBonus: {
+                            dex: 2,
+                            int: 2,
+                            con: -2
+                        }
+                    });
+                    break;
+
+                case "Gnome":
+                    this.setState({
+                        con: this.state.con + 2,
+                        cha: this.state.cha + 2,
+                        str: this.state.str - 2,
+                        baseBonus: {
+                            con: 2,
+                            cha: 2,
+                            str: -2
+                        }
+                    });
+                    break;
+
+                case "Half-elf":
+                    this.findRandomBonus();
+                    break;
+
+                case "Half-orc":
+                    this.findRandomBonus();
+                    break;
+
+                case "Halfling":
+                    this.setState({
+                        dex: this.state.dex + 2,
+                        cha: this.state.cha + 2,
+                        str: this.state.str - 2,
+                        baseBonus: {
+                            dex: 2,
+                            cha: 2,
+                            str: -2
+                        }
+                    });
+                    break;
+
+                case "Human":
+                    this.findRandomBonus();
+                    break;
+
+                default:
+                    break;
+            };
         });
     };
 
@@ -679,6 +768,7 @@ export class NewCharacter extends Component {
         API.saveCharacter({
             character_name: this.state.character_name,
             gender: this.state.gender,
+            alignment: this.state.alignment,
             race: this.state.class,
             class: this.state.class,
             dex: this.state.dex,
@@ -700,14 +790,15 @@ export class NewCharacter extends Component {
                 username: "",
                 character_name: "",
                 gender: "",
+                alignment: "",
                 race: "",
                 class: "",
-                str: 0,
-                dex: 0,
-                con: 0,
-                int: 0,
-                wis: 0,
-                cha: 0
+                str: 10,
+                dex: 10,
+                con: 10,
+                int: 10,
+                wis: 10,
+                cha: 10
             });
         };
 
@@ -719,6 +810,11 @@ export class NewCharacter extends Component {
 
         var statStyling = {
             fontSize: '30px'
+        };
+
+        var submitButtonStyling = {
+            backgroundColor: 'rgba(105, 32, 160, 1)',
+            fontWeight: '600px'
         };
 
         return (
@@ -757,14 +853,34 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
+                            <Col>
+                                <Button className="mt-4" onClick={this.randomizeGender} color="info">Randomize</Button>
+                            </Col>
                             <Col sm="12" md="4">
-                                <Button className="mt-4" onClick={this.randomizeGender} color="info">Random Gender</Button>
+                                <FormGroup>
+                                    <Label for="alignment">Alignment</Label>
+                                    <Input type="select" name="alignment" id="alignment" defaultValue="" onChange={this.handleInputChange}>
+                                        <option value="">Select character's alignment</option>
+                                        <option value="Lawful Good">Lawful Good</option>
+                                        <option value="Neutral Good">Neutral Good</option>
+                                        <option value="Chaotic Good">Chaotic Good</option>
+                                        <option value="Lawful Neutral">Lawful Neutral</option>
+                                        <option value="Neutral">Neutral</option>
+                                        <option value="Chaotic Neutral">Chaotic Neutral</option>
+                                        <option value="Lawful Evil">Lawful Evil</option>
+                                        <option value="Neutral Evil">Neutral Evil</option>
+                                        <option value="Chaotic Evil">Chaotic Evil</option>
+                                    </Input>
+                                </FormGroup>
+                            </Col>
+                            <Col>
+                                <Button className="mt-4" onClick={this.randomizeAlignment} color="info">Randomize</Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="12" md="4">
                                 <FormGroup>
-                                    <Label for="race">Race</Label>
+                                    <Label for="race">Race (Racial Ability Modifiers are automatically applied.)</Label>
                                     <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
                                         <option value="">Select character's race</option>
                                         <option value="Dwarf">Dwarf</option>
@@ -778,7 +894,7 @@ export class NewCharacter extends Component {
                                 </FormGroup>
                             </Col>
                             <Col>
-                                <Button className="mt-4" onClick={this.randomizeRace} color="info">Random Race</Button>
+                                <Button className="mt-4" onClick={this.randomizeRace} color="info">Randomize</Button>
                             </Col>
 
                             <Col sm="12" md="4">
@@ -801,7 +917,7 @@ export class NewCharacter extends Component {
                                 </FormGroup>
                             </Col>
                             <Col>
-                                <Button className="mt-4" onClick={this.randomizeClass} color="info">Random Class</Button>
+                                <Button className="mt-4" onClick={this.randomizeClass} color="info">Randomize</Button>
                             </Col>
                         </Row>
                         <Row className="mt-3">
@@ -844,13 +960,13 @@ export class NewCharacter extends Component {
                         </Row>
                         <Row className="my-3">
                             <Col>
-                                <Button className="mr-3" color="info" onClick={this.randomizeStats}>Generate Stats</Button>
-                                <Button color="info" onClick={this.resetStats}>Reset Stats</Button>
+                                <Button className="mr-3" color="info" onClick={this.randomizeStats}>Roll Ability Scores</Button>
+                                <Button className="btn-outline-info" onClick={this.resetStats}>Reset Ability Scores</Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Button className="mr-3" color="info" type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
+                                <Button className="mr-3" style={submitButtonStyling} type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
                                 <Button color="info" onClick={this.logState}>Log state</Button>
                             </Col>
                         </Row>

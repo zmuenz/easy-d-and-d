@@ -355,11 +355,19 @@ autoprefixer@^6.3.1:
     postcss-value-parser "^3.2.3"
 
 autoprefixer@^8.1.0:
+<<<<<<< HEAD
+  version "8.6.5"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.6.5.tgz#343f3d193ed568b3208e00117a1b96eb691d4ee9"
+  dependencies:
+    browserslist "^3.2.8"
+    caniuse-lite "^1.0.30000864"
+=======
   version "8.6.4"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.6.4.tgz#6bf501de426a3b95973f5d237dbcc9181e9904d2"
   dependencies:
     browserslist "^3.2.8"
     caniuse-lite "^1.0.30000859"
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^6.0.23"
@@ -1334,6 +1342,21 @@ bytes@^2.4.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-2.5.0.tgz#4c9423ea2d252c270c41b2bdefeff9bb6b62c06a"
 
+<<<<<<< HEAD
+cac@^3.0.3:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/cac/-/cac-3.0.4.tgz#6d24ceec372efe5c9b798808bc7f49b47242a4ef"
+  dependencies:
+    camelcase-keys "^3.0.0"
+    chalk "^1.1.3"
+    indent-string "^3.0.0"
+    minimist "^1.2.0"
+    read-pkg-up "^1.0.1"
+    suffix "^0.1.0"
+    text-table "^0.2.0"
+
+=======
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 cache-base@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cache-base/-/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
@@ -1376,6 +1399,16 @@ camelcase-keys@^2.0.0:
     camelcase "^2.0.0"
     map-obj "^1.0.0"
 
+<<<<<<< HEAD
+camelcase-keys@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-3.0.0.tgz#fc0c6c360363f7377e3793b9a16bccf1070c1ca4"
+  dependencies:
+    camelcase "^3.0.0"
+    map-obj "^1.0.0"
+
+=======
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 camelcase-keys@^4.0.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-4.2.0.tgz#a2aa5fb1af688758259c32c141426d78923b9b77"
@@ -1417,6 +1450,11 @@ caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792:
   version "1.0.30000856"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000856.tgz#ecc16978135a6f219b138991eb62009d25ee8daa"
 
+<<<<<<< HEAD
+caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000864:
+  version "1.0.30000864"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000864.tgz#7a08c78da670f23c06f11aa918831b8f2dd60ddc"
+=======
 caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000859:
 <<<<<<< HEAD
   version "1.0.30000860"
@@ -1425,6 +1463,7 @@ caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000859:
   version "1.0.30000861"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000861.tgz#a32bb9607c34e4639b497ff37de746fc8a160410"
 >>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -1748,10 +1787,14 @@ concat-stream@^1.6.0:
     typedarray "^0.0.6"
 
 <<<<<<< HEAD
+concurrently@^3.6.0:
+=======
+<<<<<<< HEAD
 concurrently@^3.5.0:
 =======
 concurrently@^3.6.0:
 >>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-3.6.0.tgz#c25e34b156a9d5bd4f256a0d85f6192438ae481f"
   dependencies:
@@ -1923,6 +1966,13 @@ cross-spawn@5.1.0, cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   dependencies:
     lru-cache "^4.0.1"
     shebang-command "^1.2.0"
+    which "^1.2.9"
+
+cross-spawn@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
+  dependencies:
+    lru-cache "^4.0.1"
     which "^1.2.9"
 
 crypto-browserify@^3.11.0:
@@ -2459,8 +2509,13 @@ electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.48.tgz#d3b0d8593814044e092ece2108fc3ac9aea4b900"
 
 electron-to-chromium@^1.3.47:
+<<<<<<< HEAD
+  version "1.3.51"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.51.tgz#6a42b49daaf7f22a5b37b991daf949f34dbdb9b5"
+=======
   version "1.3.50"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.50.tgz#7438b76f92b41b919f3fbdd350fbd0757dacddf7"
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -2894,7 +2949,11 @@ express-session@^1.15.6:
     uid-safe "~2.1.5"
     utils-merge "1.0.1"
 
+<<<<<<< HEAD
+express@^4.13.3, express@^4.16.3:
+=======
 express@^4.13.3, express@^4.15.4:
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"
   dependencies:
@@ -3176,6 +3235,12 @@ flatten@^1.0.2:
 follow-redirects@^1.0.0, follow-redirects@^1.2.3:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.0.tgz#234f49cf770b7f35b40e790f636ceba0c3a0ab77"
+  dependencies:
+    debug "^3.1.0"
+
+follow-redirects@^1.2.3:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.1.tgz#67a8f14f5a1f67f962c2c46469c79eaec0a90291"
   dependencies:
     debug "^3.1.0"
 
@@ -5370,10 +5435,14 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 <<<<<<< HEAD
+nodemon@^1.17.5:
+=======
+<<<<<<< HEAD
 nodemon@^1.11.0:
 =======
 nodemon@^1.17.5:
 >>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
   version "1.17.5"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.5.tgz#e6a665c872fdf09d48bf2a81f3e85f8cfb39322a"
   dependencies:
@@ -6182,12 +6251,17 @@ postcss-reduce-transforms@^1.0.3:
 
 postcss-rtl@^1.2.3:
 <<<<<<< HEAD
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.1.tgz#86e497172ce2fb6a903d0ad353244c45dbeb747e"
+=======
+<<<<<<< HEAD
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.0.tgz#e2b2eb1526758525c10966059b3623005e817c27"
 =======
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/postcss-rtl/-/postcss-rtl-1.3.1.tgz#86e497172ce2fb6a903d0ad353244c45dbeb747e"
 >>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
   dependencies:
     rtlcss "^2.3.0"
 
@@ -6703,13 +6777,19 @@ read-pkg@^3.0.0:
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 read@~1.0.3:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/read/-/read-1.0.7.tgz#b3da19bd052431a97671d44a42634adf710b40c4"
   dependencies:
     mute-stream "~0.0.4"
 
+<<<<<<< HEAD
+=======
 >>>>>>> 198cf875a5247e4ad86180928015c78d2d3b8a96
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 readable-stream@1.0:
   version "1.0.34"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
@@ -7637,6 +7717,13 @@ sudo@^1.0.3:
     pidof "~1.0.2"
     read "~1.0.3"
 
+<<<<<<< HEAD
+suffix@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/suffix/-/suffix-0.1.1.tgz#cc58231646a0ef1102f79478ef3a9248fd9c842f"
+
+=======
+>>>>>>> 0a719837ae0b62444ad1e32ea817dfd01f7cb0fc
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -7803,7 +7890,7 @@ test-exclude@^4.2.1:
     read-pkg-up "^1.0.1"
     require-main-filename "^1.0.1"
 
-text-table@0.2.0, text-table@~0.2.0:
+text-table@0.2.0, text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
@@ -8558,3 +8645,15 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yarn-install@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/yarn-install/-/yarn-install-1.0.0.tgz#57f45050b82efd57182b3973c54aa05cb5d25230"
+  dependencies:
+    cac "^3.0.3"
+    chalk "^1.1.3"
+    cross-spawn "^4.0.2"
+
+yarn@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.7.0.tgz#0076b9fde6010e01950526a609bc53bc175ef925"

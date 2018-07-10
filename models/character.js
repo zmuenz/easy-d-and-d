@@ -18,6 +18,9 @@ module.exports = function (Sequelize, DataTypes) {
         gender: {
             type: DataTypes.STRING
         },
+        alignment: {
+            type: DataTypes.STRING
+        },
         race: {
             type: DataTypes.STRING
         },
