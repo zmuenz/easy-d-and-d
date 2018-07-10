@@ -7,8 +7,28 @@ import {
 } from 'reactstrap';
 import API from '../../../utils/API';
 
+
+
 class Parallax3 extends Component { 
+    state = {
+        characters: [],
+      }
+
+    componentDidMount() {
+        let userName =  JSON.parse((sessionStorage.getItem('userName')))
+        this.loadCharacters();
+    }
+
+      loadCharacters = (userName) => {
+        API.getCharacters()
+          .then(res =>
+            this.setState({ characters: res.data })
+          )
+          .catch(err => console.log(err));
+      };
+
     render() {
+        console.log(this.state.characters)
         return (
             <div id='parallax3' style={{ height: '500px' }}>
                 <div className="parallax"></div>
@@ -19,7 +39,7 @@ class Parallax3 extends Component {
                         <Card>
                             <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                             <CardBody>
-                                <CardTitle>Character Name</CardTitle>
+                                <CardTitle>Character Name:</CardTitle>
                                 <CardSubtitle>Card subtitle</CardSubtitle>
                                 <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
                                 <Button>Profile</Button> <Button>Delete Character</Button>

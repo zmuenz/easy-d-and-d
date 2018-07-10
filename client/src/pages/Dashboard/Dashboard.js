@@ -15,19 +15,6 @@ import 'tachyons';
 
 
 export class Dashboard extends React.Component {
-        state = {
-          characters: [],
-        }
-
-
-      loadCharacters = () => {
-        API.getCharacters()
-          .then(res =>
-            this.setState({ characters: res.data })
-          )
-          .catch(err => console.log(err));
-      };
-
     render() {
         let userName =  JSON.parse((sessionStorage.getItem('userName')))
         // let firstName =  JSON.parse((sessionStorage.getItem('firstName')))
@@ -40,12 +27,13 @@ export class Dashboard extends React.Component {
                 <SignUp storeUser={this.props.storeUser} />
                 <Login storeUser={this.props.storeUser} />/>
                 <Logout />
-
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
                     <h1 className='f1'>Dive Back In, {userName}!</h1>
                     <p className='f3'>The game missed you</p>
                 </div>
                 <Parallax3 />
+                }
+                )}
             </div>
         );
     }
