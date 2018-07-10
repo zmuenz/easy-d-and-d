@@ -13,25 +13,12 @@ const db = require('./models')
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'characters_db',
-=======
-  host: 'localhost',
-  user: 'root',
-  password: 'Magicman1684',
-  database: 'characters_db',
->>>>>>> master
 
-=======
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'js',
-    database: 'characters_db',
->>>>>>> 12fed36ae07e7413c765e065e9ba6527094a934e
 });
 
 connection.connect();
@@ -60,7 +47,7 @@ require('./config/passport.js')(passport, models.User);
 app.use(router);
 
 //Sync Database with sequelize 
-models.sequelize.sync({ force:true }).then(function () {
+models.sequelize.sync().then(function () {
     console.log('Nice! Database looks fine')
 }).catch(function (err) {
     console.log(err, "Something went wrong with the Database Update!")
