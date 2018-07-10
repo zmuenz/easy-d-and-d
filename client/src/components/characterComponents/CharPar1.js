@@ -9,7 +9,9 @@ const CharPar1 = () => {
             <div id='parallax1' className="parallax-container charInfo" style={{ height: '500px' }}>
                 <div className="parallax"><img id='dice' src="https://stmed.net/sites/default/files/library-wallpapers-28681-1755646.jpg" alt='dnd d20 over character sheet' /></div>
                 <div id="charIntro" className="container">
-                    <img id="charImage" className='col-12 col-sm-12 col-md-3 left' src="https://i.pinimg.com/originals/62/5e/ec/625eece31193b0a58529bf9c8cd2b5b9.jpg" />
+                    <div className='col-12 col-sm-12 col-md-3 left'>
+                    <img id="charImage"  src="https://i.pinimg.com/originals/62/5e/ec/625eece31193b0a58529bf9c8cd2b5b9.jpg" />
+                    </div>
                     <div id="charBasic" className='col-12 col-sm-12 col-md-6 valign-wrapper right'>
                         <h1>(Character Name)</h1>
                         <h3>(Alignment) (Race)</h3>
