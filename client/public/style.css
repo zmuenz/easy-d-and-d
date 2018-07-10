@@ -157,38 +157,10 @@ body {
   overflow-y: hidden;
 }
 
-<<<<<<< Updated upstream
-#menu {
-  text-decoration: none!important;
-  list-style-type: none;
-  color: white;
-  padding-left: 15px;
-  padding-right: 15px;
+#logoutModal {
+  background: none;
+  box-shadow: none;
+  height: 100%;
+  overflow-y: hidden;
 }
 
-#menu:hover {
-  background-color: rgba(255,255,255,0.5);
-  color: white!important;
-  text-decoration: none!important;
-}
-
-a{
-  text-decoration: none!important;
-}
-
-a:hover {
-  text-decoration: none!important;
-  color: white!important;
-}
-
-#menuIcon {
-  margin-left: 5px;
-}
-
-#dropdown1 {
-  height: 225px;
-  width: 150px!important;
-
-}
-=======
->>>>>>> Stashed changes

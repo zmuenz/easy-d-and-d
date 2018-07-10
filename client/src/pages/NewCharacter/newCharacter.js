@@ -16,9 +16,6 @@ import {
     CardText
 } from 'reactstrap';
 
-let user = JSON.parse(sessionStorage.getItem('user'))
-let userName = user.userName;
-let userid = user.id;
 
 export class NewCharacter extends Component {
     constructor(props) {
@@ -39,6 +36,12 @@ export class NewCharacter extends Component {
             baseBonus: {}
         };
     };
+
+    Authenticate() {
+        const user = JSON.parse(sessionStorage.getItem('user'))
+        const userName = user.userName;
+        const userid = user.id;
+        }
 
     // If race is half-elf, half-orc, or human, this function finds and applies the random +2 bonus to a stat
     findRandomBonus() {
@@ -770,7 +773,8 @@ export class NewCharacter extends Component {
 
         console.log(this.state);
         API.saveCharacter({
-            userName: userName,
+            userName: this.state.userName,
+            userid: this.state.userid,
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,
