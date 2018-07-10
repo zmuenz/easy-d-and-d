@@ -20,11 +20,12 @@ module.exports = function (Sequelize, DataTypes) {
         },
         firstName: {
             type: DataTypes.TEXT,
+            allowNull: false,
         },
         lastName: {
-        type: DataTypes.TEXT,
+            type: DataTypes.TEXT,
+            allowNull: false,
         },
-        //Sequelize.ENUM did not work 
         status: {
             type: DataTypes.ENUM,
             values: ['active', 'inactive']

@@ -183,3 +183,10 @@ a:hover {
   width: 150px!important;
 
 }
+#logoutModal {
+  background: none;
+  box-shadow: none;
+  height: 100%;
+  overflow-y: hidden;
+}
+

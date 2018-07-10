@@ -11,6 +11,7 @@ const NavBar = () => {
                 <h2 className='text-center text-white'>EZ DND</h2>
                 <ul id="dropdown1" className="dropdown-content">
                     <li><a id="logIn" data-toggle='modal' data-target='#loginModal' href="modal">Log in</a></li>
+                    <li><a id="logOut" data-toggle='modal' data-target='#logoutModal' href="modal">Log Out</a></li>
                     <li><a id="signUp" data-toggle='modal' data-target="#signUpModal" href="modal">Sign up</a></li>
                     <li><a href="/dashboard">See your characters</a></li>
                     <li className="divider"></li>

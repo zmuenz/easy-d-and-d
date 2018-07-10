@@ -15,7 +15,7 @@ export default {
   },
   // Saves a Character to the database
   saveCharacter: function (CharacterData) {
-    return axios.post("/api/Character", CharacterData);
+    return axios.post("/usercharacters", CharacterData);
   },
 
   //user count
