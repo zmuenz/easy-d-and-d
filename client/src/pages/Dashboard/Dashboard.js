@@ -8,12 +8,12 @@ import Parallax3 from '../../components/landingComponents/Parallax3';
 import '../../App.css';
 import 'tachyons';
 
-let user = JSON.parse(sessionStorage.getItem('user'))
-let userName = user.userName;
-let userid = user.id;
-let firstName = user.firstName;
-let lastName = user.lastName;
-let email = user.email;
+// let user = JSON.parse(sessionStorage.getItem('user'))
+// let userName = user.userName;
+// let userid = user.id;
+// let firstName = user.firstName;
+// let lastName = user.lastName;
+// let email = user.email;
 
 export class Dashboard extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ export class Dashboard extends Component {
             <div>
                 <NavBar />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
-                    <h1 className='f1'>Dive Back In, {userName} !</h1>
+                    {/* <h1 className='f1'>Dive Back In, {userName} !</h1> */}
                     <p className='f3'>The game missed you</p>
                 </div>
                 <Parallax3 />

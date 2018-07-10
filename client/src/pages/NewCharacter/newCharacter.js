@@ -16,9 +16,9 @@ import {
     CardText
 } from 'reactstrap';
 
-let user = JSON.parse(sessionStorage.getItem('user'))
-let userName = user.userName;
-let userid = user.id;
+// let user = JSON.parse(sessionStorage.getItem('user'))
+// let userName = user.userName;
+// let userid = user.id;
 
 export class NewCharacter extends Component {
     constructor(props) {
@@ -770,7 +770,7 @@ export class NewCharacter extends Component {
 
         console.log(this.state);
         API.saveCharacter({
-            userName: userName,
+            // userName: userName,
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,
@@ -939,7 +939,8 @@ export class NewCharacter extends Component {
                         <Row className="mt-3">
                             <Col md="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Strength</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Strength</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">STR</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.str}</CardText>
                                 </Card>
                             </Col>
