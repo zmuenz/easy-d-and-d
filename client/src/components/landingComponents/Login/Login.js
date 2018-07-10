@@ -29,7 +29,8 @@ class Login extends Component {
         password: this.state.password
       })  
       .then(user => {
-      this.props.storeUser (user.data);
+      let newUser = JSON.stringify(user.data);
+      sessionStorage.setItem('user', newUser);
       this.props.history.push("/dashboard");
       })
   

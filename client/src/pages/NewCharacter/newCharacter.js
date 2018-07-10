@@ -16,11 +16,15 @@ import {
     CardText
 } from 'reactstrap';
 
+let user = JSON.parse(sessionStorage.getItem('user'))
+let userName = user.userName;
+let userid = user.id;
+
 export class NewCharacter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
+            userName: "",
             character_name: "",
             gender: "",
             alignment: "",
@@ -766,6 +770,7 @@ export class NewCharacter extends Component {
 
         console.log(this.state);
         API.saveCharacter({
+            userName: userName,
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,

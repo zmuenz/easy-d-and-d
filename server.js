@@ -15,7 +15,7 @@ const db = require('./models')
 var connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'js',
+    password: '0108C@denc3',
     database: 'characters_db',
 });
 
@@ -30,11 +30,9 @@ app.use(bodyParser.json());
 
 
 // For Passport
-app.use(passport.initialize());
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
+app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-
 
 //Models
 var models = require("./models");
