@@ -817,13 +817,22 @@ export class NewCharacter extends Component {
             fontWeight: '600px'
         };
 
+        var labelStyling = {
+            fontSize: '18px',
+            color: 'rgba(105, 32, 160, 1)'
+        };
+
+        var smallText = {
+            fontSize: '12px'
+        };
+
         return (
             <div className='build'>
                 <Row>
                     <Col sm="12">
                         <Jumbotron id="newCharJumbo">
                             <h1 className='f1'>Begin your Build</h1>
-                            <p className='f3'>Will you customize and create, or leave your game to chance? The choice is yours!</p>
+                            <p className='f3'>Will you customize and create, or leave your character to chance? The choice is yours!</p>
                         </Jumbotron>
                     </Col>
                 </Row>
@@ -839,13 +848,15 @@ export class NewCharacter extends Component {
                         <Row>
                             <Col sm="12">
                                 <FormGroup>
-                                    <Label for="character_name">Character Name</Label>
+                                    <Label style={labelStyling} for="character_name">Character Name</Label>
                                     <Input type="text" name="character_name" id="character_name" onChange={this.handleInputChange} placeholder="Name your character" />
                                 </FormGroup>
                             </Col>
+                        </Row>
+                        <Row>
                             <Col sm="12" md="4">
                                 <FormGroup>
-                                    <Label for="gender">Gender</Label>
+                                    <Label style={labelStyling} for="gender">Gender</Label>
                                     <Input type="select" name="gender" id="gender" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's gender</option>
                                         <option value="Female">Female</option>
@@ -853,12 +864,12 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col>
-                                <Button className="mt-4" onClick={this.randomizeGender} color="info">Randomize</Button>
+                            <Col sm="12" md="2">
+                                <Button className="mt-4 btn-block" onClick={this.randomizeGender} color="info">Randomize</Button>
                             </Col>
                             <Col sm="12" md="4">
                                 <FormGroup>
-                                    <Label for="alignment">Alignment</Label>
+                                    <Label style={labelStyling} for="alignment">Alignment</Label>
                                     <Input type="select" name="alignment" id="alignment" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's alignment</option>
                                         <option value="Lawful Good">Lawful Good</option>
@@ -873,14 +884,14 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col>
-                                <Button className="mt-4" onClick={this.randomizeAlignment} color="info">Randomize</Button>
+                            <Col sm="12" md="2">
+                                <Button className="mt-4 btn-block" onClick={this.randomizeAlignment} color="info">Randomize</Button>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="12" md="4">
                                 <FormGroup>
-                                    <Label for="race">Race (Racial Ability Modifiers are automatically applied.)</Label>
+                                    <Label style={labelStyling} for="race">Race <span style={smallText}>(Racial ability modifiers are automatically applied.)</span></Label>
                                     <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
                                         <option value="">Select character's race</option>
                                         <option value="Dwarf">Dwarf</option>
@@ -893,13 +904,13 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col>
-                                <Button className="mt-4" onClick={this.randomizeRace} color="info">Randomize</Button>
+                            <Col sm="12" md="2">
+                                <Button className="mt-4 btn-block" onClick={this.randomizeRace} color="info">Randomize</Button>
                             </Col>
 
                             <Col sm="12" md="4">
                                 <FormGroup>
-                                    <Label for="class">Class</Label>
+                                    <Label style={labelStyling} for="class">Class</Label>
                                     <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
                                         <option value="">Select character's class</option>
                                         <option value="Barbarian">Barbarian</option>
@@ -916,58 +927,67 @@ export class NewCharacter extends Component {
                                     </Input>
                                 </FormGroup>
                             </Col>
-                            <Col>
-                                <Button className="mt-4" onClick={this.randomizeClass} color="info">Randomize</Button>
+                            <Col sm="12" md="2">
+                                <Button className="mt-4 btn-block" color="info" onClick={this.randomizeClass}>Randomize</Button>
                             </Col>
                         </Row>
                         <Row className="mt-3">
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Strength</CardHeader>
-                                    <CardText className="text-center mt-4" style={statStyling}>{this.state.str}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.str}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Dexterity</CardHeader>
-                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.dex}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.dex}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Constitution</CardHeader>
-                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.con}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.con}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Intelligence</CardHeader>
-                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.int}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.int}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Wisdom</CardHeader>
-                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.wis}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.wis}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2">
+                            <Col md="2" className="mb-3">
                                 <Card>
                                     <CardHeader className="text-center" tag="h5">Charisma</CardHeader>
-                                    <CardText className="text-center mt-4 mb-1" style={statStyling}>{this.state.cha}</CardText>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.cha}</CardText>
                                 </Card>
                             </Col>
                         </Row>
                         <Row className="my-3">
-                            <Col>
-                                <Button className="mr-3" color="info" onClick={this.randomizeStats}>Roll Ability Scores</Button>
-                                <Button className="btn-outline-info" onClick={this.resetStats}>Reset Ability Scores</Button>
+                            <Col sm="12" md="2">
+                            </Col>
+                            <Col sm="12" md="4">
+                                <Button className="btn-block mt-3" color="info" onClick={this.randomizeStats}>Roll Ability Scores</Button>
+                            </Col>
+                            <Col sm="12" md="4">
+                                <Button className="btn-outline-info btn-block mt-3" onClick={this.resetStats}>Reset Ability Scores</Button>
+                            </Col>
+                            <Col sm="12" md="2">
                             </Col>
                         </Row>
-                        <Row>
-                            <Col>
-                                <Button className="mr-3" style={submitButtonStyling} type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
-                                <Button color="info" onClick={this.logState}>Log state</Button>
+                        <Row className="mt-5">
+                            <Col sm="12" md="3">
+                            </Col>
+                            <Col sm="12" md="6">
+                                <Button className="pt-3 pb-5 btn-lg btn-block" style={submitButtonStyling} type="submit" onClick={this.handleFormSubmit}>Save Character</Button>
+                            </Col>
+                            <Col sm="12" md="3">
                             </Col>
                         </Row>
                     </Form>
