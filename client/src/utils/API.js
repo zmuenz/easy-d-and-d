@@ -29,7 +29,7 @@ export default {
     return axios.post("/signin", query);
   },
 
-  checkUser: function () {
+  loginCheck: function () {
     return axios.get("/logincheck");
   },
 
