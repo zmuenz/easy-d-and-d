@@ -44,20 +44,8 @@ handleFormSubmit = event => {
         this.props.storeUser (user.data);
         this.props.history.push("/dashboard");
         })
+    };
 
-      function resetForm() {
-      document.getElementById("userName").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("password").value = "";
-      this.setState({
-          userName: "",
-          email: "", 
-          password: ""
-
-      });
-  };
-  resetForm.bind(this)();
-};
     render() {
     return (
         <div id="signUpModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
