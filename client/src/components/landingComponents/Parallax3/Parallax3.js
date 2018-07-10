@@ -7,6 +7,7 @@ import {
 } from 'reactstrap';
 import API from '../../../utils/API';
 
+<<<<<<< HEAD
 const Parallax3 = () => {
     return (
         <div id='parallax3' style={{ height: '500px' }}>
@@ -14,6 +15,16 @@ const Parallax3 = () => {
             <div id="landingCards" style={{ display: 'flex', alignItems: 'space-around', flexFlow: 'row wrap' }}>
                 <div id='card1' className="card col-sm-12 col-md-3 grow">
 
+=======
+class Parallax3 extends Component { 
+    render() {
+        return (
+            <div id='parallax3' style={{ height: '500px' }}>
+                <div className="parallax"></div>
+                <h1 className='text-white text-center' style={{ marginTop: '30px' }}></h1>
+                    <div id="landingCards" style={{ display: 'flex', alignItems: 'space-around', flexFlow: 'row wrap' }}>
+                    <div id='card1' className="card col-sm-12 col-md-3 grow">
+>>>>>>> 6587210bd35c01b87369e3ec085544b441f05036
                     <div className="card-body">
                         <Card>
 

@@ -16,7 +16,11 @@ var connection = mysql.createConnection({
 
     host: 'localhost',
     user: 'root',
+<<<<<<< HEAD
     password: '',
+=======
+    password: '0108C@denc3',
+>>>>>>> 6587210bd35c01b87369e3ec085544b441f05036
     database: 'characters_db',
 
 });

@@ -8,14 +8,41 @@ import Parallax3 from '../../components/landingComponents/Parallax3';
 import '../../App.css';
 import 'tachyons';
 
+let user = JSON.parse(sessionStorage.getItem('user'))
+let userName = user.userName;
+let userid = user.id;
+let firstName = user.firstName;
+let lastName = user.lastName;
+let email = user.email;
+
 export class Dashboard extends Component {
+<<<<<<< HEAD
     render() {
+=======
+    constructor(props) {
+        super(props);
+        this.state = {
+          firstName: "",
+          lastName: "",
+          userName: "",
+          email : "",
+          userName : "",
+          id : ""
+        }
+      };
+    render(){
+>>>>>>> 6587210bd35c01b87369e3ec085544b441f05036
         return (
             <div>
                 <NavBar />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
+<<<<<<< HEAD
                     <h1 className='f1'>Dive Back In!</h1>
                     <p className='f3'>The Game Missed You</p>
+=======
+                    <h1 className='f1'>Dive Back In, {userName} !</h1>
+                    <p className='f3'>The game missed you</p>
+>>>>>>> 6587210bd35c01b87369e3ec085544b441f05036
                 </div>
                 <Parallax3 />
             </div>

@@ -31,6 +31,8 @@ router.get("/api/Character/:id", function (req, res) {
 router.post("/api/Character", function (req, res) {
   console.log(req.body);
   var newCharacter = {
+    userName: req.body.userName,
+    user_id: req.body.userid,
     character_name: req.body.character_name,
     gender: req.body.gender,
     race: req.body.race,
