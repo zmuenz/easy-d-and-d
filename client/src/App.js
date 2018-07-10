@@ -8,12 +8,13 @@ import Landing from './pages/Landing';
 import './App.css';
 import 'tachyons';
 
-let user 
+let user = {}
 
 function storeUser(newUser) {
     user = newUser;
     console.log(user);
 }
+
 
 const App = () => (
   <Router>
