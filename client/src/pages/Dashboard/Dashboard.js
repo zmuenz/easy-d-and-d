@@ -10,6 +10,7 @@ import Jumbo2 from '../../components/landingComponents/Jumbotron2';
 import SignUp from '../../components/landingComponents/SignUp';
 import Login from '../../components/landingComponents/Login';
 import Logout from '../../components/landingComponents/Logout';
+
 import '../../App.css';
 import 'tachyons';
 

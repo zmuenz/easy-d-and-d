@@ -12,7 +12,6 @@ import '../../App.css';
 import 'tachyons';
 import API from '../../utils/API';
 
-
 import './NewCharacter.css';
 import {
     Container,
