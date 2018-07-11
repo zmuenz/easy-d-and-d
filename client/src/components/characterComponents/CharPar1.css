@@ -46,7 +46,7 @@
     background-image: url('../../images/footer_lodyas.png');
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     text-align: center;
 }
@@ -59,8 +59,20 @@
     border: 2px solid black;
 }
 
+#skillList {
+    background-color: white;
+    height: 100%;
+    margin-top: 45px;
+    border-radius: .25rem;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
 #abilityCard {
-    height: 100px;
+    height: 100%;
 }
 
 

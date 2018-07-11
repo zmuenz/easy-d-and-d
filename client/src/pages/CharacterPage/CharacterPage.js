@@ -1,27 +1,13 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, Container } from 'reactstrap';
 import NavBar from '../../components/landingComponents/NavBar';
 import CharJumbo from '../../components/characterComponents/charJumbo';
 import CharPar1 from '../../components/characterComponents/CharPar1';
-import API from "../../utils/API";
+import SkillList from '../../components/characterComponents/SkillList/SkillList';
 
 
 export class CharacterPage extends React.Component {
   state = {
     characters: [],
-  };
-
-  componentDidMount() {
-    let userName = JSON.parse((sessionStorage.getItem('userName')));
-    this.loadCharacters();
-  }
-
-  loadCharacters = (userName) => {
-    API.getCharacters()
-      .then(res =>
-        this.setState({ characters: res.data })
-      )
-      .catch(err => console.log(err));
   };
 
   //   render() {

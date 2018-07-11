@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import 'tachyons';
 import {
     Card, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody, Button
 } from 'reactstrap';
-import API from '../../../utils/API';
 import CharacterCard from '../../characterComponents/CharacterCard';
 import AddCharacter from '../../characterComponents/AddCharacter';
 
