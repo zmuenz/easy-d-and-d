@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
-import Jumbo1 from '../../components/landingComponents/Jumbotron1';
-import NavBar from '../../components/landingComponents/NavBar';
-import Parallax1 from '../../components/landingComponents/Parallax1';
-import Parallax2 from '../../components/landingComponents/Parallax2';
-import Info from '../../components/landingComponents/Info';
-import Jumbo2 from '../../components/landingComponents/Jumbotron2';
-import SignUp from '../../components/landingComponents/SignUp';
-import Login from '../../components/landingComponents/Login';
-import Logout from '../../components/landingComponents/Logout';
-import '../../App.css';
-import 'tachyons';
 import API from '../../utils/API';
-
-
 import './NewCharacter.css';
 import {
     Container,
@@ -29,6 +16,9 @@ import {
     CardText
 } from 'reactstrap';
 
+// let user = JSON.parse(sessionStorage.getItem('user'))
+// let userName = user.userName;
+// let userid = user.id;
 
 export class NewCharacter extends Component {
     constructor(props) {

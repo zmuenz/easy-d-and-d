@@ -12,10 +12,11 @@ export class CharacterPage extends React.Component {
   };
 
   componentDidMount() {
+    let userName = JSON.parse((sessionStorage.getItem('userName')));
     this.loadCharacters();
   }
 
-  loadCharacters = () => {
+  loadCharacters = (userName) => {
     API.getCharacters()
       .then(res =>
         this.setState({ characters: res.data })
