@@ -71,3 +71,13 @@ a:hover {
   width: 100%;
 
 }
+
+#dashboardCards {
+  background-image: url("https://pbs.twimg.com/media/CpbpyEzW8AAFOJ4.jpg");
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+}

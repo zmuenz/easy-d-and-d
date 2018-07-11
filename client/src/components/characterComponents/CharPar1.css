@@ -43,7 +43,7 @@
 
 #charStat {
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-image: url('../../images/footer_lodyas.png');
     display: flex;
     flex-flow: row wrap;
     justify-content: center;

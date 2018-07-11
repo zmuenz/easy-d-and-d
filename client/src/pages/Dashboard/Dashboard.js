@@ -13,13 +13,6 @@ import Logout from '../../components/landingComponents/Logout';
 import '../../App.css';
 import 'tachyons';
 
-// let user = JSON.parse(sessionStorage.getItem('user'))
-// let userName = user.userName;
-// let userid = user.id;
-// let firstName = user.firstName;
-// let lastName = user.lastName;
-// let email = user.email;
-
 export class Dashboard extends React.Component {
     render() {
         let userName =  JSON.parse((sessionStorage.getItem('userName')))
@@ -35,15 +28,10 @@ export class Dashboard extends React.Component {
                 <Login storeUser={this.props.storeUser} />/>
                 <Logout />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
-
                     <h1 className='f1'>Dive Back In!</h1>
                     <p className='f3'>The Game Missed You</p>
-
-
                 </div>
                 <Parallax3 />
-                }
-                )}
             </div>
         );
     }

@@ -5,11 +5,9 @@ module.exports = function (passport, user) {
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
 
-  passport.serializeUser(function(user, done) {
-    // the values returned here will be used to deserializeUser
-    // this can be use for further logins
-    done(null, {username: user.username, firstName: user.firstName, lastName: user.lastName});
-});
+  passport.serializeUser(function (user, done) {
+    done(null, user.id);
+  });
 
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
@@ -45,14 +43,14 @@ passport.use('local-signup', new LocalStrategy(
       else {
         var userPassword = generateHash(password);
         var data =
-          {
-            userName: req.body.userName,
-            email: req.body.email,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            password: userPassword
-            
-          };
+        {
+          userName: req.body.userName,
+          email: req.body.email,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          password: userPassword
+
+        };
 
         User.create(data).then(function (newUser, created) {
           if (!newUser) {
@@ -67,44 +65,43 @@ passport.use('local-signup', new LocalStrategy(
   }
 ));
 
-  passport.use('local-signin', new LocalStrategy(
-    {
-      usernameField: "userName",
-      passwordField: "password",
-      passReqToCallback: true
-    },
-    function (req, userName, password, done) {
-      console.log(userName, password);
-      var isValidPassword = function (userpass, password) {
-        return bCrypt.compareSync(password, userpass);
-      }
-  
-      db.User.findOne({ where: { userName: userName } }).then(function (dbUser) {
-        if (!dbUser) {
-          return done(null, false, { message: 'UserName does not exist' });
-        }
-        if (!isValidPassword(dbUser.password, password)) {
-          return done(null, false, { message: 'Incorrect password.' });
-        }
-  
-        var userinfo = dbUser.get();
-        return done(null, userinfo);
-      }).catch(function (err) {
-        console.log("Error:", err);
-        return done(null, false, { message: 'Something went wrong with your Signin' });
-  
-  
-      });
-  
+passport.use('local-signin', new LocalStrategy(
+  {
+    usernameField: "userName",
+    passwordField: "password",
+    passReqToCallback: true
+  },
+  function (req, userName, password, done) {
+    console.log(userName, password);
+    var isValidPassword = function (userpass, password) {
+      return bCrypt.compareSync(password, userpass);
     }
-  ));
+
+    db.User.findOne({ where: { userName: userName } }).then(function (dbUser) {
+      if (!dbUser) {
+        return done(null, false, { message: 'UserName does not exist' });
+      }
+      if (!isValidPassword(dbUser.password, password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+
+      var userinfo = dbUser.get();
+      return done(null, userinfo);
+    }).catch(function (err) {
+      console.log("Error:", err);
+      return done(null, false, { message: 'Something went wrong with your Signin' });
+
+
+    });
+
+  }
+));
 };
 
 var config = {
   "define": {
-      "createdAt": "createdat",
-      "updatedAt": "updatedat"
-    } /*don't forget to add host, port, dialect, etc.*/
-  }
+    "createdAt": "createdat",
+    "updatedAt": "updatedat"
+  } /*don't forget to add host, port, dialect, etc.*/
+}
 
-  

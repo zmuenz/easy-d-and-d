@@ -26,6 +26,17 @@ router.get("/usercharacters", function (req, res) {
   });
 });
 
+// Get route for retrieving a single character
+router.get("/allcharacters", function (req, res) {
+  // Here we add an "include" property to our options in our findOne query
+  // We set the value to an array of the models we want to include in a left outer join
+  // In this case, just db.Character
+  db.Character.findAll({
+  }).then(function (dbCharacter) {
+    res.json(dbCharacter);
+  });
+});
+
 //route for saving a new character to the database 
 //this needs changed, was fixed, reverted for some reason 
 router.post("/api/Character", function (req, res) {

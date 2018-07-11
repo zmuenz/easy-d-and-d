@@ -10,27 +10,10 @@ import CharacterCard from '../../characterComponents/CharacterCard';
 import AddCharacter from '../../characterComponents/AddCharacter';
 
 class Parallax3 extends Component {
-    state = {
-        characters: [],
-    }
-
-    componentDidMount() {
-        let userName = JSON.parse((sessionStorage.getItem('userName')))
-        this.loadCharacters();
-    }
-
-    loadCharacters = (userName) => {
-        API.getCharacters()
-            .then(res =>
-                this.setState({ characters: res.data })
-            )
-            .catch(err => console.log(err));
-    };
-
     render() {
         return (
-            <div id='parallax3' style={{ height: '500px' }}>
-                <div id="landingCards" style={{ display: 'flex', alignItems: 'space-around', flexFlow: 'row wrap' }}>
+            <div id='parallax3' style={{ height: '100%'}}>
+                <div id="dashboardCards">
                     <CharacterCard />
                     <AddCharacter />
                 </div>
@@ -38,3 +21,6 @@ class Parallax3 extends Component {
         );
     };
 }
+
+
+export default Parallax3;

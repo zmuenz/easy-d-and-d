@@ -33,6 +33,8 @@ const CharPar1 = () => {
                         </div>
                     </div>
                 </div>
+                <div className='col-sm-12 col-md-8'>
+                </div>
             </div>
         </div>
     )

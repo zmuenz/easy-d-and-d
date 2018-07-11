@@ -2,12 +2,15 @@ import axios from "axios";
 
 export default {
   // Gets all characters
-  getCharacters: function() {
-    return axios.get("/api/Character");
+  getAllCharacters: function() {
+    return axios.get("/allcharacters");
   },
   // Gets the Character with the given id
+  getUserCharacters: function (userName) {
+    return axios.get("/usercharacters" + userName);
+  },
   getCharacter: function (id) {
-    return axios.get("/api/CharacterID" + id);
+    return axios.get("/character" + id);
   },
   // Deletes the Character with the given id
   deleteCharacter: function (id) {
@@ -15,7 +18,7 @@ export default {
   },
   // Saves a Character to the database
   saveCharacter: function (CharacterData) {
-    return axios.post("/usercharacters", CharacterData);
+    return axios.post("/api/Character", CharacterData);
   },
 
   //user count
