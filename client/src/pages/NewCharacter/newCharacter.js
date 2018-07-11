@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
+import Jumbo1 from '../../components/landingComponents/Jumbotron1';
+import NavBar from '../../components/landingComponents/NavBar';
+import Parallax1 from '../../components/landingComponents/Parallax1';
+import Parallax2 from '../../components/landingComponents/Parallax2';
+import Info from '../../components/landingComponents/Info';
+import Jumbo2 from '../../components/landingComponents/Jumbotron2';
+import SignUp from '../../components/landingComponents/SignUp';
+import Login from '../../components/landingComponents/Login';
+import Logout from '../../components/landingComponents/Logout';
+import '../../App.css';
+import 'tachyons';
 import API from '../../utils/API';
+
+
 import './NewCharacter.css';
 import {
     Container,
@@ -16,9 +29,6 @@ import {
     CardText
 } from 'reactstrap';
 
-let user = JSON.parse(sessionStorage.getItem('user'))
-let userName = user.userName;
-let userid = user.id;
 
 export class NewCharacter extends Component {
     constructor(props) {
@@ -770,7 +780,8 @@ export class NewCharacter extends Component {
 
         console.log(this.state);
         API.saveCharacter({
-            userName: userName,
+            userName: JSON.parse((sessionStorage.getItem('userName'))),
+            userid: JSON.parse((sessionStorage.getItem('id'))),
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,
@@ -852,124 +863,146 @@ export class NewCharacter extends Component {
                     <Form className="mt-5">
                         <Row>
                             <Col sm="12">
-                                <FormGroup>
+                                <FormGroup className="text-center">
                                     <Label style={labelStyling} for="character_name">Character Name</Label>
-                                    <Input type="text" name="character_name" id="character_name" onChange={this.handleInputChange} placeholder="Name your character" />
+                                    <Input className="text-center" type="text" name="character_name" id="character_name" onChange={this.handleInputChange} placeholder="Name your character" />
                                 </FormGroup>
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm="12" md="4">
-                                <FormGroup>
-                                    <Label style={labelStyling} for="gender">Gender</Label>
-                                    <Input type="select" name="gender" id="gender" defaultValue="" onChange={this.handleInputChange}>
-                                        <option value="">Select character's gender</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Male">Male</option>
-                                    </Input>
-                                </FormGroup>
+                            <Col sm="6" md="12" lg="6">
+                                <Row>
+                                    <Col sm="12" md="8">
+                                        <FormGroup>
+                                            <Label style={labelStyling} for="gender">Gender</Label>
+                                            <Input type="select" name="gender" id="gender" defaultValue="" onChange={this.handleInputChange}>
+                                                <option value="">Select character's gender</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                            </Input>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="12" md="4">
+                                        <Button className="mt-4 btn-block" onClick={this.randomizeGender} color="info">Randomize</Button>
+                                    </Col>
+                                </Row>
                             </Col>
-                            <Col sm="12" md="2">
-                                <Button className="mt-4 btn-block" onClick={this.randomizeGender} color="info">Randomize</Button>
-                            </Col>
-                            <Col sm="12" md="4">
-                                <FormGroup>
-                                    <Label style={labelStyling} for="alignment">Alignment</Label>
-                                    <Input type="select" name="alignment" id="alignment" defaultValue="" onChange={this.handleInputChange}>
-                                        <option value="">Select character's alignment</option>
-                                        <option value="Lawful Good">Lawful Good</option>
-                                        <option value="Neutral Good">Neutral Good</option>
-                                        <option value="Chaotic Good">Chaotic Good</option>
-                                        <option value="Lawful Neutral">Lawful Neutral</option>
-                                        <option value="Neutral">Neutral</option>
-                                        <option value="Chaotic Neutral">Chaotic Neutral</option>
-                                        <option value="Lawful Evil">Lawful Evil</option>
-                                        <option value="Neutral Evil">Neutral Evil</option>
-                                        <option value="Chaotic Evil">Chaotic Evil</option>
-                                    </Input>
-                                </FormGroup>
-                            </Col>
-                            <Col sm="12" md="2">
-                                <Button className="mt-4 btn-block" onClick={this.randomizeAlignment} color="info">Randomize</Button>
+                            <Col sm="12" md="12" lg="6">
+                                <Row>
+                                    <Col sm="12" md="8">
+                                        <FormGroup>
+                                            <Label style={labelStyling} for="alignment">Alignment</Label>
+                                            <Input type="select" name="alignment" id="alignment" defaultValue="" onChange={this.handleInputChange}>
+                                                <option value="">Select character's alignment</option>
+                                                <option value="Lawful Good">Lawful Good</option>
+                                                <option value="Neutral Good">Neutral Good</option>
+                                                <option value="Chaotic Good">Chaotic Good</option>
+                                                <option value="Lawful Neutral">Lawful Neutral</option>
+                                                <option value="Neutral">Neutral</option>
+                                                <option value="Chaotic Neutral">Chaotic Neutral</option>
+                                                <option value="Lawful Evil">Lawful Evil</option>
+                                                <option value="Neutral Evil">Neutral Evil</option>
+                                                <option value="Chaotic Evil">Chaotic Evil</option>
+                                            </Input>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="12" md="4">
+                                        <Button className="mt-4 btn-block" onClick={this.randomizeAlignment} color="info">Randomize</Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm="12" md="4">
-                                <FormGroup>
-                                    <Label style={labelStyling} for="race">Race <span style={smallText}>(Racial ability modifiers are automatically applied.)</span></Label>
-                                    <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
-                                        <option value="">Select character's race</option>
-                                        <option value="Dwarf">Dwarf</option>
-                                        <option value="Elf">Elf</option>
-                                        <option value="Gnome">Gnome</option>
-                                        <option value="Half-elf">Half-elf</option>
-                                        <option value="Half-orc">Half-orc</option>
-                                        <option value="Halfling">Halfling</option>
-                                        <option value="Human">Human</option>
-                                    </Input>
-                                </FormGroup>
-                            </Col>
-                            <Col sm="12" md="2">
-                                <Button className="mt-4 btn-block" onClick={this.randomizeRace} color="info">Randomize</Button>
+                            <Col sm="12" md="12" lg="6">
+                                <Row>
+                                    <Col sm="12" md="8">
+                                        <FormGroup>
+                                            <Label style={labelStyling} for="race">Race <span style={smallText}>(Racial ability modifiers are automatically applied.)</span></Label>
+                                            <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
+                                                <option value="">Select character's race</option>
+                                                <option value="Dwarf">Dwarf</option>
+                                                <option value="Elf">Elf</option>
+                                                <option value="Gnome">Gnome</option>
+                                                <option value="Half-elf">Half-elf</option>
+                                                <option value="Half-orc">Half-orc</option>
+                                                <option value="Halfling">Halfling</option>
+                                                <option value="Human">Human</option>
+                                            </Input>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="12" md="4">
+                                        <Button className="mt-4 btn-block" onClick={this.randomizeRace} color="info">Randomize</Button>
+                                    </Col>
+                                </Row>
                             </Col>
 
-                            <Col sm="12" md="4">
-                                <FormGroup>
-                                    <Label style={labelStyling} for="class">Class</Label>
-                                    <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
-                                        <option value="">Select character's class</option>
-                                        <option value="Barbarian">Barbarian</option>
-                                        <option value="Bard">Bard</option>
-                                        <option value="Cleric">Cleric</option>
-                                        <option value="Druid">Druid</option>
-                                        <option value="Fighter">Fighter</option>
-                                        <option value="Monk">Monk</option>
-                                        <option value="Paladin">Paladin</option>
-                                        <option value="Ranger">Ranger</option>
-                                        <option value="Rogue">Rogue</option>
-                                        <option value="Sorcerer">Sorcerer</option>
-                                        <option value="Wizard">Wizard</option>
-                                    </Input>
-                                </FormGroup>
-                            </Col>
-                            <Col sm="12" md="2">
-                                <Button className="mt-4 btn-block" color="info" onClick={this.randomizeClass}>Randomize</Button>
+                            <Col sm="12" md="12" lg="6">
+                                <Row>
+                                    <Col sm="12" md="8">
+                                        <FormGroup>
+                                            <Label style={labelStyling} for="class">Class</Label>
+                                            <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
+                                                <option value="">Select character's class</option>
+                                                <option value="Barbarian">Barbarian</option>
+                                                <option value="Bard">Bard</option>
+                                                <option value="Cleric">Cleric</option>
+                                                <option value="Druid">Druid</option>
+                                                <option value="Fighter">Fighter</option>
+                                                <option value="Monk">Monk</option>
+                                                <option value="Paladin">Paladin</option>
+                                                <option value="Ranger">Ranger</option>
+                                                <option value="Rogue">Rogue</option>
+                                                <option value="Sorcerer">Sorcerer</option>
+                                                <option value="Wizard">Wizard</option>
+                                            </Input>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm="12" md="4">
+                                        <Button className="mt-4 btn-block" color="info" onClick={this.randomizeClass}>Randomize</Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                         <Row className="mt-3">
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Strength</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Strength</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">STR</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.str}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4"lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Dexterity</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Dexterity</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">DEX</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.dex}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Constitution</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block text-truncate" tag="h5">Constitution</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">CON</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.con}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Intelligence</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block text-truncate" tag="h5">Intelligence</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">INT</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.int}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Wisdom</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Wisdom</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">WIS</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.wis}</CardText>
                                 </Card>
                             </Col>
-                            <Col md="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
                                 <Card>
-                                    <CardHeader className="text-center" tag="h5">Charisma</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Charisma</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">CHA</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.cha}</CardText>
                                 </Card>
                             </Col>

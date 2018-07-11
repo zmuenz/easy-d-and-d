@@ -1,30 +1,49 @@
 import React, { Component } from 'react';
 import Jumbo1 from '../../components/landingComponents/Jumbotron1';
 import API from '../../utils/API';
+import Parallax3 from '../../components/landingComponents/Parallax3';
 import NavBar from '../../components/landingComponents/NavBar';
+import Parallax1 from '../../components/landingComponents/Parallax1';
+import Parallax2 from '../../components/landingComponents/Parallax2';
+import Info from '../../components/landingComponents/Info';
+import Jumbo2 from '../../components/landingComponents/Jumbotron2';
 import SignUp from '../../components/landingComponents/SignUp';
 import Login from '../../components/landingComponents/Login';
-import Parallax3 from '../../components/landingComponents/Parallax3';
+import Logout from '../../components/landingComponents/Logout';
 import '../../App.css';
 import 'tachyons';
 
-let user = JSON.parse(sessionStorage.getItem('user'))
-let userName = user.userName;
-let userid = user.id;
-let firstName = user.firstName;
-let lastName = user.lastName;
-let email = user.email;
+// let user = JSON.parse(sessionStorage.getItem('user'))
+// let userName = user.userName;
+// let userid = user.id;
+// let firstName = user.firstName;
+// let lastName = user.lastName;
+// let email = user.email;
 
-export class Dashboard extends Component {
+export class Dashboard extends React.Component {
     render() {
+        let userName =  JSON.parse((sessionStorage.getItem('userName')))
+        // let firstName =  JSON.parse((sessionStorage.getItem('firstName')))
+        // let lastName =  JSON.parse((sessionStorage.getItem('lastName')))
+        // let id =  JSON.parse((sessionStorage.getItem('id')))
+        // let email =  JSON.parse((sessionStorage.getItem('email')))
+
         return (
-            <div>
+            <div class name="App">
                 <NavBar />
+                <SignUp storeUser={this.props.storeUser} />
+                <Login storeUser={this.props.storeUser} />/>
+                <Logout />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
+
                     <h1 className='f1'>Dive Back In!</h1>
                     <p className='f3'>The Game Missed You</p>
+
+
                 </div>
                 <Parallax3 />
+                }
+                )}
             </div>
         );
     }

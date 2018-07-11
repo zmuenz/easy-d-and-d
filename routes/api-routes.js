@@ -13,13 +13,13 @@ router.get("/api/Character", function (req, res) {
 });
 
 // Get route for retrieving a single character
-router.get("/api/Character/:id", function (req, res) {
+router.get("/usercharacters", function (req, res) {
   // Here we add an "include" property to our options in our findOne query
   // We set the value to an array of the models we want to include in a left outer join
   // In this case, just db.Character
   db.Character.findAll({
     where: {
-      id: req.params.id
+      userName: req.body.userName
     },
   }).then(function (dbCharacter) {
     res.json(dbCharacter);

@@ -22,7 +22,7 @@
 
 #charIntro {
     display: flex;
-    flex-direction: column wrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-content: center;
     margin-top: 20px;
@@ -42,17 +42,101 @@
 }
 
 #charStat {
-    height: 500px;
-    background-color: white;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
 
 #abilityScores {
-    margin-top: 20px;
-    margin-left: 20px;
     display: flex;
     flex-flow: row wrap;
     align-content: space-around;
     justify-content: space-around;
     border: 2px solid black;
+}
 
+#abilityCard {
+    height: 100px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    #charIntro {
+         display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between; 
+        margin-top: 20px;
+    }
+
+    #charImage {
+        height: 200px;
+        width: 125px;
+        border: 2px solid white;
+        padding: 0px;
+        margin-top: 20px;
+    }
+
+    #charBasic {
+        margin-top: 20px;
+        height: 225px;
+        background-color: rgba(0,0,0,0.7);
+        color: white;
+        text-shadow: black 2px 2px 7px;
+        text-align: center;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    #imageHolder {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+
+    #charIntro {
+         display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between; 
+        margin-top: 20px;
+    }
+
+    #charImage {
+        height: 200px;
+        width: 125px;
+        border: 2px solid white;
+        padding: 0px;
+        margin-top: 20px;
+    }
+
+    #charBasic {
+        margin-top: 20px;
+        height: 250px;
+        width: 300px;
+        background-color: rgba(0,0,0,0.7);
+        color: white;
+        text-shadow: black 2px 2px 7px;
+        text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    #imageHolder {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
 }

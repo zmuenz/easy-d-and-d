@@ -8,6 +8,7 @@ import API from '../utils/API';
 import '../images/characters.json'
 
 
+
 export class CharCard extends React.Component {
     state = {
         characters: [],
@@ -30,6 +31,7 @@ export class CharCard extends React.Component {
             <Card>
                 <CardImg src='../images/characters.json' alt="Card image cap" />
                 <CardBody>
+
                     <CardTitle>Name: {character.character_name}</CardTitle>
                     <CardSubtitle>Gender:{character.gender}</CardSubtitle>
                     <CardSubtitle>Race:{character.race}</CardSubtitle>
@@ -42,6 +44,7 @@ export class CharCard extends React.Component {
                             <ListGroupItem>Constitution: {character.con}</ListGroupItem>
                             <ListGroupItem>Wisdom: {character.wis}</ListGroupItem> </ListGroup>
                     </CardText>
+
 
                 </CardBody>
             </Card>
