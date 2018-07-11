@@ -27,6 +27,7 @@ export class Dashboard extends React.Component {
         // let lastName =  JSON.parse((sessionStorage.getItem('lastName')))
         // let id =  JSON.parse((sessionStorage.getItem('id')))
         // let email =  JSON.parse((sessionStorage.getItem('email')))
+
         return (
             <div class name="App">
                 <NavBar />
@@ -34,8 +35,11 @@ export class Dashboard extends React.Component {
                 <Login storeUser={this.props.storeUser} />/>
                 <Logout />
                 <div id='jumbo3' className='jumbotron bg-dark text-white tc mb-0'>
-                    <h1 className='f1'>Dive Back In, {} !</h1>
-                    <p className='f3'>The game missed you</p>
+
+                    <h1 className='f1'>Dive Back In!</h1>
+                    <p className='f3'>The Game Missed You</p>
+
+
                 </div>
                 <Parallax3 />
                 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from './Card';
+import CharCard from './CharCard';
 
-const CardList = ({ Character }) => {
-    const cardArray = Character.map((user, i) => {
-        return <Card key={i} id={Character[i].id} name={Character[i].character_name} gender={Character[i].gender} race={Character[i].race} />
+const CardList = ({ character }) => {
+    const cardArray = character.map((user, i) => {
+        return <CharCard key={i} id={character[i].id} name={character[i].name} gender={character[i].gender} dex={character[i].dex} intel={character[i].intel} cha={character[i].cha} stre={character[i].stre} con={character[i].con} wis={character[i].wis} />
     })
     return (
         <div>
