@@ -45,6 +45,7 @@ router.post("/api/Character", function (req, res) {
     userName: req.body.userName,
     user_id: req.body.userid,
     character_name: req.body.character_name,
+    alignment: req.body.alignment,
     gender: req.body.gender,
     race: req.body.race,
     class: req.body.class,
