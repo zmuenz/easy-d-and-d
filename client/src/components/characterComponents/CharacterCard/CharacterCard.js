@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import 'tachyons';
 import {
     Card, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody, Button
+    CardSubtitle, CardBody
 } from 'reactstrap';
 import API from '../../../utils/API';
 import CpButton from '../CpButton/CpButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
 class CharacterCard extends React.Component {
-        state = {
-          characters: [],
-        };
-      
-        componentDidMount() {
-          let userName = JSON.parse((sessionStorage.getItem('userName')))
-          this.loadCharacters();
-        }
-      
-        loadCharacters = () => {
-          API.getAllCharacters()
+    state = {
+        characters: [],
+    };
+
+    componentDidMount() {
+        let userName = JSON.parse((sessionStorage.getItem('userName')))
+        this.loadCharacters();
+    }
+
+    loadCharacters = () => {
+        API.getAllCharacters()
             .then(res =>
-              this.setState({ characters: res.data })
+                this.setState({ characters: res.data })
             )
             .catch(err => console.log(err));
-        };
+    };
 
 
     render() { 
@@ -46,14 +45,9 @@ class CharacterCard extends React.Component {
             </CardBody>
             </Card>
             </div>
-        )
-    })
-    return(
-    <div className="card col-sm-12 col-md-3 grow">
-            {cardList}
-        </div>
 
-    )
+        )
+    }
 }
 }
 

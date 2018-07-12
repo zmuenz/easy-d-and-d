@@ -795,6 +795,7 @@ export class NewCharacter extends Component {
             this.setState({
                 username: "",
                 character_name: "",
+                alignment: "",
                 gender: "",
                 alignment: "",
                 race: "",

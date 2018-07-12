@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, Container } from 'reactstrap';
+import React from 'react';
 import NavBar from '../../components/landingComponents/NavBar';
 import CharJumbo from '../../components/characterComponents/charJumbo';
 import CharPar1 from '../../components/characterComponents/CharPar1';
+import SkillList from '../../components/characterComponents/SkillList/SkillList';
 
 
 
 export class CharacterPage extends Component {
 
  
+  
   render() {
     return (
       <div>
