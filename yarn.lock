@@ -7175,6 +7175,10 @@ sequelize-cli@^4.0.0:
     umzug "^2.1.0"
     yargs "^8.0.2"
 
+sequelize-heroku@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sequelize-heroku/-/sequelize-heroku-2.0.0.tgz#033e7e219a1a9452c32eb51213447b133b0eaeb6"
+
 sequelize@^4.38.0:
   version "4.38.0"
   resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.38.0.tgz#330c1aa445d4e46b80a97d895603c01666cdc357"

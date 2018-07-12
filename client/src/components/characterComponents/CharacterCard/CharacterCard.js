@@ -39,8 +39,8 @@ class CharacterCard extends React.Component {
             <CardBody>
                 <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                 <CardTitle>{card.character_name}</CardTitle>
-                <CardSubtitle>{card.race} {card.class}</CardSubtitle>
-                <CardText></CardText>
+                <CardSubtitle>{card.race} | {card.class}</CardSubtitle>
+                <CardText>{card.alignment} | {card.gender}</CardText>
                 <CpButton>Profile</CpButton> 
                 <DeleteButton>Delete Character</DeleteButton>
             </CardBody>

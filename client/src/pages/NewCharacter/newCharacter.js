@@ -30,12 +30,12 @@ export class NewCharacter extends Component {
             alignment: "",
             race: "",
             class: "",
-            str: 10,
-            dex: 10,
-            con: 10,
-            int: 10,
-            wis: 10,
-            cha: 10,
+            str: "",
+            dex: "",
+            con: "",
+            int: "",
+            wis: "",
+            cha: "",
             baseBonus: {}
         };
     };
@@ -775,7 +775,7 @@ export class NewCharacter extends Component {
             character_name: this.state.character_name,
             gender: this.state.gender,
             alignment: this.state.alignment,
-            race: this.state.class,
+            race: this.state.race,
             class: this.state.class,
             dex: this.state.dex,
             intel: this.state.int,
