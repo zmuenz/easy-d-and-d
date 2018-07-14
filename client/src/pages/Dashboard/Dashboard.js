@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Parallax3 from '../../components/landingComponents/Parallax3';
 import NavBar from '../../components/landingComponents/NavBar';
 import SignUp from '../../components/landingComponents/SignUp';
@@ -18,6 +19,7 @@ export class Dashboard extends React.Component {
         return (
             <div className="App">
                 <NavBar />
+                <Router />
                 <SignUp storeUser={this.props.storeUser} />
                 <Login storeUser={this.props.storeUser} />/>
                 <Logout />
