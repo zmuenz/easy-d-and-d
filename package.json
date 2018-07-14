@@ -4,11 +4,11 @@
   "description": "",
   "scripts": {
     "server": "nodemon server.js",
-    "start": "node server.js",
+    "start": "yarn start",
     "start:dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "dev:server": "cd client && yarn buld && cd .. && yarn start",
     "client": "cd client && yarn start",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn build"
   },
   "author": "",
   "license": "ISC",
