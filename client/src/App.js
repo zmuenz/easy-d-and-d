@@ -9,10 +9,12 @@ import './App.css';
 import 'tachyons';
 
 let user = {}
+let userName = {}
+let userid = {}
 
 function storeUser(newUser) {
-    user = newUser;
-    console.log(user);
+  user = newUser;
+  console.log(user);
 }
 
 
@@ -22,9 +24,9 @@ const App = () => (
       <NavBar />
       <Switch>
         <Route exact path="/" render={(props) => <Landing {...props} storeUser={storeUser} />} />
-        <Route exact path="/characterpage" component={(props)=> <CharacterPage {...props} user={user} />} />
-        <Route exact path="/newcharacter" component={(props)=> <NewCharacter {...props} user={user} />} />
-        <Route exact path="/dashboard"  render={(props) => <Dashboard {...props} user={user} />} />
+        <Route exact path="/characterpage" component={(props) => <CharacterPage {...props} user={user} />} />
+        <Route exact path="/newcharacter" component={(props) => <NewCharacter {...props} user={user} />} />
+        <Route exact path="/dashboard" render={(props) => <Dashboard {...props} user={user} />} />
         <Route exact path="/landing" render={(props) => <Landing {...props} storeUser={storeUser} />} />
       </Switch>
     </div>

@@ -13,10 +13,12 @@ const db = require('./models')
 
 // Connect to the SQL DB
 var connection = mysql.createConnection({
-    host: '127.0.0.1',
+
+    host: 'localhost',
     user: 'root',
-    password: 'js',
+    password: '0108C@denc3',
     database: 'characters_db',
+
 });
 
 connection.connect();
@@ -44,9 +46,9 @@ app.use(router);
 
 //Sync Database with sequelize 
 models.sequelize.sync({}).then(function () {
-    console.log('Nice! Database looks fine')
+    console.log('Nice! Database looks fine');
 }).catch(function (err) {
-    console.log(err, "Something went wrong with the Database Update!")
+    console.log(err, "Something went wrong with the Database Update!");
 });
 
 

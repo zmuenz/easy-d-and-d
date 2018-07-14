@@ -26,6 +26,17 @@ router.get("/usercharacters", function (req, res) {
   });
 });
 
+// Get route for retrieving a single character
+router.get("/allcharacters", function (req, res) {
+  // Here we add an "include" property to our options in our findOne query
+  // We set the value to an array of the models we want to include in a left outer join
+  // In this case, just db.Character
+  db.Character.findAll({
+  }).then(function (dbCharacter) {
+    res.json(dbCharacter);
+  });
+});
+
 //route for saving a new character to the database 
 //this needs changed, was fixed, reverted for some reason 
 router.post("/api/Character", function (req, res) {
@@ -33,7 +44,9 @@ router.post("/api/Character", function (req, res) {
   var newCharacter = {
     userName: req.body.userName,
     user_id: req.body.userid,
+    alignment: req.body.alignment,
     character_name: req.body.character_name,
+    alignment: req.body.alignment,
     gender: req.body.gender,
     race: req.body.race,
     class: req.body.class,
@@ -51,6 +64,35 @@ router.post("/api/Character", function (req, res) {
   });
 });
 
+router.delete("/api/Character", function (req, res) {
+  console.log(req.body);
+  db.Character.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
+
+
+router.post("/signup", function (req, res) {
+  console.log(req.body);
+  var newUser = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+
+  }
+  console.log(newUser);
+  db.User.create(newUser).then(function (dbPost) {
+    console.log(dbPost);
+    res.json(dbPost);
+  });
+});
 
 
 module.exports = router;

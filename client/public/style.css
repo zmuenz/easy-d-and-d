@@ -1,6 +1,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
+  cursor: url("https://cdn.sstatic.net/Sites/rpg/img/apple-touch-icon@2.png?v=4c03147b9ffe"), default;
 }
 
 .parallax-container {
@@ -183,10 +184,10 @@ a:hover {
   width: 150px!important;
 
 }
+
 #logoutModal {
   background: none;
   box-shadow: none;
   height: 100%;
   overflow-y: hidden;
 }
-

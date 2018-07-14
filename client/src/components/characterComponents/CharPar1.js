@@ -20,7 +20,7 @@ const CharPar1 = () => {
                 </div>
             </div>
             <div id="charStat">
-                <div className="card col-sm-12 col-md-3" style={{height: '250px'}}>
+                <div id='abilityCard' className="card col-sm-12 col-md-3">
                     <div className="card-body">
                         <h1>Ability Scores</h1>
                         <div id="abilityScores">
@@ -31,6 +31,37 @@ const CharPar1 = () => {
                             <h1>CON: 10</h1>
                             <h1>CHA: 10</h1>
                         </div>
+                    </div>
+                </div>
+                <div id="skillList" className='col-sm-12 col-md-8 text-truncate'>
+                    <div>
+                        <table className='text-center'>
+                            <tr>
+                                <th>Skill Name</th>
+                                <th>Class Skill</th>
+                                <th>AS Bonus</th>
+                                <th>Ranks</th>
+                                <th>Feats</th>
+                                <th>Misc</th>
+                                <th>AC Penalty</th>
+                            </tr>
+                            <tr>
+                                <td>Acrobatics</td>
+                                <td>
+                                    Yes
+                                </td>
+                                <td>SB</td>
+                                <td>AS SB</td>
+                                <td>
+                                    <input type='number'></input>
+                                </td>
+                                <td>Feats</td>
+                                <td>Misc</td>
+                                <td>
+                                    <input id='ACP' type='number'></input>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
