@@ -383,7 +383,7 @@ export class NewCharacter extends Component {
     };
 
     resetSkills = event => {
-        $('input:checked').removeAttr('checked');
+        
     };
 
     // OnClick function to randomize character gender
