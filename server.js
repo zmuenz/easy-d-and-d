@@ -14,10 +14,10 @@ const db = require('./models')
 // Connect to the SQL DB
 var connection = mysql.createConnection({
 
-    host: 'ezdnd',
+    host: 'us-cdbr-iron-east-04.cleardb.net',
     user: 'bcdb82328a4f0a',
     password: 'ca85d2ba',
-    database: 'database',
+    database: 'heroku_2c031433a404d72',
 
 });
 

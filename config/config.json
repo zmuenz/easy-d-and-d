@@ -2,22 +2,22 @@
   "development": {
     "username": "bcdb82328a4f0a",
     "password": "ca85d2ba",
-    "database": "database",
-    "host": "ezdnd",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
     "username": "bcdb82328a4f0a",
     "password": "ca85d2ba",
-    "database": "database",
-    "host": "ezdnd",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   },
   "production": {
     "username": "bcdb82328a4f0a",
     "password": "ca85d2ba",
-    "database": "database",
-    "host": "ezdnd",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   }
 }
