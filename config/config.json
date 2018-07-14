@@ -4,20 +4,20 @@
     "password": "ca85d2ba",
     "database": "database",
     "host": "ezdnd",
-    "dialect": "clearDB"
+    "dialect": "mysql"
   },
   "test": {
     "username": "bcdb82328a4f0a",
     "password": "ca85d2ba",
     "database": "database",
     "host": "ezdnd",
-    "dialect": "clearDB"
+    "dialect": "mysql"
   },
   "production": {
     "username": "bcdb82328a4f0a",
     "password": "ca85d2ba",
     "database": "database",
     "host": "ezdnd",
-    "dialect": "clearDB"
+    "dialect": "mysql"
   }
 }
