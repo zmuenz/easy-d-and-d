@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "server": "nodemon server.js",
-    "start": "yarn start",
-    "start:dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "dev:server": "cd client && yarn buld && cd .. && yarn start",
-    "client": "cd client && yarn start",
-    "heroku-postbuild": "cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn build"
-  },
+      "start": "react-scripts start",
+      "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    },
   "author": "",
   "license": "ISC",
   "devDependencies": {
