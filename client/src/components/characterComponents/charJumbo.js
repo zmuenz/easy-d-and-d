@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import 'tachyons';
-import API from '../../../utils/API';
+import API from '../../utils/API';
 
-const CharJumbo = () => {
+class CharJumbo extends React.Component {
 state = {
     characters: [],
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     let userName = JSON.parse((sessionStorage.getItem('userName')))
     this.loadCharacters();
   }
