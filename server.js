@@ -51,11 +51,13 @@ models.sequelize.sync({}).then(function () {
     console.log(err, "Something went wrong with the Database Update!");
 });
 
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build')); // serve the static react app
+    app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+      res.sendFile(path.join(__dirname, './client/build/index.html'));
+    });
+    console.log('Serving React App...');
+  };
 
 // Start the API server
 app.listen(PORT, function () {
