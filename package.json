@@ -2,10 +2,11 @@
   "name": "easy-d-n-d",
   "version": "0.1.0",
   "description": "",
-  "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "start:dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev:server": "cd client && yarn buld && cd .. && yarn start",
     "client": "cd client && yarn start",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
