@@ -11,6 +11,13 @@ const PORT = process.env.PORT || 3001;
 const router = require('./routes/api-routes.js')
 const db = require('./models')
 
+//For cookieParser
+app.use(cookieParser());
+
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // Connect to the SQL DB
 var connection = mysql.createConnection({
 
@@ -21,15 +28,10 @@ var connection = mysql.createConnection({
 
 });
 
-connection.connect();
-
-//For cookieParser
-app.use(cookieParser());
-
-//For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 
 // For Passport
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
