@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
     host: 'ezdnd',
     user: 'bcdb82328a4f0a',
     password: 'ca85d2ba',
-    database: 'characters_db',
+    database: 'database',
 
 });
 
