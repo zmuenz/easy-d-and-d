@@ -38,8 +38,6 @@ export class Dashboard extends React.Component {
                     <p className='f3'>The game missed you</p>
                 </div>
                 <Parallax3 />
-                }
-                )}
             </div>
         );
     }
