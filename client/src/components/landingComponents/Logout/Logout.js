@@ -5,8 +5,8 @@ import 'tachyons';
 class Logout extends Component { 
     
     handleFormSubmit = event => {
-    sessionStorage.clear();
-    this.props.history.push("/")
+    sessionStorage.clear()
+    .then(this.props.history.push("/landing"));
 
     }
 

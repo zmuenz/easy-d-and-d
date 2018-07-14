@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "0108C@denc3",
-    "database": "characters_db",
-    "host": "127.0.0.1",
+    "username": "bcdb82328a4f0a",
+    "password": "ca85d2ba",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "0108C@denc3",
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "bcdb82328a4f0a",
+    "password": "ca85d2ba",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "0108C@denc3",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bcdb82328a4f0a",
+    "password": "ca85d2ba",
+    "database": "heroku_2c031433a404d72",
+    "host": "us-cdbr-iron-east-04.cleardb.net",
     "dialect": "mysql"
   }
 }

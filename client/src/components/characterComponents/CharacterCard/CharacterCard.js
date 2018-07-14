@@ -28,8 +28,7 @@ class CharacterCard extends React.Component {
 
 
     render() { 
-    console.log(this.state.characters)
-    let cardList = []
+    let cardList = [];
     Object.keys(this.state.characters).forEach((cardIndex) => {
         let card = this.state.characters[cardIndex]
         cardList.push (
@@ -45,9 +44,15 @@ class CharacterCard extends React.Component {
             </CardBody>
             </Card>
             </div>
-
         )
-    }
+        
+    })
+        return(
+            <div className="card col-sm-12 col-md-3 grow">
+            {cardList}
+        </div>
+        )
+    
 }
 }
 

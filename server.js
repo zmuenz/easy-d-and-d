@@ -14,10 +14,10 @@ const db = require('./models')
 // Connect to the SQL DB
 var connection = mysql.createConnection({
 
-    host: 'localhost',
-    user: 'root',
-    password: '0108C@denc3',
-    database: 'characters_db',
+    host: 'us-cdbr-iron-east-04.cleardb.net',
+    user: 'bcdb82328a4f0a',
+    password: 'ca85d2ba',
+    database: 'heroku_2c031433a404d72',
 
 });
 
@@ -51,11 +51,13 @@ models.sequelize.sync({}).then(function () {
     console.log(err, "Something went wrong with the Database Update!");
 });
 
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build')); // serve the static react app
+    app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+      res.sendFile(path.join(__dirname, './client/build/index.html'));
+    });
+    console.log('Serving React App...');
+  };
 
 // Start the API server
 app.listen(PORT, function () {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import NavBar from '../../components/landingComponents/NavBar';
 import CharJumbo from '../../components/characterComponents/charJumbo';
 import CharPar1 from '../../components/characterComponents/CharPar1';
