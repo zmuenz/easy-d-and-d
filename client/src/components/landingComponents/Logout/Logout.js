@@ -6,7 +6,7 @@ class Logout extends Component {
     
     handleFormSubmit = event => {
     sessionStorage.clear()
-    .then(this.props.history.push("/landing"));
+    .then(this.props.history.push("/"));
     
     }
 
