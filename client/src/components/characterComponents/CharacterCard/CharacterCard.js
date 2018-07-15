@@ -8,31 +8,41 @@ import API from '../../../utils/API';
 import CpButton from '../CpButton/CpButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
+const userName = JSON.parse((sessionStorage.getItem('userName')))
+
 class CharacterCard extends React.Component {
     state = {
         characters: [],
     };
 
     componentDidMount() {
-        let userName = JSON.parse((sessionStorage.getItem('userName')))
         this.loadCharacters();
     }
 
     loadCharacters = () => {
-        API.getAllCharacters()
+        const userName = JSON.parse((sessionStorage.getItem('userName')))
+        console.log(userName)
+        API.getUserCharacters(userName)
             .then(res =>
                 this.setState({ characters: res.data })
             )
-            .catch(err => console.log(err));
-    };
+            console.log(this.state.characters)
+                  };
+
+      deleteCharacter = id => {
+       API.deleteCharacter(id)
+      .then(res => this.loadCharacters())
+      .catch(err => console.log(err));
+  };
 
 
     render() { 
+    console.log(this.state.characters)
     let cardList = [];
     Object.keys(this.state.characters).forEach((cardIndex) => {
         let card = this.state.characters[cardIndex]
         cardList.push (
-            <div className="card-body" id="card1">
+            <div className="card-body">
             <Card>
             <CardBody>
                 <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
@@ -48,7 +58,7 @@ class CharacterCard extends React.Component {
         
     })
         return(
-            <div className="card col-sm-12 col-md-3 grow">
+            <div id='card1' className="card col-sm-12 col-md-3 grow">
             {cardList}
         </div>
         )

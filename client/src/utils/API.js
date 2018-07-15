@@ -7,7 +7,7 @@ export default {
   },
   // Gets the Character with the given id
   getUserCharacters: function (userName) {
-    return axios.get("/usercharacters" + userName);
+    return axios.get("/api/character/userName/:userName" + userName);
   },
   getCharacter: function (id) {
     return axios.get("/character" + id);
