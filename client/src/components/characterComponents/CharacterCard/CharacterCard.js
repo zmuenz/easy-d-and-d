@@ -8,21 +8,18 @@ import API from '../../../utils/API';
 import CpButton from '../CpButton/CpButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
-const userName = JSON.parse((sessionStorage.getItem('userName')))
-
 class CharacterCard extends React.Component {
     state = {
         characters: [],
     };
 
     componentDidMount() {
-        this.loadCharacters();
+        const id = JSON.parse((sessionStorage.getItem('id')))
+        this.loadCharacters(id);
     }
 
-    loadCharacters = () => {
-        const userName = JSON.parse((sessionStorage.getItem('userName')))
-        console.log(userName)
-        API.getUserCharacters(userName)
+    loadCharacters = id => {
+        API.getUserCharacters(id)
             .then(res =>
                 this.setState({ characters: res.data })
             )
