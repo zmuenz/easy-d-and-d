@@ -48,55 +48,103 @@ module.exports = function (Sequelize, DataTypes) {
         acrobatics: {
             type: DataTypes.INTEGER
         },
-        animal_handling: {
+        appraise: {
             type: DataTypes.INTEGER
         },
-        arcana: {
+        bluff: {
             type: DataTypes.INTEGER
         },
-        athletics: {
+        climb: {
             type: DataTypes.INTEGER
         },
-        deception: {
+        craft: {
+            type: DataTypes.INTEGER,
+        },
+        diplomacy: {
+            type: DataTypes.INTEGER,
+        },
+        disable_device: {
+            type: DataTypes.INTEGER,
+        },
+        disguise: {
+            type: DataTypes.INTEGER,
+        },
+        escape_artist: {
+            type: DataTypes.INTEGER,
+        },
+        fly: {
+            type: DataTypes.INTEGER,
+        },
+        handle_animal: {
+            type: DataTypes.INTEGER,
+        },
+        heal: {
+            type: DataTypes.INTEGER,
+        },
+        intimidate: {
+            type: DataTypes.INTEGER,
+        },
+        knowledge_arcana: {
             type: DataTypes.INTEGER
         },
-        history: {
+        knowledge_dungeoneering: {
             type: DataTypes.INTEGER,
         },
-        insight: {
+        knowledge_engineering: {
             type: DataTypes.INTEGER,
         },
-        intimidation: {
+        knowledge_geography: {
             type: DataTypes.INTEGER,
         },
-        investigation: {
+        knowledge_history: {
             type: DataTypes.INTEGER,
         },
-        medicine: {
+        knowledge_local: {
             type: DataTypes.INTEGER,
         },
-        nature: {
+        knowledge_nature: {
+            type: DataTypes.INTEGER,
+        },
+        knowledge_nobility: {
+            type: DataTypes.INTEGER,
+        },
+        knowledge_planes: {
+            type: DataTypes.INTEGER,
+        },
+        knowledge_religion: {
+            type: DataTypes.INTEGER,
+        },
+        linguistics: {
             type: DataTypes.INTEGER,
         },
         perception: {
             type: DataTypes.INTEGER,
         },
-        performance: {
+        perform: {
             type: DataTypes.INTEGER,
         },
-        persuasion: {
+        profession: {
             type: DataTypes.INTEGER,
         },
-        religion: {
+        sense_motive: {
+            type: DataTypes.INTEGER
+        },
+        sleight_of_hand: {
             type: DataTypes.INTEGER,
         },
-        sleight: {
+        spellcraft: {
             type: DataTypes.INTEGER,
         },
         stealth: {
             type: DataTypes.INTEGER,
         },
         survival: {
+            type: DataTypes.INTEGER,
+        },
+        swim: {
+            type: DataTypes.INTEGER,
+        },
+        use_magic_device: {
             type: DataTypes.INTEGER,
         }
     });

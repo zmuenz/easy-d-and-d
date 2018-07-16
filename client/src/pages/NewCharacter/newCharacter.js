@@ -30,13 +30,198 @@ export class NewCharacter extends Component {
             alignment: "",
             race: "",
             class: "",
-            str: "",
-            dex: "",
-            con: "",
-            int: "",
-            wis: "",
-            cha: "",
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10,
+            acrobatics: "",
+            appraise: "",
+            bluff: "",
+            climb: "",
+            craft: "",
+            diplomacy: "",
+            disable_device: "",
+            disguise: "",
+            escape_artist: "",
+            fly: "",
+            handle_animal: "",
+            heal: "",
+            intimidate: "",
+            knowledge_arcana: "",
+            knowledge_dungeoneering: "",
+            knowledge_engineering: "",
+            knowledge_geography: "",
+            knowledge_history: "",
+            knowledge_local: "",
+            knowledge_nature: "",
+            knowledge_nobility: "",
+            knowledge_planes: "",
+            knowledge_religion: "",
+            linguistics: "",
+            perception: "",
+            perform: "",
+            profession: "",
+            sense_motive: "",
+            sleight_of_hand: "",
+            spellcraft: "",
+            stealth: "",
+            survival: "",
+            swim: "",
+            use_magic_device: "",
+            skillPoints: 0,
             baseBonus: {}
+        };
+    };
+
+    calculateSkillPoints() {
+        let intModifier = Math.floor((this.state.int - 10) / 2);
+        // console.log("intModifier: " + intModifier);
+
+        switch (document.getElementById('class').value) {
+
+            case "":
+                break;
+
+            case "Barbarian":
+                if ((intModifier + 4) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 4
+                    });
+                };
+                break;
+
+            case "Bard":
+                if ((intModifier + 6) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 6
+                    });
+                };
+                break;
+
+            case "Cleric":
+                if ((intModifier + 2) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 2
+                    });
+                };
+                break;
+
+            case "Druid":
+                if ((intModifier + 4) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 4
+                    });
+                };
+                break;
+
+            case "Fighter":
+                if ((intModifier + 2) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 2
+                    });
+                };
+                break;
+
+            case "Monk":
+                if ((intModifier + 4) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 4
+                    });
+                };
+                break;
+
+            case "Paladin":
+                if ((intModifier + 2) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 2
+                    });
+                };
+                break;
+
+            case "Ranger":
+                if ((intModifier + 6) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 6
+                    });
+                };
+                break;
+
+            case "Rogue":
+                if ((intModifier + 8) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 8
+                    });
+                };
+                break;
+
+            case "Sorcerer":
+                if ((intModifier + 2) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 2
+                    });
+                };
+                break;
+
+            case "Wizard":
+                if ((intModifier + 2) < 1) {
+                    this.setState({
+                        skillPoints: 1
+                    });
+                } else {
+                    this.setState({
+                        skillPoints: intModifier + 2
+                    });
+                };
+                break;
+
+            default:
+                alert("Chosen class not recognized. Please choose from the provided options.");
+                this.setState({
+                    skillPoints: 0
+                });
+                break;
         };
     };
 
@@ -195,6 +380,22 @@ export class NewCharacter extends Component {
         });
     };
 
+    handleClassChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+
+        this.setState({
+            skillPoints: 0
+        }, () => {
+            this.calculateSkillPoints.bind(this)();
+            console.log("Calculated skill points: " + this.state.skillPoints);
+            console.log("Class: " + this.state.class)
+        });
+
+    };
+
     // Event that handles any change to the race input
     handleRaceChange = event => {
         switch (this.state.race) {
@@ -339,9 +540,80 @@ export class NewCharacter extends Component {
             baseBonus: {}
         }, () => {
             this.applyRacialBonuses();
-            console.log(this.state);
+            this.calculateSkillPoints.bind(this)();
         });
 
+    };
+
+    handleSkillChange = event => {
+        const { name } = event.target;
+
+        if (event.target.checked) {
+            if (this.state.skillPoints !== 0) {
+                this.setState(prevState => ({
+                    skillPoints: prevState.skillPoints - 1,
+                    [name]: 1
+                }));
+            } else {
+                alert("You do not have any skill points left to spend!");
+                event.target.checked = false;
+            }
+        } else if (!event.target.checked) {
+            this.setState(prevState => ({
+                skillPoints: prevState.skillPoints + 1,
+                [name]: ""
+            }));
+        };
+        console.log(this.state);
+    };
+
+    // Resets selected skills and refunds spent skill points
+    resetSkills = event => {
+        function toggle(source) {
+            var checkboxArray = document.getElementsByClassName("skillCheckbox");
+            for (var i = 0; i < checkboxArray.length; i++) {
+                checkboxArray[i].checked = source.checked;
+            };
+        };
+
+        toggle(event.target);
+        this.calculateSkillPoints.bind(this)();
+        this.setState({
+            acrobatics: "",
+            appraise: "",
+            bluff: "",
+            climb: "",
+            craft: "",
+            diplomacy: "",
+            disable_device: "",
+            disguise: "",
+            escape_artist: "",
+            fly: "",
+            handle_animal: "",
+            heal: "",
+            intimidate: "",
+            knowledge_arcana: "",
+            knowledge_dungeoneering: "",
+            knowledge_engineering: "",
+            knowledge_geography: "",
+            knowledge_history: "",
+            knowledge_local: "",
+            knowledge_nature: "",
+            knowledge_nobility: "",
+            knowledge_planes: "",
+            knowledge_religion: "",
+            linguistics: "",
+            perception: "",
+            perform: "",
+            profession: "",
+            sense_motive: "",
+            sleight_of_hand: "",
+            spellcraft: "",
+            stealth: "",
+            survival: "",
+            swim: "",
+            use_magic_device: ""
+        });
     };
 
     // OnClick function to randomize character gender
@@ -510,6 +782,7 @@ export class NewCharacter extends Component {
             race: charRace
         }, () => {
             this.applyRacialBonuses();
+            this.calculateSkillPoints.bind(this)();
         });
     };
 
@@ -528,6 +801,7 @@ export class NewCharacter extends Component {
         this.setState({
             class: charClass
         });
+        this.calculateSkillPoints.bind(this)();
     };
 
     // onClick function that simulates character stat rolls
@@ -584,8 +858,8 @@ export class NewCharacter extends Component {
                 wis: charStats[4],
                 cha: charStats[5]
             }, () => {
-                console.log(charStats);
-                console.log(this.state);
+                // console.log(charStats);
+                // console.log(this.state);
 
                 // Function to apply racial bonuses from selected race
                 switch (document.getElementById('race').value) {
@@ -660,6 +934,9 @@ export class NewCharacter extends Component {
                     default:
                         break;
                 };
+
+                // Calculates the amount of skill points available to spend for the character based on their class and intelligence
+                this.calculateSkillPoints.bind(this)();
             });
         };
 
@@ -764,6 +1041,52 @@ export class NewCharacter extends Component {
         });
     };
 
+    // This selects a random number of skills equal to the amount of skill points you have available.
+    randomizeSkills = event => {
+        event.preventDefault();
+        var skillsArray = document.getElementsByClassName('skillCheckbox');
+        let newArray = [];
+
+        //Loops through available skills and creates another array with their ID's. Prevents destruction of the original array.
+        for (var z = 0; z < skillsArray.length; z++) {
+            newArray.push(skillsArray[z].id);
+        };
+
+        if (this.state.skillPoints > 0) {
+            for (var m = 0; m < skillsArray.length; m++) {
+                skillsArray[m].checked = false;
+            };
+
+            var start = 0;
+            var end = newArray.length;
+
+            for (var i = 0; i < this.state.skillPoints; i++) {
+                // Random index from range [start, end)
+                var randomIndex = Math.floor(Math.random() * (end - start)) + start;
+
+                // Get the random element
+                var randomSkill = newArray[randomIndex];
+
+                // Swap the random element
+                newArray[randomIndex] = newArray[start];
+                newArray[start] = randomSkill;
+
+                this.setState({
+                    [randomSkill]: 1
+                });
+
+                // Increment the start range
+                start++;
+                document.getElementById(randomSkill).checked = true;
+            };
+        } else if (this.state.skillPoints <= 0) {
+            alert("Please choose a race, a class, and roll your stats before selecting skills.");
+        }
+        this.setState({
+            skillPoints: 0
+        });
+    };
+
     // Submits the character data saved in this.state to the database
     handleFormSubmit = event => {
         event.preventDefault();
@@ -782,7 +1105,41 @@ export class NewCharacter extends Component {
             stre: this.state.str,
             con: this.state.con,
             wis: this.state.wis,
-            cha: this.state.cha
+            cha: this.state.cha,
+            acrobatics: this.state.acrobatics,
+            appraise: this.state.appraise,
+            bluff: this.state.bluff,
+            climb: this.state.climb,
+            craft: this.state.craft,
+            diplomacy: this.state.diplomacy,
+            disable_device: this.state.disable_device,
+            disguise: this.state.disguise,
+            escape_artist: this.state.escape_artist,
+            fly: this.state.fly,
+            handle_animal: this.state.handle_animal,
+            heal: this.state.heal,
+            intimidate: this.state.intimidate,
+            knowledge_arcana: this.state.knowledge_arcana,
+            knowledge_dungeoneering: this.state.knowledge_dungeoneering,
+            knowledge_engineering: this.state.knowledge_engineering,
+            knowledge_geography: this.state.knowledge_geography,
+            knowledge_history: this.state.knowledge_history,
+            knowledge_local: this.state.knowledge_local,
+            knowledge_nature: this.state.knowledge_nature,
+            knowledge_nobility: this.state.knowledge_nobility,
+            knowledge_planes: this.state.knowledge_planes,
+            knowledge_religion: this.state.knowledge_religion,
+            linguistics: this.state.linguistics,
+            perception: this.state.perception,
+            perform: this.state.perform,
+            profession: this.state.profession,
+            sense_motive: this.state.sense_motive,
+            sleight_of_hand: this.state.sleight_of_hand,
+            spellcraft: this.state.spellcraft,
+            stealth: this.state.stealth,
+            survival: this.state.survival,
+            swim: this.state.swim,
+            use_magic_device: this.state.use_magic_device
         });
 
         // Function to reset the form fields after submission to the DB    
@@ -795,7 +1152,6 @@ export class NewCharacter extends Component {
             this.setState({
                 username: "",
                 character_name: "",
-                alignment: "",
                 gender: "",
                 alignment: "",
                 race: "",
@@ -805,7 +1161,43 @@ export class NewCharacter extends Component {
                 con: 10,
                 int: 10,
                 wis: 10,
-                cha: 10
+                cha: 10,
+                acrobatics: "",
+                appraise: "",
+                bluff: "",
+                climb: "",
+                craft: "",
+                diplomacy: "",
+                disable_device: "",
+                disguise: "",
+                escape_artist: "",
+                fly: "",
+                handle_animal: "",
+                heal: "",
+                intimidate: "",
+                knowledge_arcana: "",
+                knowledge_dungeoneering: "",
+                knowledge_engineering: "",
+                knowledge_geography: "",
+                knowledge_history: "",
+                knowledge_local: "",
+                knowledge_nature: "",
+                knowledge_nobility: "",
+                knowledge_planes: "",
+                knowledge_religion: "",
+                linguistics: "",
+                perception: "",
+                perform: "",
+                profession: "",
+                sense_motive: "",
+                sleight_of_hand: "",
+                spellcraft: "",
+                stealth: "",
+                survival: "",
+                swim: "",
+                use_magic_device: "",
+                skillPoints: 0,
+                baseBonus: {}
             });
         };
 
@@ -827,10 +1219,6 @@ export class NewCharacter extends Component {
         var labelStyling = {
             fontSize: '18px',
             color: 'rgba(105, 32, 160, 1)'
-        };
-
-        var smallText = {
-            fontSize: '12px'
         };
 
         return (
@@ -861,8 +1249,8 @@ export class NewCharacter extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm="6" md="12" lg="6">
-                                <Row>
+                            <Col sm="12" md="12" lg="6">
+                                <Row className="mb-5 mb-sm-5 mb-lg-1">
                                     <Col sm="12" md="8">
                                         <FormGroup>
                                             <Label style={labelStyling} for="gender">Gender</Label>
@@ -873,13 +1261,13 @@ export class NewCharacter extends Component {
                                             </Input>
                                         </FormGroup>
                                     </Col>
-                                    <Col sm="12" md="4">
-                                        <Button className="mt-4 btn-block" onClick={this.randomizeGender} color="info">Randomize</Button>
+                                    <Col sm="12" md="4" className="mt-md-2">
+                                        <Button className="mt-md-4 btn-block" onClick={this.randomizeGender} color="info">Randomize</Button>
                                     </Col>
                                 </Row>
                             </Col>
                             <Col sm="12" md="12" lg="6">
-                                <Row>
+                                <Row className="mb-sm-4 mb-lg-1">
                                     <Col sm="12" md="8">
                                         <FormGroup>
                                             <Label style={labelStyling} for="alignment">Alignment</Label>
@@ -897,18 +1285,18 @@ export class NewCharacter extends Component {
                                             </Input>
                                         </FormGroup>
                                     </Col>
-                                    <Col sm="12" md="4">
-                                        <Button className="mt-4 btn-block" onClick={this.randomizeAlignment} color="info">Randomize</Button>
+                                    <Col sm="12" md="4" className="mt-md-2">
+                                        <Button className="mt-md-4 btn-block" onClick={this.randomizeAlignment} color="info">Randomize</Button>
                                     </Col>
                                 </Row>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="12" md="12" lg="6">
-                                <Row>
+                                <Row className="mb-5 mb-sm-5 mb-lg-2">
                                     <Col sm="12" md="8">
                                         <FormGroup>
-                                            <Label style={labelStyling} for="race">Race <span style={smallText}>(Racial ability modifiers are automatically applied.)</span></Label>
+                                            <Label style={labelStyling} for="race">Race</Label>
                                             <Input type="select" name="race" id="race" defaultValue="" onChange={this.handleRaceChange}>
                                                 <option value="">Select character's race</option>
                                                 <option value="Dwarf">Dwarf</option>
@@ -921,18 +1309,18 @@ export class NewCharacter extends Component {
                                             </Input>
                                         </FormGroup>
                                     </Col>
-                                    <Col sm="12" md="4">
-                                        <Button className="mt-4 btn-block" onClick={this.randomizeRace} color="info">Randomize</Button>
+                                    <Col sm="12" md="4" className="mt-md-2">
+                                        <Button className="mt-md-4 btn-block" onClick={this.randomizeRace} color="info">Randomize</Button>
                                     </Col>
                                 </Row>
                             </Col>
 
                             <Col sm="12" md="12" lg="6">
-                                <Row>
+                                <Row className="mb-sm-4 mb-lg-2">
                                     <Col sm="12" md="8">
                                         <FormGroup>
                                             <Label style={labelStyling} for="class">Class</Label>
-                                            <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleInputChange}>
+                                            <Input type="select" name="class" id="class" defaultValue="" onChange={this.handleClassChange}>
                                                 <option value="">Select character's class</option>
                                                 <option value="Barbarian">Barbarian</option>
                                                 <option value="Bard">Bard</option>
@@ -948,64 +1336,344 @@ export class NewCharacter extends Component {
                                             </Input>
                                         </FormGroup>
                                     </Col>
-                                    <Col sm="12" md="4">
-                                        <Button className="mt-4 btn-block" color="info" onClick={this.randomizeClass}>Randomize</Button>
+                                    <Col sm="12" md="4" className="mt-md-2">
+                                        <Button className="mt-md-4 btn-block" color="info" onClick={this.randomizeClass}>Randomize</Button>
                                     </Col>
                                 </Row>
                             </Col>
                         </Row>
                         <Row className="mt-3">
-                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Strength</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">STR</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Strength</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">STR</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.str}</CardText>
                                 </Card>
                             </Col>
-                            <Col xs="12" sm="6" md="4"lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Dexterity</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">DEX</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Dexterity</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">DEX</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.dex}</CardText>
                                 </Card>
                             </Col>
-                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block text-truncate" tag="h5">Constitution</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">CON</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Constitution</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">CON</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.con}</CardText>
                                 </Card>
                             </Col>
-                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block text-truncate" tag="h5">Intelligence</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">INT</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Intelligence</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">INT</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.int}</CardText>
                                 </Card>
                             </Col>
-                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Wisdom</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">WIS</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Wisdom</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">WIS</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.wis}</CardText>
                                 </Card>
                             </Col>
-                            <Col xs="12" sm="6" md="4" lg="2" className="mb-3">
+                            <Col xs="12" sm="6" md="4" lg="2" className="mb-4">
                                 <Card>
-                                    <CardHeader className="text-center d-md-none d-lg-block d-xl-block" tag="h5">Charisma</CardHeader>
-                                    <CardHeader className="text-center d-none d-md-block d-lg-none" tag="h5">CHA</CardHeader>
+                                    <CardHeader className="text-center d-md-none d-lg-none d-xl-block" tag="h5">Charisma</CardHeader>
+                                    <CardHeader className="text-center d-none d-md-block d-lg-block d-xl-none" tag="h5">CHA</CardHeader>
                                     <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.cha}</CardText>
                                 </Card>
                             </Col>
+                            <Col className="text-center">
+                                (Racial ability modifiers are automatically applied.)
+                            </Col>
                         </Row>
-                        <Row className="my-3">
+                        <Row>
                             <Col sm="12" md="2">
                             </Col>
                             <Col sm="12" md="4">
-                                <Button className="btn-block mt-3" color="info" onClick={this.randomizeStats}>Roll Ability Scores</Button>
+                                <Button className="btn-block mt-sm-3 mt-md-1" color="info" onClick={this.randomizeStats}>Roll Ability Scores</Button>
                             </Col>
                             <Col sm="12" md="4">
-                                <Button className="btn-outline-info btn-block mt-3" onClick={this.resetStats}>Reset Ability Scores</Button>
+                                <Button className="btn-outline-info btn-block mt-4 mt-sm-3 mt-md-1" onClick={this.resetStats}>Reset Ability Scores</Button>
+                            </Col>
+                            <Col sm="12" md="2">
+                            </Col>
+                        </Row>
+                        <Row className="mt-5">
+                            <Col className="text-center">
+                                <span style={labelStyling}>Skills</span>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm="3" md="4">
+                            </Col>
+                            <Col xs="12" sm="6" md="4" className="mb-4">
+                                <Card>
+                                    <CardHeader className="text-center" tag="h5">Available Skill Points</CardHeader>
+                                    <CardText className="text-center mt-4 mb-2" style={statStyling}>{this.state.skillPoints}</CardText>
+                                </Card>
+                            </Col>
+                            <Col sm="3" md="4">
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="12" sm="6" lg="3">
+                                <div className="switch">
+                                    <label htmlFor="acrobatics">
+                                        Acrobatics
+                                        <input type="checkbox" className="skillCheckbox" name="acrobatics" id="acrobatics" value="acrobatics" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="appraise">
+                                        Appraise
+                                        <input type="checkbox" className="skillCheckbox" name="appraise" id="appraise" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="bluff">
+                                        Bluff
+                                        <input type="checkbox" className="skillCheckbox" name="bluff" id="bluff" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="climb">
+                                        Climb
+                                        <input type="checkbox" className="skillCheckbox" name="climb" id="climb" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="craft">
+                                        Craft
+                                        <input type="checkbox" className="skillCheckbox" name="craft" id="craft" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="diplomacy">
+                                        Diplomacy
+                                        <input type="checkbox" className="skillCheckbox" name="diplomacy" id="diplomacy" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="disable_device">
+                                        Disable Device
+                                        <input type="checkbox" className="skillCheckbox" name="disable_device" id="disable_device" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="disguise">
+                                        Disguise
+                                        <input type="checkbox" className="skillCheckbox" name="disguise" id="disguise" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                            </Col>
+                            <Col xs="12" sm="6" lg="3">
+                                <div className="switch">
+                                    <label htmlFor="escape_artist">
+                                        Escape Artist
+                                        <input type="checkbox" className="skillCheckbox" name="escape_artist" id="escape_artist" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="fly">
+                                        Fly
+                                        <input type="checkbox" className="skillCheckbox" name="fly" id="fly" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="handle_animal">
+                                        Handle Animal
+                                        <input type="checkbox" className="skillCheckbox" name="handle_animal" id="handle_animal" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="heal">
+                                        Heal
+                                        <input type="checkbox" className="skillCheckbox" name="heal" id="heal" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="intimidate">
+                                        Intimidate
+                                        <input type="checkbox" className="skillCheckbox" name="intimidate" id="intimidate" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_arcana">
+                                        Knowledge (Arcana)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_arcana" id="knowledge_arcana" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_dungeoneering">
+                                        Knowledge (Dungeoneering)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_dungeoneering" id="knowledge_dungeoneering" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_engineering">
+                                        Knowledge (Engineering)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_engineering" id="knowledge_engineering" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_geography">
+                                        Knowledge (Geography)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_geography" id="knowledge_geography" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                            </Col>
+                            <Col xs="12" sm="6" lg="3">
+                                <div className="switch">
+                                    <label htmlFor="knowledge_history">
+                                        Knowledge (History)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_history" id="knowledge_history" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_local">
+                                        Knowledge (Local)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_local" id="knowledge_local" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_nature">
+                                        Knowledge (Nature)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_nature" id="knowledge_nature" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_nobility">
+                                        Knowledge (Nobility)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_nobility" id="knowledge_nobility" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_planes">
+                                        Knowledge (Planes)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_planes" id="knowledge_planes" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="knowledge_religion">
+                                        Knowledge (Religion)
+                                        <input type="checkbox" className="skillCheckbox" name="knowledge_religion" id="knowledge_religion" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="linguistics">
+                                        Linguistics
+                                        <input type="checkbox" className="skillCheckbox" name="linguistics" id="linguistics" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="perception">
+                                        Perception
+                                        <input type="checkbox" className="skillCheckbox" name="perception" id="perception" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="perform">
+                                        Perform
+                                        <input type="checkbox" className="skillCheckbox" name="perform" id="perform" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                            </Col>
+                            <Col xs="12" sm="6" lg="3">
+                                <div className="switch">
+                                    <label htmlFor="profession">
+                                        Profession
+                                        <input type="checkbox" className="skillCheckbox" name="profession" id="profession" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="sense_motive">
+                                        Sense Motive
+                                        <input type="checkbox" className="skillCheckbox" name="sense_motive" id="sense_motive" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="sleight_of_hand">
+                                        Sleight of Hand
+                                        <input type="checkbox" className="skillCheckbox" name="sleight_of_hand" id="sleight_of_hand" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="spellcraft">
+                                        Spellcraft
+                                        <input type="checkbox" className="skillCheckbox" name="spellcraft" id="spellcraft" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="stealth">
+                                        Stealth
+                                        <input type="checkbox" className="skillCheckbox" name="stealth" id="stealth" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="survival">
+                                        Survival
+                                        <input type="checkbox" className="skillCheckbox" name="survival" id="survival" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="swim">
+                                        Swim
+                                        <input type="checkbox" className="skillCheckbox" name="swim" id="swim" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                                <div className="switch">
+                                    <label htmlFor="use_magic_device">
+                                        Use Magic Device
+                                        <input type="checkbox" className="skillCheckbox" name="use_magic_device" id="use_magic_device" onChange={this.handleSkillChange} />
+                                        <span className="lever"></span>
+                                    </label>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm="12" md="2">
+                            </Col>
+                            <Col sm="12" md="4">
+                                <Button className="btn-block mt-sm-3 mt-md-1" color="info" onClick={this.randomizeSkills}>Randomize Skill Selection</Button>
+                            </Col>
+                            <Col sm="12" md="4">
+                                <Button className="btn-outline-info btn-block mt-4 mt-sm-3 mt-md-1" onClick={this.resetSkills}>Reset Selected Skills</Button>
                             </Col>
                             <Col sm="12" md="2">
                             </Col>

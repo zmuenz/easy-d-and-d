@@ -8,7 +8,7 @@ import API from '../../../utils/API';
 import CpButton from '../CpButton/CpButton';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
-class CharacterCard extends React.Component {
+class CharacterCard extends Component {
     state = {
         characters: [],
     };

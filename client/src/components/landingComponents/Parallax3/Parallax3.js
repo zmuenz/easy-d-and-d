@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import 'tachyons';
-import {
-    Card, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody, Button
-} from 'reactstrap';
 import CharacterCard from '../../characterComponents/CharacterCard';
 import AddCharacter from '../../characterComponents/AddCharacter';
 
