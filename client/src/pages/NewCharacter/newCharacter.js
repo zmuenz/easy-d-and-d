@@ -15,6 +15,7 @@ import {
     CardHeader,
     CardText
 } from 'reactstrap';
+import Footer from '../../components/landingComponents/Footer/Footer';
 
 // let user = JSON.parse(sessionStorage.getItem('user'))
 // let userName = user.userName;
@@ -1238,7 +1239,7 @@ export class NewCharacter extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Container id="build">
+                <Container className="mb-5" id="build">
                     <Form className="mt-5">
                         <Row>
                             <Col sm="12">
@@ -1689,6 +1690,7 @@ export class NewCharacter extends Component {
                         </Row>
                     </Form>
                 </Container>
+                <Footer />
             </div>
         );
     }

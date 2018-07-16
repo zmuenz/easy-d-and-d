@@ -8,6 +8,7 @@ import Jumbo2 from '../../components/landingComponents/Jumbotron2';
 import SignUp from '../../components/landingComponents/SignUp';
 import Login from '../../components/landingComponents/Login';
 import Logout from '../../components/landingComponents/Logout';
+import Footer from '../../components/landingComponents/Footer/Footer';
 import '../../App.css';
 import 'tachyons';
 
@@ -29,6 +30,7 @@ class Landing extends Component {
         <Info />
         <Parallax2 />
         <Jumbo2 />
+        <Footer />
       </div>
     );
   }

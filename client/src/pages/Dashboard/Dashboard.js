@@ -5,6 +5,7 @@ import NavBar from '../../components/landingComponents/NavBar';
 import SignUp from '../../components/landingComponents/SignUp';
 import Login from '../../components/landingComponents/Login';
 import Logout from '../../components/landingComponents/Logout';
+import Footer from '../../components/landingComponents/Footer/Footer';
 import '../../App.css';
 import 'tachyons';
 
@@ -28,6 +29,7 @@ export class Dashboard extends React.Component {
                     <p className='f3'>The Game Missed You</p>
                 </div>
                 <Parallax3 />
+                <Footer />
             </div>
         );
     }
