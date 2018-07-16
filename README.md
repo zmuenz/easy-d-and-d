@@ -61,8 +61,11 @@ With an application like this, the possibilities are infinite. Continued work in
 Check us out! We would love to hear from you!
 
 Zack Muenz: https://github.com/zmuenz
+
 Kelsey Gasser: https://github.com/kjgasser
+
 Rachel Punches: https://github.com/rpunches
+
 Scott Salem: https://github.com/maldrek
 
 *We do not own any rights to Dungeons or Dragons or Wizards of the Coast, as well as the images involved in this build. The images used were for the specific purpose of giving a clean finish and will not be used or sold commercially unless rights are obtained. 
