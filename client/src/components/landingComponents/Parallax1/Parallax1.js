@@ -17,14 +17,14 @@ const Parallax1 = () => {
                 <div id='card2' className="card col-4 col-sm-3 col-md-3 text-center text-light grow">
                 <i className='large material-icons card-img-top'>invert_colors</i>
                     <div className="card-body">
-                        <h5 className="card-title d-none d-block">A Tall Glass of Water</h5>
+                        <h5 className="card-title d-none d-block">A Tall, Cool Glass of Water</h5>
                         <p className="card-text d-none d-md-block">Finally, everything you have been waiting for in easy character creation!</p>
                     </div>
                 </div>
                 <div id='card3' className="card col-4 col-sm-3 col-md-3 text-center text-light grow">
                 <i className='large material-icons card-img-top'>ac_unit</i>
                     <div className="card-body">
-                        <h5 className="card-title d-none d-block">A Cool Breeze in Summer</h5>
+                        <h5 className="card-title d-none d-block">A Chill Breeze in Summer</h5>
                         <p className="card-text d-none d-md-block">Take your knowledge of DnD and put it to use quickly and efficiently!</p>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const NavBar = () => {
                 <a className="navbar-brand" href="/">
                     <img className='App-logo' src="https://i.warosu.org/data/tg/img/0573/12/1515432486162.png" width="45" height="45" alt="" />
                 </a>
-                <h2 className='text-center text-white'>EZ DND</h2>
+                <h2 className='text-center text-white'>EZ RPG</h2>
                 <ul id="dropdown1" className="dropdown-content">
                     <li><a id="logIn" data-toggle='modal' data-target='#loginModal' href="modal">Log in</a></li>
                     <li><a id="logOut" data-toggle='modal' data-target='#logoutModal' href="modal">Log Out</a></li>

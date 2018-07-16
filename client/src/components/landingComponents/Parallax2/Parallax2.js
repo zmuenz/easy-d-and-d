@@ -10,7 +10,7 @@ const Parallax2 = () => {
                 <div id='card2-1' className="card col-4 col-sm-3 col-md-3 text-center text-light grow">
                     <i className='large material-icons card-img-top'>casino</i>
                     <div className="card-body">
-                        <h5 className="card-title d-none d-block">Generate at Random</h5>
+                        <h5 className="card-title d-none d-block">Randomize and Roll the Dice</h5>
                         <p className="card-text d-none d-md-block">For players who are willing to play anything. Random class, race, gender, and stats. Put your skills to the test!</p>
                     </div>
                 </div>

@@ -20,6 +20,8 @@ body {
   height: 100%;
   margin-top: 3%;
   display: flex;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
 }
 
 #jumbo1 {
@@ -190,4 +192,16 @@ a:hover {
   box-shadow: none;
   height: 100%;
   overflow-y: hidden;
+}
+
+#footerRow {
+  margin-bottom: 0px;
+}
+
+#footer {
+  background-color: lightgray;
+}
+
+#footerInfo {
+  margin-top: 10px;
 }
