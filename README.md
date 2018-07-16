@@ -8,7 +8,7 @@ EZ RPG is a self-contained Role Playing Game character creation app. In this app
 
 (we apologize for that terrible pun)
 
-EZ RPG can be found at https://infinite-everglades-59157.herokuapp.com/
+EZ RPG can be found at https://ezrpg.herokuapp.com/
 
 ## Languages/Technologies Used
 
