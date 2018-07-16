@@ -18,20 +18,27 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Connect to the SQL DB
-var connection = mysql.createConnection({
 
-    host: 'us-cdbr-iron-east-04.cleardb.net',
-    user: 'bcdb82328a4f0a',
-    password: 'ca85d2ba',
-    database: 'heroku_2c031433a404d72',
+var connection;
+if (process.env.JAWSDB_URL) {
+    //Heroku deployment
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    // Connect to the SQL DB
+    connection = mysql.createConnection({
 
-});
+        host: 'us-cdbr-iron-east-04.cleardb.net',
+        user: 'bcdb82328a4f0a',
+        password: 'ca85d2ba',
+        database: 'heroku_2c031433a404d72',
 
-connection.connect(function(err) {
+    });
+};
+
+connection.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
-  });
+});
 
 // For Passport
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
@@ -56,10 +63,10 @@ models.sequelize.sync({}).then(function () {
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build')); // serve the static react app
     app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
-      res.sendFile(path.join(__dirname, './client/build/index.html'));
+        res.sendFile(path.join(__dirname, './client/build/index.html'));
     });
     console.log('Serving React App...');
-  };
+};
 
 // Start the API server
 app.listen(PORT, function () {
