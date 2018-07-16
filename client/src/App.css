@@ -81,3 +81,13 @@ a:hover {
   justify-content: space-around;
   align-content: center;
 }
+
+a.noLinkStyling {
+  color: black;
+  text-decoration: none;
+}
+
+a.noLinkStyling:hover {
+  color: black!important; 
+  text-decoration:none;
+}
