@@ -8,7 +8,7 @@ EZ RPG is a self-contained Role Playing Game character creation app. In this app
 
 (we apologize for that terrible pun)
 
-EZ RPG can be found <a href='https://ezrpg.herokuapp.com/' target='blank'>here</a>!
+EZ RPG can be found <a href='https://ezrpg.herokuapp.com/' target='_blank'>here</a>!
 
 ## Languages/Technologies Used
 
